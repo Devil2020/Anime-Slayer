@@ -1,0 +1,111 @@
+
+    1- Top movie
+
+    private var TopType = "movie"
+
+    private var Type = "anime"
+
+    2- Top Tv
+
+    private var TopType = "tv"
+
+    private var Type = "anime"
+
+    3- Top Upcoming
+
+    private var TopType = "upcoming"
+
+    private var Type = "anime"
+
+    4- Top Managa
+
+    private var TopType = "manga"
+
+    private var Type = "manga"
+
+    5- Top Airing
+
+    private var TopType = "airing"
+
+    private var Type = "anime"
+
+    suspend fun getSeasonAnime()
+      {
+          val season = findSeason(Calendar.getInstance().get(Calendar.MONTH)+1)
+
+          val year = Calendar.getInstance().get(Calendar.YEAR)
+
+          try {
+              val response = api.GetSeasonAnime(year , season)
+
+              dao.clearSeasonAnimes()
+              dao.setSeasonAnime(response.anime)
+
+          }catch (e: IOException) {
+              _RequestResult.value = e.message
+          } catch (e: HttpException) {
+              _RequestResult.value = e.message
+          }catch (e :Exception) {
+              _RequestResult.value = e.message
+          }
+      }
+
+      fun findSeason(M: Int) : String {
+
+          when (M) {
+              12, 1, 2 -> return "winter"
+              3, 4, 5 ->  return "spring"
+              6, 7, 8 -> return "summer"
+              9, 10, 11 -> return "fall"
+              else -> return "winter"
+          }
+      }
+
+  @GET("top/{type}/{page}/{subtype}")
+    suspend fun GetTop(
+        @Path("type") type : String,
+        @Path("page") page : Int ,
+        @Path("subtype") subtype:String
+    ) : TopAnimeResponse
+
+    @GET("season/{year}/{season}")
+    suspend fun GetSeasonAnime(
+        @Path("year") year : Int ,
+        @Path("season") subtype:String
+    ) : SeasonAnimeResponse
+
+    @GET("anime/{id}")
+    suspend fun GetAnimeDetails(
+        @Path("id") id : Int
+    ) : AnimeDetailsResponse
+
+
+    @GET("anime/{id}/characters_staff")
+    suspend fun GetAnimeCharacters(
+        @Path("id") id : Int
+    ) : AnimeCharactersResponse
+
+    @GET("anime/{id}/recommendations")
+    suspend fun GetAnimeRecommendations(
+        @Path("id") id : Int
+    ) : AnimeRecommendationsResponse
+
+    @GET("search/anime")
+    suspend fun SearchAnime(
+        @Query("q") search : String ,
+        @Query("page") page : Int
+    ) : SearchResponse
+
+    @GET("schedule")
+    suspend fun GetSchedule():ScheduleResponse
+
+    companion object  {
+        private const val url = "https://api.jikan.moe/v3/"
+        operator fun invoke() : AnimeApi{
+            return  Retrofit.Builder()
+                .baseUrl("$url")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(AnimeApi::class.java)
+        }
+    }
