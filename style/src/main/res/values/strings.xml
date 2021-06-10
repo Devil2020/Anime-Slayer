@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Empty User Image api -->
+    <string name="user_Image_label">https://ui-avatars.com/api/?uppercase=true&amp;name=%1$s&amp;color=ffffff&amp;background=0F8CCF&amp;bold=true&amp;rounded=true&amp;length=2&amp;format=png&amp;size=128</string>
+    <string name="download_title_label"> %1$s downloading </string>
+    <string name="download_body_label"> Your file %1$s is in progress  </string>
+    <string name="read_write_permissions_rentational_header_label">Permission Instructions</string>
+    <string name="read_write_permissions_rentational_body_label"> <b> Unfortunately , You clicked on DENY &amp; DON`T ASK AGAIN </b> \n 1- Please Click on Launch to App Setting Button . \n 2-Click on Permissions . \n 3- Select which permission you want to use .</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="go_to_setting_label">Go to Setting</string>
+</resources>

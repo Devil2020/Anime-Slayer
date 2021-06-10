@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_header_label"> العملية لا يمكن أن تكتمل.</string>
+
+    <string name="retry">إعادة المحاولة</string>
+    <string name="internal_server_error_body_label"> . لدينا خطأ داخلي في الخادم ، يرجى المحاولة مرة أخرى لاحقًا * </string>
+    <string name="timeout_error_body_label">. الاتصال هو مهلة ، يرجى المحاولة مرة أخرى في وقت لاحق * </string>
+    <string name="no_internet_error_body_label"> . معذرة ، ولكن هذه الصفحة غير موجودة ، يرجى المحاولة مرة أخرى لاحقًا * </string>
+    <string name="generic_error_body_label"> . معذرة ، ولكن هناك مشكله ، يرجى المحاولة مرة أخرى لاحقًا * </string>
+    <string name="user_cancel_error_body_label"> . معذرة ، ولكنك قمت باغلاق الطلب ، يرجى المحاولة مرة أخرى لاحقًا *</string>
+    <string name="ssl_error_body_label">. عذرًا ، حدث خطأ أثناء القراءة من المقبس الآمن ، يرجى المحاولة مرة أخرى لاحقًا*</string>
+    <string name="protocol_error_body_label">. عذرًا ، لا يمكن كتابة الإخراج بعد قراءة الإدخال ، يرجى المحاولة مرة أخرى لاحقًا *</string>
+    <string name="bad_request_error_body_label">* معذرة ، حدث طلب خاطئ ، يرجى المحاولة مرة أخرى لاحقًا.</string>
+    <string name="unauthorized_error_body_label">* معذرة ، لكنك غير مفوض ، يرجى المحاولة لاحقًا.</string>
+    <string name="service_unavailable_error_body_label">* معذرة ، ولكن هذه الخدمة غير متوفرة ، يرجى المحاولة مرة أخرى لاحقًا.</string>
+    <string name="forbidden_error_body_label">* آسف ، لكنك ممنوع من القيام بهذا الإجراء ، يرجى المحاولة مرة أخرى لاحقًا.</string>
+    <string name="content_type_error_body_label">* عذرًا ، يتفهم الخادم نوع المحتوى لكيان الطلب ، وبناء جملة كيان الطلب صحيح ، لكنه لم يتمكن من معالجة التعليمات المضمنة.</string>
+    <string name="not_found_error_body_label">* عذرا ، ولكن لم يتم العثور على هذه الصفحة ، يرجى المحاولة مرة أخرى في وقت لاحق.</string>
+</resources>

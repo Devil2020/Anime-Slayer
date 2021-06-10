@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <import type="com.expertapps.base.dialog.DialogConfig" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="dialogConfig"
+            type="com.expertapps.base.dialog.DialogConfig" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_dialog_backround"
+        android:padding="@dimen/dp_16"
+        tools:context="com.expertapps.base.dialog.BaseDialogFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/messageTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{dialogConfig.messageTitle}"
+            android:visibility="@{TextUtils.isEmpty(dialogConfig.messageTitle) ? View.GONE : View.VISIBLE}"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/gray_333333"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/messageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{dialogConfig.messageBody}"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/gray_666666"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toBottomOf="@id/messageTitleTextView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/positiveButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_32"
+            android:elevation="@dimen/dp_0"
+            android:text="@{dialogConfig.positiveButtonName}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/orange_F87F0F"
+            android:visibility="@{TextUtils.isEmpty(dialogConfig.positiveButtonName)?View.GONE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/messageTextView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/negativeRightButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:text="@{dialogConfig.negativeRightButtonName}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/orange_F87F0F"
+            app:elevation="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/positiveButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/actionButton"
+            app:layout_constraintTop_toBottomOf="@id/messageTextView"
+            app:layout_goneMarginEnd="@dimen/dp_0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/actionButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:elevation="@dimen/dp_0"
+            android:text="@{dialogConfig.negativeLeftButtonName}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/orange_F87F0F"
+            android:visibility="@{TextUtils.isEmpty(dialogConfig.negativeLeftButtonName)? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/messageTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

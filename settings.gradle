@@ -1,2 +1,4 @@
 rootProject.name = "Anime Slayer"
 include ':app'
+include ':style'
+include ':common'

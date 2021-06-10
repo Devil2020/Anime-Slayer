@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loadingShimmerRoot"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/loadingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:id="@+id/errorLayout"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/errorImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:src="@drawable/ic_empty_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/errorMessageTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_30"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:textColor="@color/gray_333333"
+                android:gravity="center"
+                android:textSize="@dimen/sp_20"
+                android:text=""
+                android:layout_marginHorizontal="@dimen/dp_30"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/errorMessageBodyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center"
+                android:textAppearance="@style/Baloothambi2_regular"
+                android:textColor="@color/gray_666666"
+                android:textSize="@dimen/sp_16"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/retry_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_60"
+                android:background="@drawable/orange_button_bg"
+                android:foreground="?selectableItemBackground"
+                android:text="@string/retry"
+                android:textAllCaps="true"
+                android:layout_marginBottom="@dimen/dp_60"
+                android:layout_marginHorizontal="@dimen/dp_30"
+                android:visibility="gone"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</merge>

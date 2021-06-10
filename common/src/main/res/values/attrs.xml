@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ShimmerResponseView">
+        <attr name="emptyMessageTitle" format="string" />
+        <attr name="emptyMessageBody" format="string" />
+        <attr name="loadingCount" format="integer" />
+        <attr name="loadingItem" format="reference" />
+    </declare-styleable>
+</resources>

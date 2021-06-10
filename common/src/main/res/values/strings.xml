@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_header_label"> The Operation couldn`t be Completed .</string>
+
+    <string name="retry">Retry</string>
+    <string name="internal_server_error_body_label"> * We have an Internal Server Error , Please Try Again Later .</string>
+    <string name="timeout_error_body_label"> *The Connection is Timeout , Please Try Again Later .</string>
+    <string name="no_internet_error_body_label"> * Sorry ,No Internet Found , Please Try Again Later .</string>
+    <string name="generic_error_body_label"> * Sorry , but there is an Error happened , Please Try Again Later .</string>
+    <string name="user_cancel_error_body_label">* Sorry , but you may be cancelled the request from your side , Please Try Again Later .</string>
+    <string name="ssl_error_body_label">* Sorry ,Error occured while reading from the Secure socket, Please Try Again Later .</string>
+    <string name="protocol_error_body_label">* Sorry ,Cannot write output after reading input, Please Try Again Later .</string>
+    <string name="bad_request_error_body_label">* Sorry , but there is a bad request happened , Please Try Again Later .</string>
+    <string name="unauthorized_error_body_label">* Sorry , but you are not Authorized , Please Try Again Later .</string>
+    <string name="service_unavailable_error_body_label">* Sorry , but this service is not available , Please Try Again Later .</string>
+    <string name="forbidden_error_body_label">* Sorry , but you are fobidden to make this action , Please Try Again Later .</string>
+    <string name="content_type_error_body_label">* Sorry ,  server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions.</string>
+    <string name="not_found_error_body_label">* Sorry , But this Page is not Found , Please Try Again Later .</string>
+</resources>

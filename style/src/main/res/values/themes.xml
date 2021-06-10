@@ -1,0 +1,106 @@
+<resources>
+    <style name="Theme.Connect" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_3C5B6B</item>
+        <item name="colorPrimaryDark">@color/blue_3C5B6B</item>
+        <item name="colorAccent">@color/orange_F87F0F</item>
+<!--        <item name="android:buttonStyle">@style/ButtonStyle</item>-->
+        <item name="android:alertDialogStyle">@style/DialogTheme</item>
+        <item name="searchViewStyle">@style/MySearchViewStyle</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="closeIcon">@drawable/ic_baseline_clear_24</item>
+        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+        <item name="searchHintIcon">@drawable/ic_baseline_search_24</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeColor">@color/transparent</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="LoginToolbarTheme" parent="@style/Widget.MaterialComponents.ActionBar.Primary">
+        <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="colorPrimaryDark">#005F9E</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <!--        &lt;!&ndash; Tints the input fields like checkboxes and text fields &ndash;&gt;-->
+        <!--        <item name="colorAccent">@color/cursorAccent</item>-->
+        <!--        &lt;!&ndash; Applies to views in their normal state. &ndash;&gt;-->
+        <!--        <item name="colorControlNormal">@color/controlNormal</item>-->
+        <!--        &lt;!&ndash; Applies to views in their activated state (i.e checked or switches) &ndash;&gt;-->
+        <!--        <item name="colorControlActivated">@color/controlActivated</item>-->
+        <!--        &lt;!&ndash; Applied to framework control highlights (i.e ripples or list selectors) &ndash;&gt;-->
+        <!--        <item name="colorControlHighlight">@color/controlActivated</item>-->
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+        <!--
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        -->
+    </style>
+
+    <!-- This configures the styles for the title within the Toolbar  -->
+    <style name="Toolbar.TitleText" parent="Baloothambi2_medium">
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="fontFamily">@font/baloothambi2_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyDialogAnimation">
+
+        <item name="cornerRadius">@dimen/_20sdp</item>
+        <item name="android:windowEnterAnimation">@anim/slide_in_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/_20sdp</item>
+    </style>
+
+    <style name="Almarai_regular_for_sub_title" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/almarai_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Baloothambi2_regular_for_sub_title" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/baloothambi2_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Almarai_medium" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/almarai_regular</item>
+    </style>
+
+    <style name="Baloothambi2_medium" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/baloothambi2_medium</item>
+    </style>
+
+    <style name="Baloothambi2_semiBold" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/baloothambi2_semibold</item>
+    </style>
+
+
+    <style name="Baloothambi2_regular" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/baloothambi2_regular</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+    </style>
+
+</resources>
