@@ -1,10 +1,11 @@
 package com.morse.common.extensions
 
 import android.animation.ValueAnimator
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 // from 0 to 5
-private fun Fragment.valueAnimateAscending(
+ fun TextView.valueAnimateAscending(
     toValue: Int,
     duration: Long,
     onChangeValueListener: (String) -> Unit
@@ -18,7 +19,7 @@ private fun Fragment.valueAnimateAscending(
 }
 
 // from 5 to 0
-private fun Fragment.valueAnimateDescending(
+ fun TextView.valueAnimateDescending(
     toValue: Int,
     duration: Long,
     onChangeValueListener: (String) -> Unit
