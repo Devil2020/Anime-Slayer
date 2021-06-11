@@ -1,11 +1,16 @@
 package com.morse.animeslayer
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.morse.animeslayer.databinding.MenuItemLayoutBinding
 
-class MenuAdapter : RecyclerView.Adapter<MenuAdapter.MenuViewHolder> () {
+interface MenuItemListener {
+    fun onMenuClicked (menuItem : MenuItem)
+}
+
+class MenuAdapter (val listener : MenuItemListener) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder> () {
 
     private val menuItems : ArrayList<MenuItem> by lazy {
         arrayListOf(
@@ -38,10 +43,18 @@ class MenuAdapter : RecyclerView.Adapter<MenuAdapter.MenuViewHolder> () {
     inner class MenuViewHolder(val binding: MenuItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+            var ourMenuItem : MenuItem ?= null
+
             fun bindMenuToItem (menuItem: MenuItem){
+                ourMenuItem = menuItem
                 binding.menuItem = menuItem
+                binding.root.setOnClickListener {
+                    listener.onMenuClicked(menuItem)
+                }
             }
 
     }
+
+
 
 }
