@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0E294E"
+        tools:context=".HomeFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/me_icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/me_menu_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/search_icon_iv"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hola_message_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Hola, My Friend \n Morse"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintStart_toStartOf="@id/me_icon_iv"
+            app:layout_constraintTop_toBottomOf="@id/me_icon_iv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/line_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/ic_line_3"
+            app:layout_constraintStart_toStartOf="@id/hola_message_tv"
+            app:layout_constraintTop_toBottomOf="@id/hola_message_tv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/happy_browsing_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Happy Browsing "
+            android:textAppearance="@style/Baloothambi2_regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintStart_toStartOf="@id/line_first"
+            app:layout_constraintTop_toBottomOf="@id/line_first" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emoji"
+            app:layout_constraintBottom_toBottomOf="@id/happy_browsing_tv"
+            app:layout_constraintStart_toEndOf="@id/happy_browsing_tv"
+            app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-40dp"
+            android:src="@drawable/ic_leaves1"
+            app:layout_constraintBottom_toBottomOf="@id/hola_message_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hola_message_tv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-40dp"
+            android:src="@drawable/ic_leaves2"
+            android:layout_marginTop="@dimen/_110sdp"
+            app:layout_constraintBottom_toBottomOf="@id/hola_message_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hola_message_tv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_white_circule_background"
+            android:layout_marginBottom="-200dp"
+            />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_white_circule_background"
+            android:layout_marginStart="@dimen/_minus10sdp"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_white_circule_background"
+            android:layout_marginTop="@dimen/_minus39sdp"
+            android:rotationY="180"
+            android:visibility="gone"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/happy_browsing_tv"
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="2"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
