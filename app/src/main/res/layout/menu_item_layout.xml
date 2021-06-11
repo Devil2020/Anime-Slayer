@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="menuItem"
+            type="com.morse.animeslayer.MenuItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/menuLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            imageRes="@{menuItem.menuItemImage}"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:gravity="center|start"
+            android:layout_marginStart="@dimen/_30sdp"
+            app:layout_constraintStart_toEndOf="@id/menuLogo"
+            app:layout_constraintTop_toTopOf="@id/menuLogo"
+            app:layout_constraintBottom_toBottomOf="@id/menuLogo"
+            android:text="@{menuItem.menuItemName}"
+            android:textColor="@color/white"
+            android:textAppearance="@style/Baloothambi2_regular"
+            android:textSize="@dimen/_16ssp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:src="@drawable/ic_divider"
+            app:layout_constraintTop_toBottomOf="@id/menuLogo"
+            android:layout_marginTop="@dimen/_13sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#2F72CD"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

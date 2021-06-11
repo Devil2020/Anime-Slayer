@@ -32,6 +32,11 @@ fun ImageView.loadImage(url: String?) {
     }
 }
 
+@BindingAdapter("imageRes")
+fun ImageView.loadImage(res: Int) {
+    setImageResource(res)
+}
+
 
 @BindingAdapter("viewIf")
 fun viewIf(view: View, boolean: Boolean?) = view.visibleIf(boolean)
