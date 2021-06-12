@@ -65,6 +65,7 @@ dependencies {
     implementation libraries.fuel_root.values()
     implementation libraries.map.values()
     implementation libraries.pagination3.values()
+    implementation libraries.shimmer
     implementation libraries.dataStore.values()
     implementation libraries.room.values()
     /* implementation libraries.activityAndfragmentKTX.values()*/

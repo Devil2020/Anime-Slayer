@@ -1,4 +1,4 @@
-package com.morse.animeslayer
+package com.morse.animeslayer.ui.fragments.menu
 
 import androidx.annotation.DrawableRes
 

@@ -1,4 +1,4 @@
-package com.morse.animeslayer
+package com.morse.animeslayer.ui.fragments.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

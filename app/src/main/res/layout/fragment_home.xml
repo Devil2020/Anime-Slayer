@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0E294E"
-        tools:context=".HomeFragment">
+        tools:context=".ui.fragments.home.HomeFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/me_icon_iv"

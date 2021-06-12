@@ -1,9 +1,10 @@
-package com.morse.animeslayer
+package com.morse.animeslayer.ui.fragments.menu
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.MenuItemLayoutBinding
 
 interface MenuItemListener {
@@ -43,7 +44,7 @@ class MenuAdapter (val listener : MenuItemListener) : RecyclerView.Adapter<MenuA
     inner class MenuViewHolder(val binding: MenuItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            var ourMenuItem : MenuItem ?= null
+            var ourMenuItem : MenuItem?= null
 
             fun bindMenuToItem (menuItem: MenuItem){
                 ourMenuItem = menuItem

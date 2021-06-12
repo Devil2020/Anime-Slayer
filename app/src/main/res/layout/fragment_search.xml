@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0E294E"
-        tools:context=".SearchFragment">
+        tools:context=".ui.fragments.search.SearchFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/close_icon_iv"

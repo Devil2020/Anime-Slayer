@@ -1,4 +1,4 @@
-package com.morse.animeslayer
+package com.morse.animeslayer.ui.fragments.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
@@ -35,7 +36,7 @@ class SplashFragment : Fragment() {
 
     private fun animateSkipCount() {
         with(binding.skipAfter5SecondsTv) {
-            valueAnimateDescending(5, 4000) {
+            valueAnimateDescending(10, 10000) {
 
                 when (it) {
                     "0" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
