@@ -24,12 +24,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.morse.common.R
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
+import com.morse.common.R
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlin.math.abs
@@ -77,7 +80,7 @@ fun TabLayout.setOnChanged(function: (pos: Int) -> Unit) {
 }
 
 fun EditText.sub(delay: Long? = 300, runnable: Runnable) {
-    addTextChangedListener(MyWatcher(runnable,delay) )
+    addTextChangedListener(MyWatcher(runnable, delay))
 }
 
 class MyWatcher(private val runnable: Runnable, private val delay: Long? = 300) : TextWatcher {
@@ -97,15 +100,18 @@ class MyWatcher(private val runnable: Runnable, private val delay: Long? = 300) 
 
 fun String?.isNotShort(min: Int) = this?.length ?: 0 > min
 
-fun android.view.View.showKeyBoard(context: Context) = (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+fun android.view.View.showKeyBoard(context: Context) =
+    (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
         .showSoftInput(this, 0)
 
-fun android.view.View.hideKeyBoard(context: Context) = (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+fun android.view.View.hideKeyBoard(context: Context) =
+    (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
         .hideSoftInputFromWindow(this.windowToken, 0)
 
 fun ImageView.loadCirculeImage(
     imageUrl: String? = null,
-    userName: String? = "") {
+    userName: String? = ""
+) {
     this.showVisibilty()
     val circularProgressDrawable = CircularProgressDrawable(this.context)
     circularProgressDrawable.strokeWidth = 1f
@@ -122,9 +128,33 @@ fun ImageView.loadCirculeImage(
     }
 }
 
+fun ImageView.loadCirculeImageWithCornerRadius(
+    imageUrl: String? = null,
+    userName: String? = "",
+    radius: Int
+) {
+    var requestOptions = RequestOptions()
+    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(radius))
+    this.showVisibilty()
+    val circularProgressDrawable = CircularProgressDrawable(this.context)
+    circularProgressDrawable.strokeWidth = 1f
+    circularProgressDrawable.centerRadius = 35f
+    circularProgressDrawable.start()
+    if (TextUtils.isEmpty(imageUrl)) {
+        val imageApi = resources.getString(R.string.user_Image_label, userName)
+        Glide.with(context).load(imageApi).placeholder(circularProgressDrawable)
+            .error(R.drawable.me_menu_icon).apply(requestOptions).into(this)
+
+    } else {
+        Glide.with(context).load(imageUrl).placeholder(circularProgressDrawable)
+            .error(R.drawable.me_menu_icon).apply(requestOptions).into(this)
+    }
+}
+
 fun FloatingActionButton.loadCirculeSrc(
     imageUrl: String? = null,
-    userName: String? = "") {
+    userName: String? = ""
+) {
     this.showVisibilty()
     if (TextUtils.isEmpty(imageUrl)) {
         setSrc(resources.getString(R.string.user_Image_label, userName))
@@ -166,7 +196,8 @@ fun TextView.setUnReadMessagesCount(count: Int?) {
 
 fun TabLayout.setupTabs(
     tabsName: ArrayList<String>,
-    tabListener: TabLayout.OnTabSelectedListener?) {
+    tabListener: TabLayout.OnTabSelectedListener?
+) {
     for (tab in tabsName) {
         addTab(createTab(tab))
     }
@@ -357,10 +388,10 @@ fun android.widget.TextView.visibleIf(value: String?) {
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
     LayoutInflater.from(context).inflate(layoutRes, this, false)
 
-fun ViewPager2.addHorizontalMarginItemDecoration (@DimenRes horizontalMarginInDp: Int){
+fun ViewPager2.addHorizontalMarginItemDecoration(@DimenRes horizontalMarginInDp: Int) {
     val horizontalMarginInPx: Int =
         context.resources.getDimension(horizontalMarginInDp).toInt()
-    val itemDecorator = object : RecyclerView.ItemDecoration (){
+    val itemDecorator = object : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
@@ -374,11 +405,12 @@ fun ViewPager2.addHorizontalMarginItemDecoration (@DimenRes horizontalMarginInDp
     addItemDecoration(itemDecorator)
 }
 
-fun ViewPager2.setCarouselEffects(){
+fun ViewPager2.setCarouselEffects() {
     offscreenPageLimit = 1
 
     val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
-    val currentItemHorizontalMarginPx = resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
+    val currentItemHorizontalMarginPx =
+        resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
     val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
     val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
         page.translationX = -pageTranslationX * position
