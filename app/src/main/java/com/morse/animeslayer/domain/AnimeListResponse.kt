@@ -44,7 +44,8 @@ data class AnimeListResponse(
         @SerializedName("r18")
         val r18: Boolean?= null, // false
         @SerializedName("score")
-        val score: Double?= null, // 8.99
+        var score: Double?= null
+        , // 8.99
         @SerializedName("source")
         val source: String?= null, // Manga
         @SerializedName("synopsis")
