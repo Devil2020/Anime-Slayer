@@ -14,7 +14,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
         android:background="@android:color/transparent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -22,7 +21,7 @@
             android:layout_height="@dimen/_200sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/splash"
+            imageCorner="@{animeItem.imageUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/anime_rate_tv" />
 
@@ -42,7 +41,7 @@
             android:lines="2"
             android:maxLines="2"
             android:paddingVertical="@dimen/_5sdp"
-            android:text="Shingeki no Kyojin: The Final Seaso"
+            android:text="@{animeItem.title}"
             android:textAppearance="@style/Baloothambi2_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp"
@@ -55,7 +54,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_rate_background"
             android:gravity="center"
-            android:text="6.8"
+            android:text="@{animeItem.score.toString()}"
             android:textAppearance="@style/Baloothambi2_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp"

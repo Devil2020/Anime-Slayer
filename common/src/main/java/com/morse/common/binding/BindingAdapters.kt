@@ -20,9 +20,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.expertapps.base.extensions.convertDateWithTime
-import com.expertapps.base.extensions.loadCirculeImage
-import com.expertapps.base.extensions.visibleIf
+import com.expertapps.base.extensions.*
 
 
 @BindingAdapter("imageUrl")
@@ -37,6 +35,10 @@ fun ImageView.loadImage(res: Int) {
     setImageResource(res)
 }
 
+@BindingAdapter("imageCorner")
+fun ImageView.loadImageCorner(imageUrl: String) {
+    loadImageWithCornerRadius(imageUrl , "Error" , 40)
+}
 
 @BindingAdapter("viewIf")
 fun viewIf(view: View, boolean: Boolean?) = view.visibleIf(boolean)

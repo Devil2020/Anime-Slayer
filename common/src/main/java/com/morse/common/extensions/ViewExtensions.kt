@@ -128,7 +128,7 @@ fun ImageView.loadCirculeImage(
     }
 }
 
-fun ImageView.loadCirculeImageWithCornerRadius(
+fun ImageView.loadImageWithCornerRadius(
     imageUrl: String? = null,
     userName: String? = "",
     radius: Int
@@ -143,11 +143,11 @@ fun ImageView.loadCirculeImageWithCornerRadius(
     if (TextUtils.isEmpty(imageUrl)) {
         val imageApi = resources.getString(R.string.user_Image_label, userName)
         Glide.with(context).load(imageApi).placeholder(circularProgressDrawable)
-            .error(R.drawable.me_menu_icon).apply(requestOptions).into(this)
+            .error(R.drawable.splash).apply(requestOptions).into(this)
 
     } else {
         Glide.with(context).load(imageUrl).placeholder(circularProgressDrawable)
-            .error(R.drawable.me_menu_icon).apply(requestOptions).into(this)
+            .error(R.drawable.splash).apply(requestOptions).into(this)
     }
 }
 

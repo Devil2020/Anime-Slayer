@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
     valueAnimation.addUpdateListener {
         onChangeValueListener.invoke(it.getAnimatedValue().toString())
     }
-    valueAnimation.setDuration(duration)
+    valueAnimation.duration = duration
     valueAnimation.start()
 }
 
