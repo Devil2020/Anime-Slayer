@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0E294E"
+        android:id="@+id/homeRoot"
         tools:context=".ui.fragments.home.HomeFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -96,6 +97,7 @@
             android:src="@drawable/ic_white_circule_background"
             android:layout_marginBottom="-200dp"
             />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
@@ -130,6 +132,101 @@
             app:layout_constraintVertical_bias="0.0"
             app:spanCount="2"
             tools:listitem="@layout/anime_item_layout"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardOfAnimeDescribtion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_350sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#0E294E"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardElevation="@dimen/_18sdp"
+            tools:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/anime_imageview"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:src="@drawable/me_menu_icon"
+                    android:scaleType="fitXY"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/anime_name"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textSize="@dimen/_15ssp"
+                    android:text="DIGIMON ADVENTURE: 2020"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_below="@id/anime_imageview"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/anime_describtion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_below="@id/anime_name"
+                    android:text="UA Academy's Class 1-A has been the focus of a substantial amount of public attention due to the multiple villain attacks they have faced over the past school year. This attention has left Class 1-A's rivals, Class 1-B, feeling quite bitter. Desiring to prove their skills, they look forward to the opportunity that has been given to them: a set of mock battles between the students of each classThe classes are split into squads of four, each of which is tasked with capturing the other group members. The winner is the group who first secures all of the opposing team. While this sounds simple, a curveball is thrown into the mix with the inclusion of General Course Student Hitoshi Shinsou, who wishes to transfer into the Hero Course. Despite using his training with Class 1-A's homeroom teacher Shouta Aizawa to prove that he's capable of being a real hero, he is still far behind the others due to his lack of experience. However, Shinsou is determined to overcome this challenge.Thus begins the fiery competition between Class 1-A and 1-B as each tries to prove that they are superior to the other.[Written by MAL Rewrite]"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:lines="5"
+                    android:maxLines="5"
+                    android:ellipsize="end"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/closeCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/close_drawable"
+                    android:text="Close"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textSize="@dimen/_14ssp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/anime_navigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/go_details_drawable"
+                    android:text="View Details"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="@color/white"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textSize="@dimen/_15ssp"
+                    />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
