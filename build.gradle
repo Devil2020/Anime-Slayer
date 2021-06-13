@@ -36,6 +36,7 @@ allprojects {
     }
     ext {
         versions = [
+                flexable_version                  : '2.0.1',
                 androidx_shared_prefs             : '1.1.1',
                 multidex_version                  : '1.0.3',
                 paper_version                     : '2.6',
@@ -128,7 +129,7 @@ allprojects {
                         tooltips1: "com.diogobernardino.williamchart:tooltip-slider:3.10.1",
                         tooltips2: "com.diogobernardino.williamchart:tooltip-points:3.10.1",
                 ],
-                mpchart  : 'com.github.PhilJay:MPAndroidChart:v3.1.0' ,
+                mpchart                  : 'com.github.PhilJay:MPAndroidChart:v3.1.0',
                 kotlin                   : [
                         core_ktx  : "androidx.core:core-ktx:$versions.androidx_core_ktx",
                         kotlin    : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_version",
@@ -159,6 +160,7 @@ allprojects {
                         core: "org.kodein.di:kodein-di-framework-android-x:$versions.kodienVersion",
                         jvm : "org.kodein.di:kodein-di-generic-jvm:$versions.kodienVersion"
                 ],
+                flexbox                  : "com.google.android:flexbox:$versions.flexable_version",
                 paper                    : "io.paperdb:paperdb:$versions.paper_version",
                 youtubePlayer            : "com.pierfrancescosoffritti.androidyoutubeplayer:core:$versions.youtubevideoPlayerVersion",
                 flurry                   : "com.flurry.android:analytics:$versions.flurryVersion",

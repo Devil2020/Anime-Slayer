@@ -62,6 +62,7 @@ dependencies {
     implementation libraries.retrofit_root.values()
     implementation libraries.responsive_design.values()
     implementation libraries.firebase.values()
+    implementation libraries.flexbox
     implementation libraries.fuel_root.values()
     implementation libraries.map.values()
     implementation libraries.pagination3.values()

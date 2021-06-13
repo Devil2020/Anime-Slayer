@@ -14,28 +14,28 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
         android:background="@android:color/transparent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="@dimen/_160sdp"
+            android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_200sdp"
-            android:layout_marginTop="@dimen/_25sdp"
             android:scaleType="fitXY"
             imageCorner="@{animeItem.imageUrl}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/anime_rate_tv" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="@dimen/_160sdp"
+            android:layout_width="@dimen/_130sdp"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_anime_item_name_back"
+            android:src="@drawable/half_circule"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_80sdp"
             android:ellipsize="end"
             android:gravity="center"
             android:lines="2"

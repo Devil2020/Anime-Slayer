@@ -21,6 +21,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.expertapps.base.extensions.*
+import com.morse.common.R
 
 
 @BindingAdapter("imageUrl")
@@ -37,7 +38,7 @@ fun ImageView.loadImage(res: Int) {
 
 @BindingAdapter("imageCorner")
 fun ImageView.loadImageCorner(imageUrl: String) {
-    loadImageWithCornerRadius(imageUrl , "Error" , 40)
+    loadImageWithCornerRadius(imageUrl , "Error" , resources.getDimension(R.dimen._20sdp).toInt())
 }
 
 @BindingAdapter("viewIf")
