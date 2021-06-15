@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0E294E"
         android:id="@+id/homeRoot"
+        app:applyMotionScene="true"
+        app:layoutDescription="@xml/home_scene"
         tools:context=".ui.fragments.home.HomeFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -64,6 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/line_first" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emoji_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/emoji"
@@ -72,25 +75,27 @@
             app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leaves1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="-40dp"
+            android:layout_marginRight="@dimen/_minus50sdp"
             android:src="@drawable/ic_leaves1"
-            app:layout_constraintBottom_toBottomOf="@id/hola_message_tv"
+            android:layout_marginTop="@dimen/_120sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hola_message_tv" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leaves2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="-40dp"
+            android:layout_marginRight="@dimen/_minus50sdp"
             android:src="@drawable/ic_leaves2"
-            android:layout_marginTop="@dimen/_110sdp"
-            app:layout_constraintBottom_toBottomOf="@id/hola_message_tv"
+            android:layout_marginTop="@dimen/_minus59sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/hola_message_tv" />
+            app:layout_constraintTop_toBottomOf="@id/leaves1" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circule1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -99,6 +104,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circule2"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -109,6 +115,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circule3"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_100sdp"
             app:layout_constraintTop_toTopOf="parent"
@@ -146,7 +153,7 @@
             app:cardBackgroundColor="#0E294E"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_18sdp"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -228,6 +235,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </layout>

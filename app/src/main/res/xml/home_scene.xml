@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000"
+        app:motionInterpolator="linear">
+
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/anime_list_rv" />
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/me_icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/me_menu_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/search_icon_iv"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_search_24"
+            app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
+
+        <Constraint
+            android:id="@+id/hola_message_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Hola, My Friend \n Morse"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20ssp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@id/me_icon_iv"
+            app:layout_constraintTop_toBottomOf="@id/me_icon_iv" />
+
+        <Constraint
+            android:id="@+id/line_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/ic_line_3"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@id/hola_message_tv"
+            app:layout_constraintTop_toBottomOf="@id/hola_message_tv" />
+
+        <Constraint
+            android:id="@+id/happy_browsing_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Happy Browsing "
+            android:textAppearance="@style/Baloothambi2_regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintStart_toStartOf="@id/line_first"
+            app:layout_constraintTop_toBottomOf="@id/line_first" />
+
+        <Constraint
+            android:id="@+id/emoji_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emoji"
+            app:layout_constraintBottom_toBottomOf="@id/happy_browsing_tv"
+            app:layout_constraintStart_toEndOf="@id/happy_browsing_tv"
+            app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
+
+        <Constraint
+            android:id="@+id/leaves1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_120sdp"
+            android:layout_marginRight="@dimen/_minus50sdp"
+            android:src="@drawable/ic_leaves1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/leaves2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_minus59sdp"
+            android:layout_marginRight="@dimen/_minus50sdp"
+            android:src="@drawable/ic_leaves2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leaves1" />
+
+        <Constraint
+            android:id="@+id/circule1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-200dp"
+            android:src="@drawable/ic_white_circule_background"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@+id/circule2"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_minus10sdp"
+            android:src="@drawable/ic_white_circule_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/circule3"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_minus39sdp"
+            android:rotationY="180"
+            android:src="@drawable/ic_white_circule_background"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/anime_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/happy_browsing_tv"
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="2"
+            tools:listitem="@layout/anime_item_layout" />
+
+        <Constraint
+            android:id="@+id/cardOfAnimeDescribtion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_350sdp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#0E294E"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardElevation="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone">
+
+
+        </Constraint>
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+
+
+        <Constraint
+            android:id="@+id/hola_message_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Hola, My Friend \n Morse"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/me_icon_iv" />
+
+        <Constraint
+            android:id="@+id/line_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/ic_line_3"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/hola_message_tv"
+            app:layout_constraintTop_toBottomOf="@id/hola_message_tv" />
+
+        <Constraint
+            android:id="@+id/happy_browsing_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Happy Browsing "
+            android:textAppearance="@style/Baloothambi2_regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+            app:layout_constraintStart_toEndOf="@id/me_icon_iv"
+            app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
+
+        <Constraint
+            android:id="@+id/emoji_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emoji"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/happy_browsing_tv"
+            app:layout_constraintStart_toEndOf="@id/happy_browsing_tv"
+            app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
+
+        <Constraint
+            android:id="@+id/leaves1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_170sdp"
+            android:layout_marginRight="@dimen/_minus50sdp"
+            android:src="@drawable/ic_leaves1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/leaves2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_minus50sdp"
+            android:src="@drawable/ic_leaves2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leaves1" />
+
+        <Constraint
+            android:id="@+id/circule1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-200dp"
+            android:src="@drawable/ic_white_circule_background"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@+id/circule2"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_minus10sdp"
+            android:src="@drawable/ic_white_circule_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/circule3"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_minus39sdp"
+            android:rotationY="180"
+            android:src="@drawable/ic_white_circule_background"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/anime_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:spanCount="2"
+            tools:listitem="@layout/anime_item_layout" />
+
+        <Constraint
+            android:id="@+id/cardOfAnimeDescribtion"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_350sdp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginBottom="30dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#0E294E"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardElevation="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone">
+
+
+        </Constraint>
+
+
+        <Constraint
+            android:id="@+id/me_icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:src="@drawable/me_up_menu_icon"
+            android:elevation="@dimen/_15sdp"
+            android:translationZ="@dimen/_20sdp"
+            android:translationY="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/search_icon_iv"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_search_24"
+            android:elevation="@dimen/_15sdp"
+            android:translationZ="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
+
+
+    </ConstraintSet>
+
+</MotionScene>
