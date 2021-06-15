@@ -39,6 +39,13 @@ class HomeFragment : Fragment(), AnimeListListener {
             R.id.search_icon_iv -> {
                 findNavController().navigateSafe(R.id.action_homeFragment_to_searchFragment)
             }
+            R.id.cardOfAnimeDescribtion ->{
+                if (binding.cardOfAnimeDescribtion.visibility == View.VISIBLE) {
+                    returnCardToOriginPosition(450)
+                } else {
+                    animateCard(animeView)
+                }
+            }
         }
     }
 
@@ -52,7 +59,7 @@ class HomeFragment : Fragment(), AnimeListListener {
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
         if (binding.cardOfAnimeDescribtion.visibility == View.VISIBLE) {
-            returnCardToOriginPosition(200)
+            returnCardToOriginPosition(450)
         } else {
             animateCard(animeView)
         }
@@ -102,6 +109,9 @@ class HomeFragment : Fragment(), AnimeListListener {
                 homeClickListener
             )
             this.searchIconIv.setOnClickListener(
+                homeClickListener
+            )
+            this.cardOfAnimeDescribtion.setOnClickListener(
                 homeClickListener
             )
             this.animeListRv.adapter = animeAdapter

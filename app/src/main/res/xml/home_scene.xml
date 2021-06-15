@@ -86,7 +86,7 @@
             android:id="@+id/leaves1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_100sdp"
             android:layout_marginRight="@dimen/_minus50sdp"
             android:src="@drawable/ic_leaves1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,8 +157,7 @@
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
 
         </Constraint>
@@ -167,7 +166,6 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
-
 
 
         <Constraint
@@ -292,8 +290,7 @@
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
 
         </Constraint>

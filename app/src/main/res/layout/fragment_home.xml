@@ -3,149 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/homeRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0E294E"
-        android:id="@+id/homeRoot"
-        app:applyMotionScene="true"
-        app:layoutDescription="@xml/home_scene"
         tools:context=".ui.fragments.home.HomeFragment">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/me_icon_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:src="@drawable/me_menu_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/search_icon_iv"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:src="@drawable/ic_baseline_search_24"
-            app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/hola_message_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Hola, My Friend \n Morse"
-            android:textAppearance="@style/Baloothambi2_semiBold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp"
-            app:layout_constraintStart_toStartOf="@id/me_icon_iv"
-            app:layout_constraintTop_toBottomOf="@id/me_icon_iv" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/line_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/ic_line_3"
-            app:layout_constraintStart_toStartOf="@id/hola_message_tv"
-            app:layout_constraintTop_toBottomOf="@id/hola_message_tv" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/happy_browsing_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Happy Browsing "
-            android:textAppearance="@style/Baloothambi2_regular"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17ssp"
-            app:layout_constraintStart_toStartOf="@id/line_first"
-            app:layout_constraintTop_toBottomOf="@id/line_first" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/emoji_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/emoji"
-            app:layout_constraintBottom_toBottomOf="@id/happy_browsing_tv"
-            app:layout_constraintStart_toEndOf="@id/happy_browsing_tv"
-            app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/leaves1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/_minus50sdp"
-            android:src="@drawable/ic_leaves1"
-            android:layout_marginTop="@dimen/_120sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/leaves2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/_minus50sdp"
-            android:src="@drawable/ic_leaves2"
-            android:layout_marginTop="@dimen/_minus59sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/leaves1" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/circule1"
+        <androidx.constraintlayout.motion.widget.MotionLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_white_circule_background"
-            android:layout_marginBottom="-200dp"
-            />
+            android:layout_height="match_parent"
+            app:applyMotionScene="true"
+            app:layoutDescription="@xml/home_scene">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/circule2"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_white_circule_background"
-            android:layout_marginStart="@dimen/_minus10sdp"
-            />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/me_icon_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:src="@drawable/me_menu_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/circule3"
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="@dimen/_100sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_white_circule_background"
-            android:layout_marginTop="@dimen/_minus39sdp"
-            android:rotationY="180"
-            android:visibility="gone"
-            />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/search_icon_iv"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_baseline_search_24"
+                app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/anime_list_rv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_20sdp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/happy_browsing_tv"
-            app:layout_constraintVertical_bias="0.0"
-            app:spanCount="2"
-            tools:listitem="@layout/anime_item_layout"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hola_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Hola, My Friend \n Morse"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintStart_toStartOf="@id/me_icon_iv"
+                app:layout_constraintTop_toBottomOf="@id/me_icon_iv" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/line_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/ic_line_3"
+                app:layout_constraintStart_toStartOf="@id/hola_message_tv"
+                app:layout_constraintTop_toBottomOf="@id/hola_message_tv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/happy_browsing_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Happy Browsing "
+                android:textAppearance="@style/Baloothambi2_regular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintStart_toStartOf="@id/line_first"
+                app:layout_constraintTop_toBottomOf="@id/line_first" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/emoji_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/emoji"
+                app:layout_constraintBottom_toBottomOf="@id/happy_browsing_tv"
+                app:layout_constraintStart_toEndOf="@id/happy_browsing_tv"
+                app:layout_constraintTop_toTopOf="@id/happy_browsing_tv" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/leaves1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_120sdp"
+                android:layout_marginRight="@dimen/_minus50sdp"
+                android:src="@drawable/ic_leaves1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/leaves2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus59sdp"
+                android:layout_marginRight="@dimen/_minus50sdp"
+                android:src="@drawable/ic_leaves2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/leaves1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/circule1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-200dp"
+                android:src="@drawable/ic_white_circule_background"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/circule2"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_minus10sdp"
+                android:src="@drawable/ic_white_circule_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/circule3"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_minus39sdp"
+                android:rotationY="180"
+                android:src="@drawable/ic_white_circule_background"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/anime_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/happy_browsing_tv"
+                app:layout_constraintVertical_bias="0.0"
+                app:spanCount="2"
+                tools:listitem="@layout/anime_item_layout" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardOfAnimeDescribtion"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_350sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginBottom="30dp"
@@ -153,6 +154,8 @@
             app:cardBackgroundColor="#0E294E"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_18sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:visibility="gone">
 
             <RelativeLayout
@@ -168,41 +171,39 @@
                     android:layout_height="@dimen/_120sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:src="@drawable/me_menu_icon"
                     android:scaleType="fitXY"
+                    android:src="@drawable/me_menu_icon"
 
                     />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/anime_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/anime_name"
+                    android:layout_below="@id/anime_imageview"
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textAppearance="@style/Baloothambi2_semiBold"
-                    android:textSize="@dimen/_15ssp"
-                    android:text="DIGIMON ADVENTURE: 2020"
                     android:gravity="center"
+                    android:text="DIGIMON ADVENTURE: 2020"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
                     android:textColor="@color/white"
-                    android:layout_below="@id/anime_imageview"
-                    />
+                    android:textSize="@dimen/_15ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/anime_describtion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/anime_name"
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:textAppearance="@style/Baloothambi2_medium"
-                    android:textSize="@dimen/_13ssp"
-                    android:layout_below="@id/anime_name"
-                    android:text="UA Academy's Class 1-A has been the focus of a substantial amount of public attention due to the multiple villain attacks they have faced over the past school year. This attention has left Class 1-A's rivals, Class 1-B, feeling quite bitter. Desiring to prove their skills, they look forward to the opportunity that has been given to them: a set of mock battles between the students of each classThe classes are split into squads of four, each of which is tasked with capturing the other group members. The winner is the group who first secures all of the opposing team. While this sounds simple, a curveball is thrown into the mix with the inclusion of General Course Student Hitoshi Shinsou, who wishes to transfer into the Hero Course. Despite using his training with Class 1-A's homeroom teacher Shouta Aizawa to prove that he's capable of being a real hero, he is still far behind the others due to his lack of experience. However, Shinsou is determined to overcome this challenge.Thus begins the fiery competition between Class 1-A and 1-B as each tries to prove that they are superior to the other.[Written by MAL Rewrite]"
+                    android:ellipsize="end"
                     android:gravity="center"
-                    android:textColor="@color/white"
                     android:lines="5"
                     android:maxLines="5"
-                    android:ellipsize="end"
-                    />
+                    android:text="UA Academy's Class 1-A has been the focus of a substantial amount of public attention due to the multiple villain attacks they have faced over the past school year. This attention has left Class 1-A's rivals, Class 1-B, feeling quite bitter. Desiring to prove their skills, they look forward to the opportunity that has been given to them: a set of mock battles between the students of each classThe classes are split into squads of four, each of which is tasked with capturing the other group members. The winner is the group who first secures all of the opposing team. While this sounds simple, a curveball is thrown into the mix with the inclusion of General Course Student Hitoshi Shinsou, who wishes to transfer into the Hero Course. Despite using his training with Class 1-A's homeroom teacher Shouta Aizawa to prove that he's capable of being a real hero, he is still far behind the others due to his lack of experience. However, Shinsou is determined to overcome this challenge.Thus begins the fiery competition between Class 1-A and 1-B as each tries to prove that they are superior to the other.[Written by MAL Rewrite]"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13ssp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/closeCard"
@@ -211,30 +212,28 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/close_drawable"
-                    android:text="Close"
                     android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textAppearance="@style/Baloothambi2_medium"
-                    android:textSize="@dimen/_14ssp"
                     android:paddingHorizontal="@dimen/_10sdp"
-                    />
+                    android:text="Close"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/anime_navigation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:background="@drawable/go_details_drawable"
                     android:text="View Details"
-                    android:layout_alignParentBottom="true"
-                    android:textColor="@color/white"
                     android:textAppearance="@style/Baloothambi2_semiBold"
-                    android:textSize="@dimen/_15ssp"
-                    />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp" />
 
             </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
