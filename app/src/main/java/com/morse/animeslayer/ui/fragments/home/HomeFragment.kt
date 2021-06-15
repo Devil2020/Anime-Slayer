@@ -118,7 +118,7 @@ class HomeFragment : Fragment(), AnimeListListener {
             this.animeListRv.addItemDecoration(
                 ItemOffsetDecoration(
                     requireContext(),
-                    R.dimen._5sdp
+                    R.dimen._9sdp
                 )
             )
             this.closeCard.setOnClickListener {

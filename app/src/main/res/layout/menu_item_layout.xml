@@ -48,14 +48,14 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:src="@drawable/ic_divider"
             app:layout_constraintTop_toBottomOf="@id/menuLogo"
             android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="#2F72CD"
-            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="#DD001D45"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
