@@ -31,9 +31,26 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.morse.animeslayer.ui.fragments.search.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <argument
+            android:name="animeId"
+            app:argType="integer"
+            android:defaultValue="41025" />
+        <argument
+            android:name="animePictureUrl"
+            app:argType="string"
+            android:defaultValue="https://cdn.myanimelist.net/images/anime/1134/111757.jpg" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeDetailFragment"
+        android:name="com.morse.animeslayer.ui.fragments.anime_detail.AnimeDetailFragment"
+        android:label="fragment_anime_detail"
+        tools:layout="@layout/fragment_anime_detail" />
 </navigation>

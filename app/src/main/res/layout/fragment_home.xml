@@ -173,7 +173,7 @@
                     android:layout_marginTop="@dimen/_25sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/me_menu_icon"
-
+                    android:transitionName="animeName"
                     />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -220,7 +220,7 @@
                     android:textSize="@dimen/_14ssp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/anime_navigation"
+                    android:id="@+id/anime_detail_navigation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"

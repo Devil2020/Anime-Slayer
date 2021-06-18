@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="value"
+            type="String" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{name}"
+
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="#B4B3B3"
+            android:textSize="@dimen/_13ssp"
+            android:paddingVertical="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{value}"
+            android:lines="1"
+            android:maxLines="1"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            android:ellipsize="end"
+            android:paddingVertical="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            />
+
+    </LinearLayout>
+
+</layout>
