@@ -173,7 +173,7 @@
                     android:layout_marginTop="@dimen/_25sdp"
                     android:scaleType="fitXY"
                     android:src="@drawable/me_menu_icon"
-                    android:transitionName="animeName"
+                    android:transitionName="animeImage"
                     />
 
                 <androidx.appcompat.widget.AppCompatTextView

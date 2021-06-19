@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="character"
+            type="com.morse.animeslayer.domain.AnimeCharactersResponse.Character" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/characterImage"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            imageCorner="@{character.imageUrl}"
+            android:src="@drawable/me"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_chalf_circule"
+            app:layout_constraintTop_toBottomOf="@id/characterImage"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_minus27sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{character.name}"
+            app:layout_constraintTop_toBottomOf="@id/characterImage"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="@id/characterImage"
+            app:layout_constraintEnd_toEndOf="@id/characterImage"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{character.role}"
+            app:layout_constraintTop_toBottomOf="@id/characterName"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="@id/characterName"
+            app:layout_constraintEnd_toEndOf="@id/characterName"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textColor="@color/gray_DDDDDD"
+            android:textSize="@dimen/_12ssp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

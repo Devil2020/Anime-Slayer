@@ -92,6 +92,7 @@
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_160sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:transitionName="animeImage"
                 app:layout_constraintStart_toStartOf="@id/closeDetailButton"
                 app:layout_constraintTop_toBottomOf="@id/closeDetailButton" />
 
@@ -152,8 +153,8 @@
                 android:id="@+id/animeRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:ellipsize="end"
                 android:lines="2"
                 android:maxLines="2"
@@ -245,25 +246,24 @@
                 app:layout_constraintStart_toEndOf="@id/animeMembersText"
                 app:layout_constraintTop_toTopOf="@id/animePopularityText" />
 
-
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/manageFavouriteFab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:backgroundTint="#0E294E"
+                android:ellipsize="marquee"
                 android:outlineAmbientShadowColor="#538EDF"
                 android:outlineSpotShadowColor="#3386F8"
                 android:shadowColor="#046EFF"
                 android:shadowRadius="50"
-                android:ellipsize="marquee"
-                app:layout_constraintEnd_toStartOf="@id/manageWebsiteFab"
                 android:text="add to favourite"
                 android:textAppearance="@style/Baloothambi2_medium"
                 android:textColor="@color/white"
                 app:elevation="@dimen/_20sdp"
                 app:icon="@drawable/ic_baseline_favorite_24"
                 app:iconTint="@color/red_F87575"
+                app:layout_constraintEnd_toStartOf="@id/manageWebsiteFab"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/dateChip" />
 
@@ -273,11 +273,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:backgroundTint="#0E294E"
+                android:ellipsize="marquee"
                 android:outlineAmbientShadowColor="#538EDF"
                 android:outlineSpotShadowColor="#3386F8"
                 android:shadowColor="#046EFF"
                 android:shadowRadius="50"
-                android:ellipsize="marquee"
                 android:text="open website"
                 android:textAppearance="@style/Baloothambi2_medium"
                 android:textColor="@color/white"
@@ -353,7 +353,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -364,60 +363,93 @@
                 android:id="@+id/animeDescribtion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center"
-                android:text="Gabii Braun and Falco Grice have been training their
-            entire lives to inherit one of the seven titans under
-            Marley's control and aid their nation in eradicating the
-Eldians on Paradis. However, just as all seems well for
- the two cadets, their peace is suddenly shaken
- by the arrival of Eren Yeager and the remaining
-members of the Survey Corps. Having finally reached
- the Yeager family basement and learned about the
- dark history surrounding the titans, the Survey
-Corps has at long last found the answer they so
- desperately fought to uncover. With the truth now
-in their hands, the group set out for the world
-beyond the walls. In Shingeki no Kyojin:
- The Final Season, two utterly different worlds
-collide as each party pursues its own agenda in the
- long-awaited conclusion to Paradis fight for freedom."
+                android:text="Gabii Braun and Falco Grice have been training their entire lives to inherit one of the seven titans under Marley's control and aid their nation in eradicating the Eldians on Paradis. However, just as all seems well for the two cadets, their peace is suddenly shaken by the arrival of Eren Yeager and the remainingmembers of the Survey Corps. Having finally reached the Yeager family basement and learned about the dark history surrounding the titans, the Survey Corps has at long last found the answer they so desperately fought to uncover. With the truth now in their hands, the group set out for the world beyond the walls. In Shingeki no Kyojin: The Final Season, two utterly different worlds collide as each party pursues its own agenda in the long-awaited conclusion to Paradis fight for freedom."
                 android:textAppearance="@style/Baloothambi2_medium"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/manageFavouriteFab"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/manageFavouriteFab" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/animeThumbnil"
+                imageCorner="@{imageTest}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/animeDescribtion"
+                app:layout_goneMarginTop="@dimen/_20sdp" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/playVideo"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                app:layout_constraintBottom_toBottomOf="@id/animeThumbnil"
+                app:layout_constraintEnd_toEndOf="@id/animeThumbnil"
+                app:layout_constraintStart_toStartOf="@id/animeThumbnil"
+                app:layout_constraintTop_toTopOf="@id/animeThumbnil"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/play_pulse_lottie_file" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/characters_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Characters"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintStart_toStartOf="@id/animeThumbnil"
+                app:layout_constraintTop_toBottomOf="@id/animeThumbnil" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/charactersRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/characters_TextView"
+                app:layout_constraintStart_toStartOf="@id/characters_TextView"
+                android:layout_marginTop="@dimen/_10sdp"
+
                 />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/animeThumbnil"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
-            app:layout_goneMarginTop="@dimen/_20sdp"
-            app:layout_constraintTop_toBottomOf="@id/animeDescribtion"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/_20sdp"
-            imageCorner="@{imageTest}"
-            />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/playVideo"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
-            app:lottie_rawRes="@raw/play_pulse_lottie_file"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:layout_constraintTop_toTopOf="@id/animeThumbnil"
-            app:layout_constraintBottom_toBottomOf="@id/animeThumbnil"
-            app:layout_constraintStart_toStartOf="@id/animeThumbnil"
-            app:layout_constraintEnd_toEndOf="@id/animeThumbnil"
-            />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/recommendations_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Recommendations"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintStart_toStartOf="@id/charactersRecyclerview"
+                app:layout_constraintTop_toBottomOf="@id/charactersRecyclerview" />
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommendationsRecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/recommendations_TextView"
+                app:layout_constraintStart_toStartOf="@id/recommendations_TextView"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
