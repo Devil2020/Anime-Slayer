@@ -29,6 +29,8 @@ class HomeFragment : Fragment(), AnimeListListener {
     }
     lateinit var animeView: View
 
+    lateinit var  itemDecorator : ItemOffsetDecoration
+
     private val homeClickListener = View.OnClickListener {
         when (it.id) {
             R.id.me_icon_iv -> {
@@ -62,6 +64,10 @@ class HomeFragment : Fragment(), AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+       itemDecorator = ItemOffsetDecoration(
+            requireContext(),
+            R.dimen._9sdp
+        )
         with(binding) {
             this.meIconIv.setOnClickListener(
                 homeClickListener
@@ -77,10 +83,7 @@ class HomeFragment : Fragment(), AnimeListListener {
             )
             this.animeListRv.adapter = animeAdapter
             this.animeListRv.addItemDecoration(
-                ItemOffsetDecoration(
-                    requireContext(),
-                    R.dimen._9sdp
-                )
+                itemDecorator
             )
             this.closeCard.setOnClickListener {
                 returnCardToOriginPosition(650)
@@ -134,9 +137,11 @@ class HomeFragment : Fragment(), AnimeListListener {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.animeListRv.removeItemDecoration(
+            itemDecorator
+        )
     }
 
 }
