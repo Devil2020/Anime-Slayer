@@ -151,100 +151,119 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/animeRating"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:ellipsize="end"
-                android:lines="2"
-                android:maxLines="2"
+                android:lines="1"
+                android:maxLines="1"
                 android:text="R - 17+ (violence &amp; profanity) "
                 android:textAllCaps="true"
                 android:textAppearance="@style/Baloothambi2_medium"
                 android:textColor="#B4B3B3"
                 android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/animeType"
                 app:layout_constraintTop_toBottomOf="@id/animeType" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeRankText"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/scrollFlags"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:text="Ranked"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_15ssp"
-                app:flow_horizontalStyle="packed"
-                app:layout_constraintEnd_toStartOf="@id/animeRankValue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/anime_foreground" />
+                app:layout_constraintTop_toBottomOf="@id/anime_foreground"
+                >
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeRankValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:text="#169"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_17ssp"
-                app:layout_constraintBottom_toBottomOf="@id/animeRankText"
-                app:layout_constraintEnd_toStartOf="@id/animePopularityText"
-                app:layout_constraintStart_toEndOf="@id/animeRankText"
-                app:layout_constraintTop_toTopOf="@id/animeRankText" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animePopularityText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:text="Popularity"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
-                app:layout_constraintStart_toEndOf="@id/animeRankValue"
-                app:layout_constraintTop_toTopOf="@id/animeRankValue" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animeRankText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_14sdp"
+                        android:text="Ranked"
+                        android:textAppearance="@style/Baloothambi2_medium"
+                        android:textColor="#B4B3B3"
+                        android:textSize="@dimen/_15ssp"
+                        app:flow_horizontalStyle="packed"
+                        app:layout_constraintEnd_toStartOf="@id/animeRankValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/anime_foreground" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animePopularityValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:text="#169"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_17ssp"
-                app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
-                app:layout_constraintStart_toEndOf="@id/animePopularityText"
-                app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animeRankValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="#169"
+                        android:textAppearance="@style/Baloothambi2_semiBold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/animeRankText"
+                        app:layout_constraintEnd_toStartOf="@id/animePopularityText"
+                        app:layout_constraintStart_toEndOf="@id/animeRankText"
+                        app:layout_constraintTop_toTopOf="@id/animeRankText" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeMembersText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:text="Members"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
-                app:layout_constraintStart_toEndOf="@id/animePopularityValue"
-                app:layout_constraintTop_toTopOf="@id/animeRankValue" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animePopularityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_14sdp"
+                        android:text="Popularity"
+                        android:textAppearance="@style/Baloothambi2_medium"
+                        android:textColor="#B4B3B3"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
+                        app:layout_constraintStart_toEndOf="@id/animeRankValue"
+                        app:layout_constraintTop_toTopOf="@id/animeRankValue" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeMembersValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:text="#169"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_17ssp"
-                app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
-                app:layout_constraintStart_toEndOf="@id/animeMembersText"
-                app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animePopularityValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="#169"
+                        android:textAppearance="@style/Baloothambi2_semiBold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
+                        app:layout_constraintStart_toEndOf="@id/animePopularityText"
+                        app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animeMembersText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_14sdp"
+                        android:text="Members"
+                        android:textAppearance="@style/Baloothambi2_medium"
+                        android:textColor="#B4B3B3"
+                        android:textSize="@dimen/_15ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
+                        app:layout_constraintStart_toEndOf="@id/animePopularityValue"
+                        app:layout_constraintTop_toTopOf="@id/animeRankValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/animeMembersValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="#169"
+                        android:textAppearance="@style/Baloothambi2_semiBold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
+                        app:layout_constraintStart_toEndOf="@id/animeMembersText"
+                        app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/manageFavouriteFab"
@@ -296,31 +315,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/animeRankText" />
+                app:layout_constraintTop_toBottomOf="@id/scrollFlags" />
 
             <include
                 android:id="@+id/studioChip"
                 name="@{studioTestKey}"
                 layout="@layout/custom_chip_layout"
                 value="@{studioTestValue}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/scoreChip"
-                app:layout_constraintTop_toBottomOf="@id/animeRankText" />
+                app:layout_constraintTop_toTopOf="@id/scoreChip"
+                app:layout_constraintBottom_toBottomOf="@id/scoreChip" />
 
             <include
                 android:id="@+id/genreChip"
                 name="@{studioTestKey}"
                 layout="@layout/custom_chip_layout"
                 value="@{studioTestValue}"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"

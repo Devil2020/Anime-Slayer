@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.whenResumed
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
@@ -23,13 +20,12 @@ import com.morse.animeslayer.domain.AnimeListResponse
 import com.morse.animeslayer.ui.fragments.menu.MenuBottomSheet
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.utils.ItemOffsetDecoration
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), AnimeListListener {
 
     private val animeAdapter = AnimeListAdapter(this)
     val binding: FragmentHomeBinding by lazy {
-        FragmentHomeBinding.inflate(layoutInflater)
+         FragmentHomeBinding.inflate(layoutInflater)
     }
     lateinit var animeView: View
 
@@ -44,7 +40,7 @@ class HomeFragment : Fragment(), AnimeListListener {
             R.id.search_icon_iv -> {
                 findNavController().navigateSafe(R.id.action_homeFragment_to_searchFragment)
             }
-            R.id.cardOfAnimeDescribtion ->{
+            R.id.cardOfAnimeDescribtion -> {
                 if (binding.cardOfAnimeDescribtion.visibility == View.VISIBLE) {
                     returnCardToOriginPosition(450)
                 } else {
@@ -52,15 +48,12 @@ class HomeFragment : Fragment(), AnimeListListener {
                 }
             }
             R.id.anime_detail_navigation -> {
-/*                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                    UtilPair.create(view1, "hero_image"))
-                val extras = ActivityNavigatorExtras(options)
-                view.findNavController().navigate(
-                    R.id.details,
-                    null, // Bundle of args
-                    null, // NavOptions
-                    extras)*/
-                findNavController().navigateSafe(R.id.action_homeFragment_to_animeDetailFragment)
+                val options = kotlin.Pair(binding.animeImageview, "animeImage")
+                val extras = FragmentNavigatorExtras(options)
+                findNavController().navigateSafe(
+                    R.id.action_homeFragment_to_animeDetailFragment,
+                    navExtras = extras
+                )
             }
         }
     }
@@ -69,7 +62,30 @@ class HomeFragment : Fragment(), AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        with(binding) {
+            this.meIconIv.setOnClickListener(
+                homeClickListener
+            )
+            this.searchIconIv.setOnClickListener(
+                homeClickListener
+            )
+            this.cardOfAnimeDescribtion.setOnClickListener(
+                homeClickListener
+            )
+            this.animeDetailNavigation.setOnClickListener(
+                homeClickListener
+            )
+            this.animeListRv.adapter = animeAdapter
+            this.animeListRv.addItemDecoration(
+                ItemOffsetDecoration(
+                    requireContext(),
+                    R.dimen._9sdp
+                )
+            )
+            this.closeCard.setOnClickListener {
+                returnCardToOriginPosition(650)
+            }
+        }
         return binding.root
     }
 
@@ -120,31 +136,10 @@ class HomeFragment : Fragment(), AnimeListListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding) {
-            this.meIconIv.setOnClickListener(
-                homeClickListener
-            )
-            this.searchIconIv.setOnClickListener(
-                homeClickListener
-            )
-            this.cardOfAnimeDescribtion.setOnClickListener(
-                homeClickListener
-            )
-            this.animeDetailNavigation.setOnClickListener(
-                homeClickListener
-            )
-            this.animeListRv.adapter = animeAdapter
-            this.animeListRv.addItemDecoration(
-                ItemOffsetDecoration(
-                    requireContext(),
-                    R.dimen._9sdp
-                )
-            )
-            this.closeCard.setOnClickListener {
-                returnCardToOriginPosition(650)
-            }
-        }
+
     }
+
 }
+
 
 

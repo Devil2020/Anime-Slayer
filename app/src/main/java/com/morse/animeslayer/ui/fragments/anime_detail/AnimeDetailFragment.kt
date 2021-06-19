@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionInflater
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentAnimeDetailBinding
 import com.morse.animeslayer.domain.AnimeCharactersResponse
@@ -19,6 +22,14 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         FragmentAnimeDetailBinding.inflate(layoutInflater)
     }
 
+    private val detailClickListener = View.OnClickListener {
+        when (it.id){
+            R.id.closeDetailButton -> {findNavController().popBackStack()}
+            R.id.manageFavouriteFab -> {}
+            R.id.manageWebsiteFab -> {}
+        }
+    }
+
     private val characterAdapter = CharactersAdapter(this)
 
     private val recommendationAdapter = AnimeListAdapter(this)
@@ -27,6 +38,13 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedElementEnterTransition = ChangeBounds().apply {
+            duration = 350
+        }
+        sharedElementReturnTransition =  ChangeBounds().apply {
+            duration = 350
+        }
+
         with(binding) {
             imageTest =
                 "https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1593544464864-G6P4BZA1W880KYYO16DA/ke17ZwdGBToddI8pDm48kJtX192gXcg_LgA3lCIbBpNZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyqMo3jzJhLqXTCrPyqviB5hVyaUuIqL1zNo8v7faVDIjGq_WbF1sCo3nyx4oc98OM/kakeguri_best_anime_characters_cosplay.png?format=500w"
@@ -44,9 +62,11 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
             detailScrollable.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 if (scrollY > oldScrollY) {
-                    //manageFavouriteFab?.shrink()
+                    manageFavouriteFab?.shrink()
+                    manageWebsiteFab?.shrink()
                 } else {
-                    // manageFavouriteFab?.extend()
+                     manageFavouriteFab?.extend()
+                     manageWebsiteFab?.extend()
                 }
             }
 
@@ -61,9 +81,16 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                 )
             )
 
+            closeDetailButton.setOnClickListener(detailClickListener)
+
+            manageFavouriteFab.setOnClickListener(detailClickListener)
+
+            manageWebsiteFab.setOnClickListener(detailClickListener)
+
         }
         return binding.root
     }
+
 
     override fun onCharacterClicked(characterView: View, anime: AnimeCharactersResponse.Character) {
 
