@@ -44,434 +44,467 @@
 
     </data>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/detailScrollable"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:id="@+id/detailRoot"
+        >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/detailScrollable"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#0E294E"
-            tools:context=".ui.fragments.anime_detail.AnimeDetailFragment">
+            android:fillViewport="true">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/closeDetailButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:src="@drawable/ic_close"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/leaves1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_minus30sdp"
-                android:src="@drawable/ic_leaves1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/leaves2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_minus40sdp"
-                android:layout_marginEnd="@dimen/_minus30sdp"
-                android:src="@drawable/ic_leaves2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/leaves1" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/anime_foreground"
-                imageCorner="@{imageTest}"
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_160sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:transitionName="animeImage"
-                app:layout_constraintStart_toStartOf="@id/closeDetailButton"
-                app:layout_constraintTop_toBottomOf="@id/closeDetailButton" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeNameEnglish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:text="Kingdom 3rd Season"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintStart_toEndOf="@id/anime_foreground"
-                app:layout_constraintTop_toTopOf="@id/anime_foreground" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeJapnesseEnglish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="キングダム 第3シリーズ"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toEndOf="@id/anime_foreground"
-                app:layout_constraintTop_toBottomOf="@id/animeNameEnglish" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="Currently Airing"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toEndOf="@id/anime_foreground"
-                app:layout_constraintTop_toBottomOf="@id/animeJapnesseEnglish" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:text="TV"
-                android:textAllCaps="true"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintStart_toEndOf="@id/anime_foreground"
-                app:layout_constraintTop_toBottomOf="@id/animeStatus" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeRating"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:ellipsize="end"
-                android:lines="1"
-                android:maxLines="1"
-                android:text="R - 17+ (violence &amp; profanity) "
-                android:textAllCaps="true"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="#B4B3B3"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/animeType"
-                app:layout_constraintTop_toBottomOf="@id/animeType" />
-
-            <HorizontalScrollView
-                android:id="@+id/scrollFlags"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/anime_foreground"
-                >
+                android:layout_height="match_parent"
+                android:background="#0E294E"
+                tools:context=".ui.fragments.anime_detail.AnimeDetailFragment">
 
-                <LinearLayout
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/closeDetailButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:src="@drawable/ic_close"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/leaves1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_minus30sdp"
+                    android:src="@drawable/ic_leaves1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/leaves2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_minus40sdp"
+                    android:layout_marginEnd="@dimen/_minus30sdp"
+                    android:src="@drawable/ic_leaves2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/leaves1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/anime_foreground"
+                    imageCorner="@{imageTest}"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:transitionName="animeImage"
+                    app:layout_constraintStart_toStartOf="@id/closeDetailButton"
+                    app:layout_constraintTop_toBottomOf="@id/closeDetailButton" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeNameEnglish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Kingdom 3rd Season"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintStart_toEndOf="@id/anime_foreground"
+                    app:layout_constraintTop_toTopOf="@id/anime_foreground" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeJapnesseEnglish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="キングダム 第3シリーズ"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/anime_foreground"
+                    app:layout_constraintTop_toBottomOf="@id/animeNameEnglish" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="Currently Airing"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="#B4B3B3"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/anime_foreground"
+                    app:layout_constraintTop_toBottomOf="@id/animeJapnesseEnglish" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="TV"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="#B4B3B3"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toEndOf="@id/anime_foreground"
+                    app:layout_constraintTop_toBottomOf="@id/animeStatus" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeRating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text="R - 17+ (violence &amp; profanity) "
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="#B4B3B3"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/animeType"
+                    app:layout_constraintTop_toBottomOf="@id/animeType" />
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollFlags"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/anime_foreground">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animeRankText"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_14sdp"
-                        android:text="Ranked"
-                        android:textAppearance="@style/Baloothambi2_medium"
-                        android:textColor="#B4B3B3"
-                        android:textSize="@dimen/_15ssp"
-                        app:flow_horizontalStyle="packed"
-                        app:layout_constraintEnd_toStartOf="@id/animeRankValue"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/anime_foreground" />
+                        android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animeRankValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="#169"
-                        android:textAppearance="@style/Baloothambi2_semiBold"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_17ssp"
-                        app:layout_constraintBottom_toBottomOf="@id/animeRankText"
-                        app:layout_constraintEnd_toStartOf="@id/animePopularityText"
-                        app:layout_constraintStart_toEndOf="@id/animeRankText"
-                        app:layout_constraintTop_toTopOf="@id/animeRankText" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animeRankText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_14sdp"
+                            android:text="Ranked"
+                            android:textAppearance="@style/Baloothambi2_medium"
+                            android:textColor="#B4B3B3"
+                            android:textSize="@dimen/_15ssp"
+                            app:flow_horizontalStyle="packed"
+                            app:layout_constraintEnd_toStartOf="@id/animeRankValue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/anime_foreground" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animePopularityText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_14sdp"
-                        android:text="Popularity"
-                        android:textAppearance="@style/Baloothambi2_medium"
-                        android:textColor="#B4B3B3"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
-                        app:layout_constraintStart_toEndOf="@id/animeRankValue"
-                        app:layout_constraintTop_toTopOf="@id/animeRankValue" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animeRankValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="#169"
+                            android:textAppearance="@style/Baloothambi2_semiBold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/animeRankText"
+                            app:layout_constraintEnd_toStartOf="@id/animePopularityText"
+                            app:layout_constraintStart_toEndOf="@id/animeRankText"
+                            app:layout_constraintTop_toTopOf="@id/animeRankText" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animePopularityValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="#169"
-                        android:textAppearance="@style/Baloothambi2_semiBold"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_17ssp"
-                        app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
-                        app:layout_constraintStart_toEndOf="@id/animePopularityText"
-                        app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animePopularityText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_14sdp"
+                            android:text="Popularity"
+                            android:textAppearance="@style/Baloothambi2_medium"
+                            android:textColor="#B4B3B3"
+                            android:textSize="@dimen/_15ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
+                            app:layout_constraintStart_toEndOf="@id/animeRankValue"
+                            app:layout_constraintTop_toTopOf="@id/animeRankValue" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animeMembersText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_14sdp"
-                        android:text="Members"
-                        android:textAppearance="@style/Baloothambi2_medium"
-                        android:textColor="#B4B3B3"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
-                        app:layout_constraintStart_toEndOf="@id/animePopularityValue"
-                        app:layout_constraintTop_toTopOf="@id/animeRankValue" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animePopularityValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="#169"
+                            android:textAppearance="@style/Baloothambi2_semiBold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
+                            app:layout_constraintStart_toEndOf="@id/animePopularityText"
+                            app:layout_constraintTop_toTopOf="@id/animePopularityText" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/animeMembersValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:text="#169"
-                        android:textAppearance="@style/Baloothambi2_semiBold"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_17ssp"
-                        app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
-                        app:layout_constraintStart_toEndOf="@id/animeMembersText"
-                        app:layout_constraintTop_toTopOf="@id/animePopularityText" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animeMembersText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_14sdp"
+                            android:text="Members"
+                            android:textAppearance="@style/Baloothambi2_medium"
+                            android:textColor="#B4B3B3"
+                            android:textSize="@dimen/_15ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/animeRankValue"
+                            app:layout_constraintStart_toEndOf="@id/animePopularityValue"
+                            app:layout_constraintTop_toTopOf="@id/animeRankValue" />
 
-                </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/animeMembersValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:text="#169"
+                            android:textAppearance="@style/Baloothambi2_semiBold"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17ssp"
+                            app:layout_constraintBottom_toBottomOf="@id/animePopularityText"
+                            app:layout_constraintStart_toEndOf="@id/animeMembersText"
+                            app:layout_constraintTop_toTopOf="@id/animePopularityText" />
 
-            </HorizontalScrollView>
+                    </LinearLayout>
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/manageFavouriteFab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:backgroundTint="#0E294E"
-                android:ellipsize="marquee"
-                android:outlineAmbientShadowColor="#538EDF"
-                android:outlineSpotShadowColor="#3386F8"
-                android:shadowColor="#046EFF"
-                android:shadowRadius="50"
-                android:text="add to favourite"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="@color/white"
-                app:elevation="@dimen/_20sdp"
-                app:icon="@drawable/ic_baseline_favorite_24"
-                app:iconTint="@color/red_F87575"
-                app:layout_constraintEnd_toStartOf="@id/manageWebsiteFab"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dateChip" />
+                </HorizontalScrollView>
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/manageWebsiteFab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:backgroundTint="#0E294E"
-                android:ellipsize="marquee"
-                android:outlineAmbientShadowColor="#538EDF"
-                android:outlineSpotShadowColor="#3386F8"
-                android:shadowColor="#046EFF"
-                android:shadowRadius="50"
-                android:text="open website"
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="@color/white"
-                app:elevation="@dimen/_20sdp"
-                app:icon="@drawable/ic_website"
-                app:iconTint="@color/blue_0F8CCF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/manageFavouriteFab"
-                app:layout_constraintTop_toBottomOf="@id/dateChip" />
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/manageFavouriteFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:backgroundTint="#0E294E"
+                    android:ellipsize="marquee"
+                    android:outlineAmbientShadowColor="#538EDF"
+                    android:outlineSpotShadowColor="#3386F8"
+                    android:shadowColor="#046EFF"
+                    android:shadowRadius="50"
+                    android:text="add to favourite"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="@color/white"
+                    app:elevation="@dimen/_20sdp"
+                    app:icon="@drawable/ic_baseline_favorite_24"
+                    app:iconTint="@color/red_F87575"
+                    app:layout_constraintEnd_toStartOf="@id/manageWebsiteFab"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dateChip" />
 
-            <include
-                android:id="@+id/scoreChip"
-                name="@{scoreTestKey}"
-                layout="@layout/custom_chip_layout"
-                value="@{scoreTestValue}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scrollFlags" />
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/manageWebsiteFab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:backgroundTint="#0E294E"
+                    android:ellipsize="marquee"
+                    android:outlineAmbientShadowColor="#538EDF"
+                    android:outlineSpotShadowColor="#3386F8"
+                    android:shadowColor="#046EFF"
+                    android:shadowRadius="50"
+                    android:text="open website"
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="@color/white"
+                    app:elevation="@dimen/_20sdp"
+                    app:icon="@drawable/ic_website"
+                    app:iconTint="@color/blue_0F8CCF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/manageFavouriteFab"
+                    app:layout_constraintTop_toBottomOf="@id/dateChip" />
 
-            <include
-                android:id="@+id/studioChip"
-                name="@{studioTestKey}"
-                layout="@layout/custom_chip_layout"
-                value="@{studioTestValue}"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toEndOf="@id/scoreChip"
-                app:layout_constraintTop_toTopOf="@id/scoreChip"
-                app:layout_constraintBottom_toBottomOf="@id/scoreChip" />
+                <include
+                    android:id="@+id/scoreChip"
+                    name="@{scoreTestKey}"
+                    layout="@layout/custom_chip_layout"
+                    value="@{scoreTestValue}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scrollFlags" />
 
-            <include
-                android:id="@+id/genreChip"
-                name="@{studioTestKey}"
-                layout="@layout/custom_chip_layout"
-                value="@{studioTestValue}"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scoreChip" />
+                <include
+                    android:id="@+id/studioChip"
+                    name="@{studioTestKey}"
+                    layout="@layout/custom_chip_layout"
+                    value="@{studioTestValue}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/scoreChip"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/scoreChip"
+                    app:layout_constraintTop_toTopOf="@id/scoreChip" />
 
-            <include
-                android:id="@+id/durationData"
-                name="@{durationTestKey}"
-                layout="@layout/horizonal_value_layout"
-                value="@{durationTestValue}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/genreChip" />
+                <include
+                    android:id="@+id/genreChip"
+                    name="@{studioTestKey}"
+                    layout="@layout/custom_chip_layout"
+                    value="@{studioTestValue}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scoreChip" />
 
-            <include
-                android:id="@+id/dateChip"
-                name="@{dateTestKey}"
-                layout="@layout/horizonal_value_layout"
-                value="@{dateTestValue}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/durationData" />
+                <include
+                    android:id="@+id/durationData"
+                    name="@{durationTestKey}"
+                    layout="@layout/horizonal_value_layout"
+                    value="@{durationTestValue}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/genreChip" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/animeDescribtion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:gravity="center"
-                android:text="Gabii Braun and Falco Grice have been training their entire lives to inherit one of the seven titans under Marley's control and aid their nation in eradicating the Eldians on Paradis. However, just as all seems well for the two cadets, their peace is suddenly shaken by the arrival of Eren Yeager and the remainingmembers of the Survey Corps. Having finally reached the Yeager family basement and learned about the dark history surrounding the titans, the Survey Corps has at long last found the answer they so desperately fought to uncover. With the truth now in their hands, the group set out for the world beyond the walls. In Shingeki no Kyojin: The Final Season, two utterly different worlds collide as each party pursues its own agenda in the long-awaited conclusion to Paradis fight for freedom."
-                android:textAppearance="@style/Baloothambi2_medium"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/manageFavouriteFab" />
+                <include
+                    android:id="@+id/dateChip"
+                    name="@{dateTestKey}"
+                    layout="@layout/horizonal_value_layout"
+                    value="@{dateTestValue}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/durationData" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/animeThumbnil"
-                imageCorner="@{imageTest}"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_160sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/animeDescribtion"
-                app:layout_goneMarginTop="@dimen/_20sdp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/animeDescribtion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="Gabii Braun and Falco Grice have been training their entire lives to inherit one of the seven titans under Marley's control and aid their nation in eradicating the Eldians on Paradis. However, just as all seems well for the two cadets, their peace is suddenly shaken by the arrival of Eren Yeager and the remainingmembers of the Survey Corps. Having finally reached the Yeager family basement and learned about the dark history surrounding the titans, the Survey Corps has at long last found the answer they so desperately fought to uncover. With the truth now in their hands, the group set out for the world beyond the walls. In Shingeki no Kyojin: The Final Season, two utterly different worlds collide as each party pursues its own agenda in the long-awaited conclusion to Paradis fight for freedom."
+                    android:textAppearance="@style/Baloothambi2_medium"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/manageFavouriteFab" />
 
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/playVideo"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
-                app:layout_constraintBottom_toBottomOf="@id/animeThumbnil"
-                app:layout_constraintEnd_toEndOf="@id/animeThumbnil"
-                app:layout_constraintStart_toStartOf="@id/animeThumbnil"
-                app:layout_constraintTop_toTopOf="@id/animeThumbnil"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/play_pulse_lottie_file" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/animeThumbnil"
+                    imageCorner="@{imageTest}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_160sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/animeDescribtion"
+                    app:layout_goneMarginTop="@dimen/_20sdp" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/characters_TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="Characters"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_17ssp"
-                app:layout_constraintStart_toStartOf="@id/animeThumbnil"
-                app:layout_constraintTop_toBottomOf="@id/animeThumbnil" />
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/playVideo"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/animeThumbnil"
+                    app:layout_constraintEnd_toEndOf="@id/animeThumbnil"
+                    app:layout_constraintStart_toStartOf="@id/animeThumbnil"
+                    app:layout_constraintTop_toTopOf="@id/animeThumbnil"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/play_pulse_lottie_file" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/characters_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Characters"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constraintStart_toStartOf="@id/animeThumbnil"
+                    app:layout_constraintTop_toBottomOf="@id/animeThumbnil" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/charactersRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="@id/characters_TextView"
+                    app:layout_constraintTop_toBottomOf="@id/characters_TextView"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/recommendations_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Recommendations"
+                    android:textAppearance="@style/Baloothambi2_semiBold"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_17ssp"
+                    app:layout_constraintStart_toStartOf="@id/charactersRecyclerview"
+                    app:layout_constraintTop_toBottomOf="@id/charactersRecyclerview" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recommendationsRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/recommendations_TextView"
+                    app:layout_constraintTop_toBottomOf="@id/recommendations_TextView"
+
+                    />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/charactersRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/characters_TextView"
-                app:layout_constraintStart_toStartOf="@id/characters_TextView"
-                android:layout_marginTop="@dimen/_10sdp"
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                />
+        </androidx.core.widget.NestedScrollView>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/recommendations_TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:text="Recommendations"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_17ssp"
-                app:layout_constraintStart_toStartOf="@id/charactersRecyclerview"
-                app:layout_constraintTop_toBottomOf="@id/charactersRecyclerview" />
+        <include
+            android:id="@+id/recommendedAnime"
+            layout="@layout/popup_card_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_350sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recommendationsRecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/recommendations_TextView"
-                app:layout_constraintStart_toStartOf="@id/recommendations_TextView"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/_20sdp"
+        <include
+            android:id="@+id/characterAnime"
+            layout="@layout/popup_card_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_350sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
-                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
 </layout>
 

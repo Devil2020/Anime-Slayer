@@ -12,6 +12,8 @@ import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.expertapps.base.extensions.animateCard
+import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.morse.animeslayer.R
@@ -43,14 +45,14 @@ class HomeFragment : Fragment(), AnimeListListener {
                 findNavController().navigateSafe(R.id.action_homeFragment_to_searchFragment)
             }
             R.id.cardOfAnimeDescribtion -> {
-                if (binding.cardOfAnimeDescribtion.visibility == View.VISIBLE) {
-                    returnCardToOriginPosition(450)
+                if (binding.currentAnime.cardRoot.visibility == View.VISIBLE) {
+                    returnCardToOriginPosition(binding.homeRoot , binding.currentAnime.cardRoot , animeView,450)
                 } else {
-                    animateCard(animeView)
+                    animateCard(binding.homeRoot , binding.currentAnime.cardRoot ,animeView)
                 }
             }
             R.id.anime_detail_navigation -> {
-                val options = kotlin.Pair(binding.animeImageview, "animeImage")
+                val options = Pair(binding.currentAnime.animeImageview , "animeImage")
                 val extras = FragmentNavigatorExtras(options)
                 findNavController().navigateSafe(
                     R.id.action_homeFragment_to_animeDetailFragment,
@@ -75,65 +77,26 @@ class HomeFragment : Fragment(), AnimeListListener {
             this.searchIconIv.setOnClickListener(
                 homeClickListener
             )
-            this.cardOfAnimeDescribtion.setOnClickListener(
-                homeClickListener
-            )
-            this.animeDetailNavigation.setOnClickListener(
+            this.currentAnime.cardRoot.setOnClickListener(
                 homeClickListener
             )
             this.animeListRv.adapter = animeAdapter
             this.animeListRv.addItemDecoration(
                 itemDecorator
             )
-            this.closeCard.setOnClickListener {
-                returnCardToOriginPosition(650)
+            this.currentAnime.cardRoot.setOnClickListener {
+                returnCardToOriginPosition(binding.homeRoot , binding.currentAnime.cardRoot ,animeView ,650)
             }
         }
         return binding.root
     }
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
-        if (binding.cardOfAnimeDescribtion.visibility == View.VISIBLE) {
-            returnCardToOriginPosition(450)
+        this.animeView = animeView
+        if (binding.currentAnime.cardRoot.visibility == View.VISIBLE) {
+            returnCardToOriginPosition(binding.homeRoot , binding.currentAnime.cardRoot ,animeView ,450)
         } else {
-            animateCard(animeView)
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun returnCardToOriginPosition(duration: Long) {
-        android.transition.TransitionManager.beginDelayedTransition(
-            binding.homeRoot,
-            getTransform(binding.cardOfAnimeDescribtion, animeView, duration)
-        )
-        binding.cardOfAnimeDescribtion?.isGone = true
-        animeView?.isGone = false
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    fun animateCard(view: View) {
-        animeView = view
-        android.transition.TransitionManager.beginDelayedTransition(
-            binding.homeRoot,
-            getTransform(view, binding.cardOfAnimeDescribtion, 650)
-        )
-        view?.isGone = true
-        binding.cardOfAnimeDescribtion?.isGone = false
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun getTransform(
-        mStartView: View,
-        mEndView: View,
-        customDuration: Long
-    ): MaterialContainerTransform {
-        return MaterialContainerTransform().apply {
-            startView = mStartView
-            endView = mEndView
-            addTarget(mEndView)
-            pathMotion = MaterialArcMotion()
-            duration = customDuration
-            scrimColor = Color.TRANSPARENT
+            animateCard(binding.homeRoot , binding.currentAnime.cardRoot,animeView)
         }
     }
 
