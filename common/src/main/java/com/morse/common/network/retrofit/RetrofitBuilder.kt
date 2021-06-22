@@ -45,5 +45,4 @@ object RetrofitBuilder {
         return okHttp?.build()
     }
 
-
 }

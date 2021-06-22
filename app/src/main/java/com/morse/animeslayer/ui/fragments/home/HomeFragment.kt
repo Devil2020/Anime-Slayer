@@ -1,18 +1,11 @@
 package com.morse.animeslayer.ui.fragments.home
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.expertapps.base.extensions.animateCard
@@ -20,13 +13,9 @@ import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentHomeBinding
 import com.morse.animeslayer.domain.AnimeListResponse
-import com.morse.animeslayer.ui.activity.HomeSharedViewModel
-import com.morse.animeslayer.ui.fragments.menu.MenuBottomSheet
+import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.utils.ItemOffsetDecoration
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flowOf
 
 
 class HomeFragment : Fragment(), AnimeListListener {

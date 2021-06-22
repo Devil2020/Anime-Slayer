@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.morse.animeslayer.databinding.AnimeItemLayoutBinding
 import com.morse.animeslayer.domain.AnimeListResponse
-import com.morse.animeslayer.ui.fragments.menu.MenuItem
 
 interface AnimeListListener {
     fun onAnimeClicked ( animeView : View , anime : AnimeListResponse.Anime)

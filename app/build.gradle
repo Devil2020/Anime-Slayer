@@ -74,6 +74,7 @@ dependencies {
     implementation libraries.multidex
     implementation libraries.life_cycle.values()
     implementation libraries.glide
+    implementation libraries.switch
     kapt libraries.glide_kapt
 /*
     implementation libraries.moshi

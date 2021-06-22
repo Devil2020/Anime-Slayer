@@ -6,8 +6,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.menu.MenuBottomSheet"
-        app:behavior_peekHeight="@dimen/dp_200"
+        tools:context=".ui.fragments.menu.host.MenuBottomSheet"
+        app:behavior_peekHeight="@dimen/dp_300"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
         >
 
@@ -26,66 +26,18 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/me_icon_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:src="@drawable/me_menu_icon"
-                app:layout_constraintStart_toStartOf="parent"
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="0dp"
+                app:layout_constraintVertical_bias="0"
+                android:layout_height="@dimen/_550sdp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/my_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/me_icon_iv"
-                app:layout_constraintStart_toEndOf="@id/me_icon_iv"
-                android:text="Mohammed morse"
-                android:textAppearance="@style/Baloothambi2_regular"
-                android:textSize="@dimen/_17ssp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:textColor="@color/white"
-                android:layout_marginStart="@dimen/_10sdp"
-                />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/my_ambition_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/my_name_tv"
-                app:layout_constraintStart_toEndOf="@id/me_icon_iv"
-                android:text="Android engineer and ui ux lover"
-                android:textAppearance="@style/Baloothambi2_regular"
-                android:textSize="@dimen/_12ssp"
-                app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
-                android:textColor="@color/gray_DDDDDD"
-                android:layout_marginStart="@dimen/_10sdp"
-                />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_setting"
-                app:layout_constraintTop_toTopOf="@id/my_name_tv"
-                app:layout_constraintBottom_toBottomOf="@id/my_ambition_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="@dimen/_10sdp"
-                />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/menu_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/me_icon_iv"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"
-                tools:listitem="@layout/menu_item_layout"
-                tools:itemCount="6"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/menu_navigation" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

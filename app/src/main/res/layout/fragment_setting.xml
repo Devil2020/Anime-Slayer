@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.menu.pages.SettingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/networkConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_70sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Network Configration"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/white"
+            />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/retrofit_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/networkConfig"
+            app:layout_constraintStart_toStartOf="@id/networkConfig"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:checked="true"
+            android:focusedByDefault="true"
+            app:kswThumbColor="#FDA124"
+            app:kswTintColor="#F4C88C"
+            />
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retrofit"
+            app:layout_constraintTop_toTopOf="@id/retrofit_Switch"
+            app:layout_constraintBottom_toBottomOf="@id/retrofit_Switch"
+            app:layout_constraintStart_toEndOf="@id/retrofit_Switch"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/gray_DDDDDD"
+            />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/fuel_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/retrofit_Switch"
+            app:layout_constraintStart_toStartOf="@id/retrofit_Switch"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:focusedByDefault="true"
+            app:kswThumbColor="#FDA124"
+            app:kswTintColor="#F4C88C"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fuel"
+            app:layout_constraintTop_toTopOf="@id/fuel_Switch"
+            app:layout_constraintBottom_toBottomOf="@id/fuel_Switch"
+            app:layout_constraintStart_toEndOf="@id/fuel_Switch"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/gray_DDDDDD"
+            />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/fast_networking_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fuel_Switch"
+            app:layout_constraintStart_toStartOf="@id/fuel_Switch"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:focusedByDefault="true"
+            app:kswThumbColor="#FDA124"
+            app:kswTintColor="#F4C88C"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fast Networking"
+            app:layout_constraintTop_toTopOf="@id/fast_networking_Switch"
+            app:layout_constraintBottom_toBottomOf="@id/fast_networking_Switch"
+            app:layout_constraintStart_toEndOf="@id/fast_networking_Switch"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/gray_DDDDDD"
+            />
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/localConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fast_networking_Switch"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Local Configration"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/white"
+            />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/room_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/localConfig"
+            app:layout_constraintStart_toStartOf="@id/localConfig"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:focusedByDefault="true"
+            android:checked="true"
+            app:kswThumbColor="#FDA124"
+            app:kswTintColor="#F4C88C"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Room Database"
+            app:layout_constraintTop_toTopOf="@id/room_Switch"
+            app:layout_constraintBottom_toBottomOf="@id/room_Switch"
+            app:layout_constraintStart_toEndOf="@id/room_Switch"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/gray_DDDDDD"
+            />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/realm_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/room_Switch"
+            app:layout_constraintStart_toStartOf="@id/room_Switch"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_30sdp"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:focusedByDefault="true"
+            app:kswThumbColor="#FDA124"
+            app:kswTintColor="#F4C88C"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Realm Database"
+            app:layout_constraintTop_toTopOf="@id/realm_Switch"
+            app:layout_constraintBottom_toBottomOf="@id/realm_Switch"
+            app:layout_constraintStart_toEndOf="@id/realm_Switch"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:textAppearance="@style/Baloothambi2_semiBold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/gray_DDDDDD"
+            />
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

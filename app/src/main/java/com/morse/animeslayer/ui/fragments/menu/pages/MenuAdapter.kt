@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.menu
+package com.morse.animeslayer.ui.fragments.menu.pages
 
 
 import android.view.LayoutInflater

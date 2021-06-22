@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.menu
+package com.morse.animeslayer.ui.fragments.menu.host
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.morse.animeslayer.databinding.FragmentMenuBottomSheetBinding
+import com.morse.animeslayer.ui.fragments.menu.pages.MenuAdapter
+import com.morse.animeslayer.ui.fragments.menu.pages.MenuItem
+import com.morse.animeslayer.ui.fragments.menu.pages.MenuItemListener
 
-class MenuBottomSheet : BottomSheetDialogFragment() , MenuItemListener {
+class MenuBottomSheet : BottomSheetDialogFragment() {
 
     companion object {
         val TAG = MenuBottomSheet.javaClass.name
@@ -26,17 +29,6 @@ class MenuBottomSheet : BottomSheetDialogFragment() , MenuItemListener {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        with(binding.menuRecyclerview){
-            adapter = MenuAdapter(this@MenuBottomSheet)
-            addRecyclerListener {
-               (it as MenuAdapter.MenuViewHolder).ourMenuItem
-            }
-        }
-    }
 
-    override fun onMenuClicked(menuItem: MenuItem) {
-        Toast.makeText(requireContext() ,  menuItem.menuItemName , Toast.LENGTH_SHORT).show()
-    }
+
 }
