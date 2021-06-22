@@ -42,7 +42,7 @@ class SplashFragment : Fragment() {
 
     private fun animateSkipCount() {
         with(binding.skipAfter5SecondsTv) {
-            valueAnimateDescending(10, 10000) {
+            valueAnimateDescending(10, 10) {
 
                 when (it) {
                     "0" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
