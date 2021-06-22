@@ -31,8 +31,8 @@ Model - Manages local data stored in the database.
 
 ## [](https://github.com/Devil2020/Anime-Slayer#remote-network-data-source)Okay now this is my arhitecture will be :
 
-<img   width="415" src=https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg>
-[![](https://github.com/mohammedgmgn/MovieApp-Clean-Architecture/raw/master/arccomponents.png)](https://github.com/mohammedgmgn/MovieApp-Clean-Architecture/blob/master/arccomponents.png)
+<img   width="415" src=https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg?token=AHGHFRBV2FIARCI5DSMMEL3A2G37Q>
+[![](https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg?token=AHGHFRBV2FIARCI5DSMMEL3A2G37Q)](https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg?token=AHGHFRBV2FIARCI5DSMMEL3A2G37Q)
 
 ### [](https://github.com/Devil2020/Anime-Slayer#used-libraries)Used libraries:
 
