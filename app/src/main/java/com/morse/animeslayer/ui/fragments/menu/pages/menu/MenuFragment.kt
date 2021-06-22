@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.menu.pages
+package com.morse.animeslayer.ui.fragments.menu.pages.menu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentMenuBinding
 import com.morse.common.extensions.navigateSafeWithNavDirections
 
 
-class MenuFragment : Fragment() , MenuItemListener{
+class MenuFragment : Fragment() , MenuItemListener {
 
     private val binding : FragmentMenuBinding by lazy {
         FragmentMenuBinding.inflate(layoutInflater)

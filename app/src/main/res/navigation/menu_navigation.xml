@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.morse.animeslayer.ui.fragments.menu.pages.MenuFragment"
+        android:name="com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.morse.animeslayer.ui.fragments.menu.pages.SettingFragment"
+        android:name="com.morse.animeslayer.ui.fragments.menu.pages.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>
