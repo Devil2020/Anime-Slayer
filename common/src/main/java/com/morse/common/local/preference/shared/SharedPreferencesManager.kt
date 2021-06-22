@@ -6,6 +6,7 @@ import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.expertapps.base.extensions.decryptAES
 import com.expertapps.base.extensions.encryptAES
+import okhttp3.internal.toLongOrDefault
 import javax.inject.Inject
 
 class SharedPreferencesManager private constructor(private val sharedPrefsInstance: SharedPreferences) {
@@ -91,7 +92,7 @@ class SharedPreferencesManager private constructor(private val sharedPrefsInstan
     fun getLong(tag: String, defValue: Long, secure: Boolean = false): Long? {
         return if (secure) {
             kotlin.runCatching {
-                sharedPrefsInstance.getString(tag, defValue.toString())?.decryptAES()?.toLong()
+                sharedPrefsInstance.getString(tag, defValue.toString())?.decryptAES()?.toLongOrDefault(0)
             }
                 .getOrDefault(defValue)
         } else {

@@ -41,8 +41,6 @@ object RetrofitBuilder {
             this.connectTimeout(30 , TimeUnit.SECONDS)
             this.writeTimeout(30, TimeUnit.SECONDS)
             this.addInterceptor(loggingInterceptor)
-
-           // this.cache(getCache())
         }
         return okHttp?.build()
     }
