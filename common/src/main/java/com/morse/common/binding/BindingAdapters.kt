@@ -16,6 +16,7 @@
 
 package com.expertapps.base.binding
 
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,7 +27,7 @@ import com.morse.common.R
 
 @BindingAdapter("imageUrl")
 fun ImageView.loadImage(url: String?) {
-    if (!url.isNullOrEmpty()) {
+    if (!TextUtils.isEmpty(url)) {
         loadCirculeImage(url)
     }
 }

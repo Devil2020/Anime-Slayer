@@ -35,6 +35,7 @@ import com.google.android.material.tabs.TabLayout
 import com.morse.common.R
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import java.util.*
 import kotlin.math.abs
 
 
@@ -379,7 +380,7 @@ fun View.enable() {
 }
 
 fun android.widget.TextView.visibleIf(value: String?) {
-    if (!value.isNullOrEmpty()) {
+    if (!TextUtils.isEmpty(value)) {
         this.visible()
         this.text = value
     } else this.gone()

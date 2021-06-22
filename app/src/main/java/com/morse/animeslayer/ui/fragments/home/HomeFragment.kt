@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.expertapps.base.extensions.animateCard
+import com.expertapps.base.extensions.loadImageWithCornerRadius
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentHomeBinding
+import com.morse.animeslayer.databinding.PopupCardLayoutBinding
 import com.morse.animeslayer.domain.AnimeListResponse
 import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
+import com.morse.animeslayer.utils.render
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.utils.ItemOffsetDecoration
 
@@ -107,6 +110,7 @@ class HomeFragment : Fragment(), AnimeListListener {
             )
         } else {
             animateCard(binding.homeRoot, binding.currentAnime.cardRoot, animeView)
+            binding.currentAnime.render(anime.imageUrl!! , anime.title!! , anime.synopsis!!)
         }
     }
 
