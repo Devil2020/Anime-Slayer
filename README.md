@@ -32,7 +32,7 @@ Model - Manages local data stored in the database.
 ## [](https://github.com/Devil2020/Anime-Slayer#remote-network-data-source)Okay now this is my arhitecture will be :
 
 
-[![](https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg?token=AHGHFRBV2FIARCI5DSMMEL3A2G37Q)](https://raw.githubusercontent.com/Devil2020/Anime-Slayer/master/images/architecture.jpg?token=AHGHFRBV2FIARCI5DSMMEL3A2G37Q)
+[![](https://i.ibb.co/5BTMtSx/Anime-Slayer-Architecture.jpg)](https://i.ibb.co/5BTMtSx/Anime-Slayer-Architecture.jpg)
 
 ### [](https://github.com/Devil2020/Anime-Slayer#used-libraries)Used libraries:
 
