@@ -23,6 +23,7 @@
             android:layout_height="@dimen/_200sdp"
             android:scaleType="fitXY"
             imageCorner="@{animeItem.imageUrl}"
+            android:transitionName="animeImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/anime_rate_tv" />
 

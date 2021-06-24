@@ -11,10 +11,11 @@
         tools:context=".ui.fragments.home.HomeFragment">
 
         <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/motionRoot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:applyMotionScene="true"
-            app:layoutDescription="@xml/home_scene">
+            app:layoutDescription="@xml/home_scene"
+            app:applyMotionScene="true">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/me_icon_iv"
@@ -31,12 +32,46 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/me_icon_iv"
+                app:layout_constraintEnd_toStartOf="@id/search_icon_iv"
+                app:layout_constraintTop_toTopOf="@id/me_icon_iv"
+                app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:boxStrokeWidth="0dp"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusBottomEnd="@dimen/_40sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_40sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_40sdp"
+                app:boxCornerRadiusTopStart="@dimen/_40sdp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@android:color/transparent"
+                app:startIconTint="@color/blue_EE00304F"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/ic_baseline_search_24"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/search_icon_iv"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/ic_baseline_search_24"
+                app:altSrc="@drawable/ic_cancel"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/me_icon_iv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/me_icon_iv" />
@@ -159,6 +194,86 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/searchExtebdedFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/_10sdp"
+            android:backgroundTint="#fda124"
+            app:icon="@drawable/ic_baseline_search_24"
+            app:iconTint="@color/white"
+            android:text="Search"
+            android:elevation="@dimen/_50sdp"
+            android:textColor="@color/white"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:textSize="@dimen/_15ssp"
+            android:ellipsize="marquee"
+            android:outlineAmbientShadowColor="#553100"
+            android:outlineSpotShadowColor="#422500"
+            android:shadowColor="#573200"
+            android:shadowRadius="50"
+            app:elevation="@dimen/_50sdp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/searchDialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_120sdp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchAA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                app:boxStrokeWidth="0dp"
+                app:boxBackgroundMode="filled"
+                android:layout_centerInParent="true"
+                app:boxCornerRadiusBottomEnd="@dimen/_40sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_40sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_40sdp"
+                app:boxCornerRadiusTopStart="@dimen/_40sdp"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@android:color/transparent"
+                app:startIconTint="@color/blue_EE00304F"
+                android:defaultFocusHighlightEnabled="false"
+                app:boxStrokeWidthFocused="0dp"
+                app:startIconDrawable="@drawable/ic_baseline_search_24"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/closeSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/close_rounded_corner_shape"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:src="@drawable/ic_close"
+                app:tint="@android:color/white"
+                android:text="Close"
+                android:textColor="@color/white"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:layout_alignParentTop="true"
+                />
+
+        </RelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

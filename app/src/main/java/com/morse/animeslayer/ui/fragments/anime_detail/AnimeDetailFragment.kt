@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.transition.ChangeBounds
@@ -142,6 +143,10 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
             animateCard(binding.detailRoot, binding.characterAnime.cardRoot, characterView)
         }
         this.characterView = characterView
+    }
+
+    override fun onAnimeLongClicked(animeImageView : ImageView, anime: AnimeListResponse.Anime) {
+
     }
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
