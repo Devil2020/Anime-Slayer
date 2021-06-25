@@ -138,7 +138,7 @@ fun ImageView.loadImageWithCornerRadius(
     requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(radius))
     this.showVisibilty()
     val circularProgressDrawable = CircularProgressDrawable(this.context)
-    circularProgressDrawable.strokeWidth = 1f
+    circularProgressDrawable.strokeWidth = 5f
     circularProgressDrawable.centerRadius = 35f
     circularProgressDrawable.start()
     if (TextUtils.isEmpty(imageUrl)) {

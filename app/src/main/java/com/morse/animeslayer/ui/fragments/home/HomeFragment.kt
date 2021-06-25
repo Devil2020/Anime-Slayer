@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
@@ -68,16 +69,22 @@ class HomeFragment : Fragment(), AnimeListListener {
 
             R.id.closeSearch -> {
 
-                returnCardToOriginPosition(binding.homeRoot, binding.searchDialog, binding.searchExtebdedFab , 400)
+                returnCardToOriginPosition(
+                    binding.homeRoot,
+                    binding.searchDialog,
+                    binding.searchExtebdedFab,
+                    400
+                )
 
             }
 
             R.id.anime_detail_navigation -> {
                 val options = Pair(binding.currentAnime.animeImageview, "animeImage")
                 val extras = FragmentNavigatorExtras(options)
-                findNavController().navigateSafe(
+                findNavController().navigate(
                     R.id.action_homeFragment_to_animeDetailFragment,
-                    navExtras = extras
+                    null, null,
+                    extras
                 )
             }
         }
@@ -87,6 +94,8 @@ class HomeFragment : Fragment(), AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedElementReturnTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         itemDecorator = ItemOffsetDecoration(
             requireContext(),
             R.dimen._9sdp
@@ -132,16 +141,16 @@ class HomeFragment : Fragment(), AnimeListListener {
             }
             animeListRv.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 if (scrollY > oldScrollY) {
-                   searchExtebdedFab.shrink()
+                    searchExtebdedFab.shrink()
                 } else {
                     searchExtebdedFab?.extend()
                 }
             }
         }
-        listenToActions ()
+        listenToActions()
     }
 
-    override fun onAnimeLongClicked(animeImageView : ImageView,  anime: AnimeListResponse.Anime) {
+    override fun onAnimeLongClicked(animeImageView: ImageView, anime: AnimeListResponse.Anime) {
         val options = Pair(animeImageView, "animeImage")
         val extras = FragmentNavigatorExtras(options)
         findNavController().navigateSafe(
@@ -150,34 +159,37 @@ class HomeFragment : Fragment(), AnimeListListener {
         )
     }
 
-    private fun listenToActions (){
-       requireActivity().supportFragmentManager.setFragmentResultListener(MenuFragment::class.java.name , viewLifecycleOwner) { requestKey: String, dataSended: Bundle ->
+    private fun listenToActions() {
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            MenuFragment::class.java.name,
+            viewLifecycleOwner
+        ) { requestKey: String, dataSended: Bundle ->
             val menuItem = dataSended.getString(MenuType::class.java.name) ?: "Current_Season"
             when (MenuType.valueOf(menuItem)) {
 
                 MenuType.Current_Season -> {
-                    Toast.makeText(requireContext() , "Current_Season" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Current_Season", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Schedule -> {
-                    Toast.makeText(requireContext() , "Schedule" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Schedule", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Favourite -> {
                     findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
                 }
                 MenuType.Top_Tv -> {
-                    Toast.makeText(requireContext() , "Top_Tv" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Top_Tv", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Top_Airing -> {
-                    Toast.makeText(requireContext() , "Top_Airing" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Top_Airing", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Top_Movie -> {
-                    Toast.makeText(requireContext() , "Top_Movie" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Top_Movie", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Top_Incoming -> {
-                    Toast.makeText(requireContext() , "Top_Incoming" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Top_Incoming", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Top_Manga -> {
-                    Toast.makeText(requireContext() , "Top Manga" , Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Top Manga", Toast.LENGTH_SHORT).show()
                 }
             }
         }

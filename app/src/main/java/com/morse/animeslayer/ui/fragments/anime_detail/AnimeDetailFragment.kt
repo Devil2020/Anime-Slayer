@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.transition.ChangeBounds
+import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
@@ -17,6 +17,7 @@ import com.morse.animeslayer.domain.AnimeListResponse
 import com.morse.animeslayer.ui.fragments.home.AnimeListAdapter
 import com.morse.animeslayer.ui.fragments.home.AnimeListListener
 import com.morse.common.utils.ItemOffsetDecoration
+import java.util.concurrent.TimeUnit
 
 class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
@@ -46,7 +47,11 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                         450
                     )
                 } else {
-                    animateCard(binding.detailRoot, binding.recommendedAnime.cardRoot, characterView)
+                    animateCard(
+                        binding.detailRoot,
+                        binding.recommendedAnime.cardRoot,
+                        characterView
+                    )
                 }
             }
             R.id.characterAnime -> {
@@ -68,20 +73,19 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     private val recommendationAdapter = AnimeListAdapter(this)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sharedElementEnterTransition = ChangeBounds().apply {
-            duration = 350
-        }
-        sharedElementReturnTransition = ChangeBounds().apply {
-            duration = 350
-        }
-
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
         with(binding) {
-            imageTest =
-                "https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1593544464864-G6P4BZA1W880KYYO16DA/ke17ZwdGBToddI8pDm48kJtX192gXcg_LgA3lCIbBpNZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyqMo3jzJhLqXTCrPyqviB5hVyaUuIqL1zNo8v7faVDIjGq_WbF1sCo3nyx4oc98OM/kakeguri_best_anime_characters_cosplay.png?format=500w"
+            imageTest = "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
             scoreTestKey = "Score"
             scoreTestValue = "#1960"
 
@@ -145,7 +149,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         this.characterView = characterView
     }
 
-    override fun onAnimeLongClicked(animeImageView : ImageView, anime: AnimeListResponse.Anime) {
+    override fun onAnimeLongClicked(animeImageView: ImageView, anime: AnimeListResponse.Anime) {
 
     }
 
