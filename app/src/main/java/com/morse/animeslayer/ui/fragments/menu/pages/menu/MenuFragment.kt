@@ -1,19 +1,22 @@
 package com.morse.animeslayer.ui.fragments.menu.pages.menu
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.databinding.FragmentMenuBinding
+import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
 import com.morse.common.extensions.navigateSafeWithNavDirections
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
-class MenuFragment : Fragment() , MenuItemListener {
+class MenuFragment : Fragment(), MenuItemListener {
 
-    private val binding : FragmentMenuBinding by lazy {
+    private val binding: FragmentMenuBinding by lazy {
         FragmentMenuBinding.inflate(layoutInflater)
     }
 
@@ -27,7 +30,7 @@ class MenuFragment : Fragment() , MenuItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding.menuRecyclerview){
+        with(binding.menuRecyclerview) {
             adapter = MenuAdapter(this@MenuFragment)
             addRecyclerListener {
                 (it as MenuAdapter.MenuViewHolder).ourMenuItem
@@ -39,6 +42,11 @@ class MenuFragment : Fragment() , MenuItemListener {
     }
 
     override fun onMenuClicked(menuItem: MenuItem) {
-        Toast.makeText(requireContext() ,  menuItem.menuItemName , Toast.LENGTH_SHORT).show()
+        val menuBundle = Bundle ().apply {
+            putString(MenuType::class.java.name , menuItem.menuType.name)
+        }
+        requireActivity().supportFragmentManager.setFragmentResult(MenuFragment::class.java.name , menuBundle )
+        requireActivity().supportFragmentManager.setFragmentResult(MenuBottomSheet::class.java.name , Bundle.EMPTY )
+
     }
 }

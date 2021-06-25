@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.morse.animeslayer.ui.fragments.search.SearchFragment"
+        android:name="com.morse.animeslayer.ui.fragments.favourite.FavouriteFragment"
         android:label="SearchFragment" >
         <argument
             android:name="animeId"

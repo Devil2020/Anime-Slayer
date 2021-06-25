@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             imageRes="@{menuItem.menuItemImage}"
             android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
             android:layout_marginHorizontal="@dimen/_8sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="#DD001D45"
+            android:background="#11001D45"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

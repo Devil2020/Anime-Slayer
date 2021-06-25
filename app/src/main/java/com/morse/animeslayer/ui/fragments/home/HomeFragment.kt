@@ -1,24 +1,27 @@
 package com.morse.animeslayer.ui.fragments.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.Toast
+/*import androidx.fragment.app.setFragmentResultListener*/
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentHomeBinding
 import com.morse.animeslayer.domain.AnimeListResponse
 import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
+import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment
+import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuType
 import com.morse.animeslayer.utils.render
 import com.morse.common.extensions.navigateSafe
+import com.morse.common.extensions.navigateSafeWithNavDirections
 import com.morse.common.utils.ItemOffsetDecoration
 
 
@@ -93,7 +96,6 @@ class HomeFragment : Fragment(), AnimeListListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         with(binding) {
             meIconIv.setOnClickListener(
                 homeClickListener
@@ -136,6 +138,7 @@ class HomeFragment : Fragment(), AnimeListListener {
                 }
             }
         }
+        listenToActions ()
     }
 
     override fun onAnimeLongClicked(animeImageView : ImageView,  anime: AnimeListResponse.Anime) {
@@ -145,6 +148,39 @@ class HomeFragment : Fragment(), AnimeListListener {
             R.id.action_homeFragment_to_animeDetailFragment,
             navExtras = extras
         )
+    }
+
+    private fun listenToActions (){
+       requireActivity().supportFragmentManager.setFragmentResultListener(MenuFragment::class.java.name , viewLifecycleOwner) { requestKey: String, dataSended: Bundle ->
+            val menuItem = dataSended.getString(MenuType::class.java.name) ?: "Current_Season"
+            when (MenuType.valueOf(menuItem)) {
+
+                MenuType.Current_Season -> {
+                    Toast.makeText(requireContext() , "Current_Season" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Schedule -> {
+                    Toast.makeText(requireContext() , "Schedule" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Favourite -> {
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+                }
+                MenuType.Top_Tv -> {
+                    Toast.makeText(requireContext() , "Top_Tv" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Top_Airing -> {
+                    Toast.makeText(requireContext() , "Top_Airing" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Top_Movie -> {
+                    Toast.makeText(requireContext() , "Top_Movie" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Top_Incoming -> {
+                    Toast.makeText(requireContext() , "Top_Incoming" , Toast.LENGTH_SHORT).show()
+                }
+                MenuType.Top_Manga -> {
+                    Toast.makeText(requireContext() , "Top Manga" , Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
