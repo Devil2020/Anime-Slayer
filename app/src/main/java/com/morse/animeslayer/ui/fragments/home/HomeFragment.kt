@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 /*import androidx.fragment.app.setFragmentResultListener*/
 import androidx.fragment.app.Fragment
@@ -153,9 +154,16 @@ class HomeFragment : Fragment(), AnimeListListener {
         listenToActions()
     }
 
-    override fun onAnimeLongClicked(animeImageView: ImageView, anime: AnimeListResponse.Anime) {
-        val options = Pair(animeImageView, "animeImage")
-        val extras = FragmentNavigatorExtras(options)
+    override fun onAnimeLongClicked(
+        animeImageView: ImageView,
+        animeName: TextView,
+        anime: AnimeListResponse.Anime
+    ) {
+
+        val extras = FragmentNavigatorExtras(
+            Pair(animeImageView, "animeImage"),
+            Pair(animeName, "animeName")
+        )
         findNavController().navigateSafe(
             R.id.action_homeFragment_to_animeDetailFragment,
             navExtras = extras

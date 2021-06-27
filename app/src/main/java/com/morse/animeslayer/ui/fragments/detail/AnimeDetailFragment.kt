@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
@@ -96,9 +97,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
+
         with(binding) {
             imageTest =
                 "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
@@ -150,6 +149,9 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
             videoAnime.closeVideoFab.setOnClickListener(detailClickListener)
 
         }
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
         return binding.root
     }
 
@@ -168,7 +170,10 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         this.characterView = characterView
     }
 
-    override fun onAnimeLongClicked(animeImageView: ImageView, anime: AnimeListResponse.Anime) {
+    override fun onAnimeLongClicked(
+        animeImageView: ImageView,
+        animeName: TextView, anime: AnimeListResponse.Anime
+    ) {
 
     }
 

@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.morse.animeslayer.databinding.AnimeItemLayoutBinding
 import com.morse.animeslayer.domain.AnimeListResponse
 
 interface AnimeListListener {
     fun onAnimeClicked ( animeView : View , anime : AnimeListResponse.Anime)
-    fun onAnimeLongClicked (animeImageView : ImageView , anime : AnimeListResponse.Anime)
+    fun onAnimeLongClicked (animeImageView : ImageView , animeName : TextView , anime : AnimeListResponse.Anime)
 }
 
 
@@ -184,7 +185,7 @@ class AnimeListAdapter (private val animeListListener: AnimeListListener) : Recy
                 animeListListener.onAnimeClicked(binding.root , animeItem)
             }
             binding.root.setOnLongClickListener {
-                animeListListener.onAnimeLongClicked( binding.animeImage ,  animeItem)
+                animeListListener.onAnimeLongClicked( binding.animeImage , binding.animeName,  animeItem)
                 true
             }
         }

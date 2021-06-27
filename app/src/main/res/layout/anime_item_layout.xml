@@ -37,11 +37,13 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/animeName"
             android:layout_width="0dp"
             android:layout_height="@dimen/_80sdp"
             android:ellipsize="end"
             android:gravity="center"
             android:lines="2"
+            android:transitionName="animeName"
             android:maxLines="2"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:paddingVertical="@dimen/_9sdp"
