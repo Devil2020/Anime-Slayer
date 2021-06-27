@@ -44,6 +44,7 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:gravity="center"
+                android:transitionName="animeName"
                 android:text="DIGIMON ADVENTURE: 2020"
                 android:textAppearance="@style/Baloothambi2_semiBold"
                 android:textColor="@color/white"

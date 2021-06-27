@@ -31,13 +31,17 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     private val detailClickListener = View.OnClickListener {
         when (it.id) {
+
             R.id.closeDetailButton -> {
                 findNavController().popBackStack()
             }
+
             R.id.manageFavouriteFab -> {
             }
+
             R.id.manageWebsiteFab -> {
             }
+
             R.id.recommendedAnime -> {
                 if (binding.recommendedAnime.cardRoot.visibility == View.VISIBLE) {
                     returnCardToOriginPosition(
@@ -54,6 +58,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                     )
                 }
             }
+
             R.id.characterAnime -> {
                 if (binding.characterAnime.cardRoot.visibility == View.VISIBLE) {
                     returnCardToOriginPosition(
@@ -66,9 +71,11 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                     animateCard(binding.detailRoot, binding.characterAnime.cardRoot, characterView)
                 }
             }
+
             R.id.playVideo -> {
                 animateCard(binding.detailRoot, binding.videoAnime.root, binding.playVideo)
             }
+
             R.id.closeVideoFab -> {
                 returnCardToOriginPosition(
                     binding.detailRoot,
@@ -77,16 +84,13 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                     450
                 )
             }
+
         }
     }
 
     private val characterAdapter = CharactersAdapter(this)
 
     private val recommendationAdapter = AnimeListAdapter(this)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -111,6 +111,7 @@
                     android:textAppearance="@style/Baloothambi2_semiBold"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15ssp"
+                    android:transitionName="animeName"
                     app:layout_constraintStart_toEndOf="@id/anime_foreground"
                     app:layout_constraintTop_toTopOf="@id/anime_foreground" />
 

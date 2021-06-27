@@ -79,8 +79,11 @@ class HomeFragment : Fragment(), AnimeListListener {
             }
 
             R.id.anime_detail_navigation -> {
-                val options = Pair(binding.currentAnime.animeImageview, "animeImage")
-                val extras = FragmentNavigatorExtras(options)
+                val extras =
+                    FragmentNavigatorExtras(
+                        Pair(binding.currentAnime.animeImageview, "animeImage"),
+                        Pair(binding.currentAnime.animeName, "animeName")
+                    )
                 findNavController().navigate(
                     R.id.action_homeFragment_to_animeDetailFragment,
                     null, null,
