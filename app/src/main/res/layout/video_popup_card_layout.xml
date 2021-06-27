@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/cardOfYoutubeVideoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:fitsSystemWindows="true"
+        android:visibility="gone"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:elevation="@dimen/_20sdp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/youtube_bg">
+
+            <RelativeLayout
+                android:id="@+id/youtubeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginVertical="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:autoPlay="true"
+                    app:enableAutomaticInitialization="true"
+                    app:videoId="8dElZUYjg70"
+                    app:handleNetworkEvents="true"
+                    app:showFullScreenButton="false"
+                    app:showSeekBar="true"
+                    app:showVideoCurrentTime="true"
+                    app:showVideoDuration="true"
+                    app:showYouTubeButton="true" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/closeVideoFab"
+                android:layout_width="wrap_content"
+                android:text="Close"
+                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_above="@id/youtubeContainer"
+                android:textAppearance="@style/Baloothambi2_semiBold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:background="@android:color/transparent"
+                android:elevation="0dp"
+                android:clickable="true" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

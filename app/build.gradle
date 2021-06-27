@@ -63,6 +63,7 @@ dependencies {
     implementation libraries.responsive_design.values()
     implementation libraries.firebase.values()
     implementation libraries.flexbox
+    implementation libraries.youtubePlayer
     implementation libraries.fuel_root.values()
     implementation libraries.map.values()
     implementation libraries.pagination3.values()

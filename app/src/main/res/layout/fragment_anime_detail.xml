@@ -45,10 +45,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/detailRoot"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/detailScrollable"
@@ -60,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#0E294E"
-                tools:context=".ui.fragments.anime_detail.AnimeDetailFragment">
+                tools:context=".ui.fragments.detail.AnimeDetailFragment">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/closeDetailButton"
@@ -178,8 +177,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:scrollbars="none"
                     android:paddingVertical="@dimen/_10sdp"
+                    android:scrollbars="none"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/anime_foreground">
 
@@ -482,28 +481,37 @@
 
         <include
             android:id="@+id/recommendedAnime"
-            layout="@layout/popup_card_layout"
+            layout="@layout/info_popup_card_layout"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <include
             android:id="@+id/characterAnime"
-            layout="@layout/popup_card_layout"
+            layout="@layout/info_popup_card_layout"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/videoAnime"
+            layout="@layout/video_popup_card_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_280sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="@dimen/_30sdp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

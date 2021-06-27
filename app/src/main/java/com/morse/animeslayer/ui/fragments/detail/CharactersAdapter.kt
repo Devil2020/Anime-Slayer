@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.anime_detail
+package com.morse.animeslayer.ui.fragments.detail
 
 import android.view.LayoutInflater
 import android.view.View

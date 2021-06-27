@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.anime_detail
+package com.morse.animeslayer.ui.fragments.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -66,6 +66,17 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
                     animateCard(binding.detailRoot, binding.characterAnime.cardRoot, characterView)
                 }
             }
+            R.id.playVideo -> {
+                animateCard(binding.detailRoot, binding.videoAnime.root, binding.playVideo)
+            }
+            R.id.closeVideoFab -> {
+                returnCardToOriginPosition(
+                    binding.detailRoot,
+                    binding.videoAnime.root,
+                    binding.playVideo,
+                    450
+                )
+            }
         }
     }
 
@@ -85,7 +96,8 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         postponeEnterTransition(250, TimeUnit.MILLISECONDS)
         with(binding) {
-            imageTest = "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
+            imageTest =
+                "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
             scoreTestKey = "Score"
             scoreTestValue = "#1960"
 
@@ -129,10 +141,13 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
             characterAnime.cardRoot.setOnClickListener(detailClickListener)
 
+            playVideo.setOnClickListener(detailClickListener)
+
+            videoAnime.closeVideoFab.setOnClickListener(detailClickListener)
+
         }
         return binding.root
     }
-
 
     override fun onCharacterClicked(characterView: View, anime: AnimeCharactersResponse.Character) {
 

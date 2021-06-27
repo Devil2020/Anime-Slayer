@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/animeDetailFragment"
-        android:name="com.morse.animeslayer.ui.fragments.anime_detail.AnimeDetailFragment"
+        android:name="com.morse.animeslayer.ui.fragments.detail.AnimeDetailFragment"
         android:label="fragment_anime_detail"
         tools:layout="@layout/fragment_anime_detail" />
 </navigation>
