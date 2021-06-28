@@ -61,8 +61,7 @@ dependencies {
     implementation libraries.navigation.values()
     implementation libraries.retrofit_root.values()
     implementation libraries.responsive_design.values()
-    implementation libraries.firebase.values()
-    implementation libraries.flexbox
+    implementation 'com.yarolegovich:discrete-scrollview:1.5.1'
     implementation libraries.youtubePlayer
     implementation libraries.fuel_root.values()
     implementation libraries.map.values()

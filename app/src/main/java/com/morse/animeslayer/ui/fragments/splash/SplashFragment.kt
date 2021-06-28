@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
+import com.morse.animeslayer.utils.repeatImages
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
 import kotlinx.coroutines.flow.*
@@ -37,12 +38,13 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.splashRoot.repeatImages()
         animateSkipCount()
     }
 
     private fun animateSkipCount() {
         with(binding.skipAfter5SecondsTv) {
-            valueAnimateDescending(10, 10000) {
+            valueAnimateDescending(10, 100000) {
 
                 when (it) {
                     "1000" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
