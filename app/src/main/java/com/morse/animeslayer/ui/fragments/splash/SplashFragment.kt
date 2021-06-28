@@ -45,11 +45,24 @@ class SplashFragment : Fragment() {
             valueAnimateDescending(10, 10000) {
 
                 when (it) {
-                    "0" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
+                    "1000" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
                     else -> this.text = getString(R.string.skip_after_seconds_label, it)
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    inner class Events {
+
+        // replay cache >> how much item should i pushed to new collector
+
+        private val aFlow = MutableSharedFlow<Int>(replay = 2 , extraBufferCapacity =0  )
+
     }
 
 }
