@@ -1,20 +1,16 @@
 package com.morse.animeslayer.ui.fragments.splash
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
-import com.morse.animeslayer.utils.repeatImages
+import com.morse.animeslayer.utils.change
+import com.morse.animeslayer.utils.setup
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
 import kotlinx.coroutines.flow.*
@@ -38,9 +34,22 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.splashRoot.repeatImages()
+        with(binding.spalshDiscreteView) {
+            setup()
+            adapter = SplashImageAdapter(
+                arrayListOf(
+                    resources.getDrawable(R.drawable.image0),
+                    resources.getDrawable(R.drawable.image1),
+                    resources.getDrawable(R.drawable.image2),
+                    resources.getDrawable(R.drawable.image3),
+                    resources.getDrawable(R.drawable.image4),
+                )
+            )
+            change(this)
+        }
         animateSkipCount()
     }
+
 
     private fun animateSkipCount() {
         with(binding.skipAfter5SecondsTv) {
@@ -53,20 +62,6 @@ class SplashFragment : Fragment() {
             }
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    inner class Events {
-
-        // replay cache >> how much item should i pushed to new collector
-
-        private val aFlow = MutableSharedFlow<Int>(replay = 2 , extraBufferCapacity =0  )
-
-    }
-
 }
 
 /*

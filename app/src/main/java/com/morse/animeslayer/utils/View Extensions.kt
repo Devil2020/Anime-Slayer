@@ -1,12 +1,14 @@
 package com.morse.animeslayer.utils
 
-import android.graphics.drawable.Drawable
-import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.expertapps.base.extensions.loadImageWithCornerRadius
-import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.InfoPopupCardLayoutBinding
+import com.yarolegovich.discretescrollview.DiscreteScrollView
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 fun InfoPopupCardLayoutBinding.render(imageUrl: String, name: String, description: String) {
@@ -19,22 +21,28 @@ fun InfoPopupCardLayoutBinding.render(imageUrl: String, name: String, descriptio
     animeDescribtion.text = description
 }
 
-fun View.getSplashDrawableByIndex (index : Int) : Drawable{
-    return when (index){
-        0 ->return  resources.getDrawable(R.drawable.image0)
-        1 ->return  resources.getDrawable(R.drawable.image1)
-        2 ->return  resources.getDrawable(R.drawable.image2)
-        3 ->return  resources.getDrawable(R.drawable.image3)
-        4 ->return  resources.getDrawable(R.drawable.image4)
-        else -> resources.getDrawable(R.drawable.image0)
-    }
+fun DiscreteScrollView.setup() {
+    this.scrollToPosition(1)
+    this.setItemTransitionTimeMillis(400)
+    this?.setItemTransformer(
+
+        ScaleTransformer.Builder()
+            .setMaxScale(1.05f)
+            .setMinScale(0.8f)
+            .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+            .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+            .build()
+
+    )
+    this?.setSlideOnFling(true)
 }
 
-fun ConstraintLayout.repeatImages() {
-    runBlocking {
-        repeat(4) {
-            background = getSplashDrawableByIndex(it)
-           // delay(200000)
+fun Fragment.change ( discreteScrollView: DiscreteScrollView){
+
+    lifecycleScope.launch {
+        repeat(5) {
+            discreteScrollView.scrollToPosition(it)
+            delay(2000)
         }
     }
 }

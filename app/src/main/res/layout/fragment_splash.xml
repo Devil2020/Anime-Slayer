@@ -6,8 +6,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/splashRoot"
+        android:background="@color/black"
         tools:context=".ui.fragments.splash.SplashFragment">
 
+
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/spalshDiscreteView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dsv_orientation="vertical"
+            />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/skip_after_5_seconds_tv"
             android:layout_width="wrap_content"
