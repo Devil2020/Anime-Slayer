@@ -58,7 +58,7 @@ fun Fragment.manageVideo(videoView: VideoView , anchorView : View , onCompleteAc
 
     val stringBuilder: StringBuilder =
         StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
-            .append(com.morse.animeslayer.R.raw.splash)
+            .append(com.morse.animeslayer.R.raw.splash1)
 
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)

@@ -37,19 +37,15 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         animateSkipCount()
         manageVideo(binding.splashVideoView , binding.splashInfo.root){
-          //  navController.navigateSafe(R.id.action_go_to_homeFragment)
+            navController.navigateSafe(R.id.action_go_to_homeFragment)
         }
     }
 
 
     private fun animateSkipCount() {
         with(binding.splashInfo.skipAfter5SecondsTv) {
-            valueAnimateDescending(10, 100000) {
-
-                when (it) {
-                    "1000" -> navController.navigateSafe(R.id.action_go_to_homeFragment)
-                    else -> this.text = getString(R.string.skip_after_seconds_label, it)
-                }
+            valueAnimateDescending(10, 21000) {
+                this.text = getString(R.string.skip_after_seconds_label, it)
             }
         }
     }
