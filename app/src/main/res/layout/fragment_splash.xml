@@ -1,107 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/splashRoot"
-        android:background="@color/black"
         tools:context=".ui.fragments.splash.SplashFragment">
 
 
-        <com.yarolegovich.discretescrollview.DiscreteScrollView
-            android:id="@+id/spalshDiscreteView"
+
+
+
+        <VideoView
+            android:id="@+id/splashVideoView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:dsv_orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layerType="none"
             />
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/skip_after_5_seconds_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@drawable/skip_background"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:paddingVertical="@dimen/_5sdp"
-            android:text="Skip After 5"
-            android:textAppearance="@style/Baloothambi2_medium"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/gradient_arrow"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_marginHorizontal="@dimen/_minus16sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/arrow_up_shape"
-            app:layout_constraintBottom_toBottomOf="parent" />
+        <include
+            android:id="@+id/splashInfo"
+            layout="@layout/aaa"/>
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:shimmer_auto_start="true"
-            app:shimmer_direction="bottom_to_top"
-            app:shimmer_shape="linear"
-            app:shimmer_duration="1400"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/gradient_arrow"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/arrow_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:src="@drawable/ic_up"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tons_of_new_content_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:text="Tons of New Content"
-                    android:textAppearance="@style/Baloothambi2_semiBold"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_20ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/arrow_up" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Watch tons of HD Content on All Your
-            Devices everyday and anywhere."
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tons_of_new_content_tv"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:textAppearance="@style/Baloothambi2_medium"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_16ssp"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:gravity="center"
-                    />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 </layout>

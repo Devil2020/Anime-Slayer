@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
 import com.morse.animeslayer.utils.change
+import com.morse.animeslayer.utils.manageVideo
 import com.morse.animeslayer.utils.setup
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
@@ -34,25 +35,15 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding.spalshDiscreteView) {
-            setup()
-            adapter = SplashImageAdapter(
-                arrayListOf(
-                    resources.getDrawable(R.drawable.image0),
-                    resources.getDrawable(R.drawable.image1),
-                    resources.getDrawable(R.drawable.image2),
-                    resources.getDrawable(R.drawable.image3),
-                    resources.getDrawable(R.drawable.image4),
-                )
-            )
-            change(this)
-        }
         animateSkipCount()
+        manageVideo(binding.splashVideoView , binding.splashInfo.root){
+          //  navController.navigateSafe(R.id.action_go_to_homeFragment)
+        }
     }
 
 
     private fun animateSkipCount() {
-        with(binding.skipAfter5SecondsTv) {
+        with(binding.splashInfo.skipAfter5SecondsTv) {
             valueAnimateDescending(10, 100000) {
 
                 when (it) {

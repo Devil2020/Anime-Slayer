@@ -1,5 +1,12 @@
 package com.morse.animeslayer.utils
 
+import android.R
+import android.graphics.Color
+import android.media.MediaPlayer
+import android.net.Uri
+import android.view.View
+import android.widget.RelativeLayout
+import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.expertapps.base.extensions.loadImageWithCornerRadius
@@ -9,7 +16,7 @@ import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+
 
 fun InfoPopupCardLayoutBinding.render(imageUrl: String, name: String, description: String) {
     animeImageview.loadImageWithCornerRadius(
@@ -37,7 +44,7 @@ fun DiscreteScrollView.setup() {
     this?.setSlideOnFling(true)
 }
 
-fun Fragment.change ( discreteScrollView: DiscreteScrollView){
+fun Fragment.change(discreteScrollView: DiscreteScrollView) {
 
     lifecycleScope.launch {
         repeat(5) {
@@ -45,4 +52,32 @@ fun Fragment.change ( discreteScrollView: DiscreteScrollView){
             delay(2000)
         }
     }
+}
+
+fun Fragment.manageVideo(videoView: VideoView , anchorView : View , onCompleteAction : () -> Unit) {
+
+    val stringBuilder: StringBuilder =
+        StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
+            .append(com.morse.animeslayer.R.raw.splash)
+
+    videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
+    //videoView.setZOrderOnTop(true)
+    videoView.setBackgroundColor(Color.TRANSPARENT)
+    videoView.setOnErrorListener { mediaPlayer: MediaPlayer?, i: Int, i1: Int ->
+        //wait for 3 seconds
+        Thread {
+            try {
+                Thread.sleep(3000)
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+        }.start()
+
+        return@setOnErrorListener false
+    }
+
+    videoView.setOnCompletionListener {
+        onCompleteAction.invoke() }
+
+    videoView.start()
 }
