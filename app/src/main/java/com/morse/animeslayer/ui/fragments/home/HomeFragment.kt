@@ -35,8 +35,6 @@ class HomeFragment : Fragment(), AnimeListListener {
     }
     lateinit var animeView: View
 
-    var isSearchClicked = false
-
     lateinit var itemDecorator: ItemOffsetDecoration
 
     private val homeClickListener = View.OnClickListener {
@@ -67,7 +65,6 @@ class HomeFragment : Fragment(), AnimeListListener {
                 animateCard(binding.homeRoot, binding.searchDialog, binding.searchExtebdedFab)
 
             }
-
             R.id.closeSearch -> {
 
                 returnCardToOriginPosition(
@@ -78,16 +75,15 @@ class HomeFragment : Fragment(), AnimeListListener {
                 )
 
             }
-
             R.id.anime_detail_navigation -> {
                 val extras =
                     FragmentNavigatorExtras(
-                        Pair(binding.currentAnime.animeImageview, "animeImage"),
-                        Pair(binding.currentAnime.animeName, "animeName")
+                        Pair(binding.currentAnime.cardRoot, "container")
                     )
                 findNavController().navigate(
                     R.id.action_homeFragment_to_animeDetailFragment,
-                    null, null,
+                    null,
+                    null,
                     extras
                 )
             }

@@ -186,7 +186,7 @@
         <include
             android:id="@+id/currentAnime"
             layout="@layout/info_popup_card_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"

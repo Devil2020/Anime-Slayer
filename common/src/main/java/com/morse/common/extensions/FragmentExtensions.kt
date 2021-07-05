@@ -4,6 +4,7 @@ import android.app.Activity
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
@@ -17,6 +18,7 @@ import com.expertapps.base.dialog.DialogConfig
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.morse.common.BuildConfig
 import com.morse.common.R
 
 const val dialogConfigkKey = "DialogConfigration"
@@ -69,8 +71,26 @@ fun Fragment.withFragment(dataBinding: ViewDataBinding) {
 }
 
 
+fun Fragment.showLog(message: String) {
+    if (BuildConfig.DEBUG) {
+        Log.i("Mohammed-Morse-Logger", message)
+    }
+}
+
+fun Activity.showLog(message: String) {
+    if (BuildConfig.DEBUG) {
+        Log.i("Mohammed-Morse-Logger", message)
+    }
+}
+
+
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
- fun Fragment.returnCardToOriginPosition(screenRoot: ViewGroup, cardRoot: View, recyclerviewItem: View , duration: Long) {
+fun Fragment.returnCardToOriginPosition(
+    screenRoot: ViewGroup,
+    cardRoot: View,
+    recyclerviewItem: View,
+    duration: Long
+) {
     android.transition.TransitionManager.beginDelayedTransition(
         screenRoot,
         getTransform(cardRoot, recyclerviewItem, duration)
@@ -90,7 +110,7 @@ fun Fragment.animateCard(screenRoot: ViewGroup, cardRoot: View, recyclerviewItem
 }
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
- fun Fragment.getTransform(
+fun Fragment.getTransform(
     mStartView: View,
     mEndView: View,
     customDuration: Long

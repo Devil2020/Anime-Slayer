@@ -2,11 +2,15 @@ package com.morse.animeslayer.utils
 
 import android.R
 import android.graphics.Color
+import android.media.AudioAttributes
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.VideoView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.expertapps.base.extensions.loadImageWithCornerRadius
@@ -54,12 +58,10 @@ fun Fragment.change(discreteScrollView: DiscreteScrollView) {
     }
 }
 
-fun Fragment.manageVideo(videoView: VideoView , anchorView : View , onCompleteAction : () -> Unit) {
-
+fun Fragment.manageVideo(videoView: VideoView, onCompleteAction : () -> Unit) {
     val stringBuilder: StringBuilder =
         StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
-            .append(com.morse.animeslayer.R.raw.splash1)
-
+            .append(com.morse.animeslayer.R.raw.splash)
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)
@@ -75,9 +77,7 @@ fun Fragment.manageVideo(videoView: VideoView , anchorView : View , onCompleteAc
 
         return@setOnErrorListener false
     }
-
     videoView.setOnCompletionListener {
         onCompleteAction.invoke() }
-
     videoView.start()
 }

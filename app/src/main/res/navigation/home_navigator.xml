@@ -11,14 +11,18 @@
         <action
             android:id="@+id/action_go_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
             app:launchSingleTop="true"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/home_navigator"
             app:popUpToInclusive="true" />
     </fragment>
+    <!--            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"-->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.morse.animeslayer.ui.fragments.home.HomeFragment"
@@ -27,10 +31,7 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+
             app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_animeDetailFragment"
@@ -56,4 +57,18 @@
         android:name="com.morse.animeslayer.ui.fragments.detail.AnimeDetailFragment"
         android:label="fragment_anime_detail"
         tools:layout="@layout/fragment_anime_detail" />
+    <fragment
+        android:id="@+id/AFragment"
+        android:name="com.morse.animeslayer.ui.test.AFragment"
+        android:label="fragment_a"
+        tools:layout="@layout/fragment_a" >
+        <action
+            android:id="@+id/action_AFragment_to_BFragment"
+            app:destination="@id/BFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BFragment"
+        android:name="com.morse.animeslayer.ui.test.BFragment"
+        android:label="fragment_b"
+        tools:layout="@layout/fragment_b" />
 </navigation>

@@ -47,7 +47,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailRoot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:transitionName="container">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/detailScrollable"
@@ -97,7 +98,6 @@
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_160sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:transitionName="animeImage"
                     app:layout_constraintStart_toStartOf="@id/closeDetailButton"
                     app:layout_constraintTop_toBottomOf="@id/closeDetailButton" />
 
@@ -111,7 +111,6 @@
                     android:textAppearance="@style/Baloothambi2_semiBold"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15ssp"
-                    android:transitionName="animeName"
                     app:layout_constraintStart_toEndOf="@id/anime_foreground"
                     app:layout_constraintTop_toTopOf="@id/anime_foreground" />
 
@@ -483,7 +482,7 @@
         <include
             android:id="@+id/recommendedAnime"
             layout="@layout/info_popup_card_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -494,7 +493,7 @@
         <include
             android:id="@+id/characterAnime"
             layout="@layout/info_popup_card_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_350sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -505,17 +504,16 @@
         <include
             android:id="@+id/videoAnime"
             layout="@layout/video_popup_card_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_280sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
+            android:elevation="@dimen/_30sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:elevation="@dimen/_30sdp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>
 

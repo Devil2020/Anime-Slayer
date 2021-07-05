@@ -1,16 +1,22 @@
 package com.morse.animeslayer.ui.fragments.detail
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
+import com.google.android.material.shape.ShapeAppearanceModel
+import com.google.android.material.transition.MaterialContainerTransform
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentAnimeDetailBinding
 import com.morse.animeslayer.domain.AnimeCharactersResponse
@@ -97,7 +103,14 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         with(binding) {
             imageTest =
                 "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
@@ -149,10 +162,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
             videoAnime.closeVideoFab.setOnClickListener(detailClickListener)
 
         }
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
-        return binding.root
+
     }
 
     override fun onCharacterClicked(characterView: View, anime: AnimeCharactersResponse.Character) {

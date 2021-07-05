@@ -36,7 +36,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         animateSkipCount()
-        manageVideo(binding.splashVideoView , binding.splashInfo.root){
+        manageVideo(binding.splashVideoView ){
             navController.navigateSafe(R.id.action_go_to_homeFragment)
         }
     }
