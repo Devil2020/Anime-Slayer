@@ -10,25 +10,28 @@ import com.morse.animeslayer.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {
 
-    private val binding: FragmentSettingBinding by lazy {
-        FragmentSettingBinding.inflate(layoutInflater)
-    }
+    private var binding: FragmentSettingBinding ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return binding.root
+        binding =   FragmentSettingBinding.inflate(layoutInflater)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            back.setOnClickListener {
+            this?.back?.setOnClickListener {
                 findNavController().popBackStack()
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }

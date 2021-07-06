@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.morse.animeslayer.databinding.FragmentMenuBottomSheetBinding
-import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment
 
 class MenuBottomSheet : BottomSheetDialogFragment() {
 
@@ -14,16 +13,14 @@ class MenuBottomSheet : BottomSheetDialogFragment() {
         val TAG = MenuBottomSheet.javaClass.name
     }
 
-    private val binding: FragmentMenuBottomSheetBinding by lazy {
-        FragmentMenuBottomSheetBinding.inflate(layoutInflater)
-    }
+    private var binding: FragmentMenuBottomSheetBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return binding.root
+        binding = FragmentMenuBottomSheetBinding.inflate(layoutInflater)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,5 +37,9 @@ class MenuBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 
 }

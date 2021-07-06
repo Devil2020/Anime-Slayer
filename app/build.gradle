@@ -51,6 +51,7 @@ dependencies {
     implementation libraries.ui.values()
     implementation libraries.hilt.values()
     implementation project(path: ':common')
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

@@ -1,22 +1,16 @@
 package com.morse.animeslayer.ui.fragments.detail
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
-import com.google.android.material.shape.ShapeAppearanceModel
-import com.google.android.material.transition.MaterialContainerTransform
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentAnimeDetailBinding
 import com.morse.animeslayer.domain.AnimeCharactersResponse
@@ -28,13 +22,11 @@ import java.util.concurrent.TimeUnit
 
 class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
-    private val binding: FragmentAnimeDetailBinding by lazy {
-        FragmentAnimeDetailBinding.inflate(layoutInflater)
-    }
+    private var binding: FragmentAnimeDetailBinding? = null
 
-    lateinit var characterView: View
+    private lateinit var characterView: View
 
-    lateinit var recommendedView: View
+    private lateinit var recommendedView: View
 
     private val detailClickListener = View.OnClickListener {
         when (it.id) {
@@ -50,46 +42,69 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
             }
 
             R.id.recommendedAnime -> {
-                if (binding.recommendedAnime.cardRoot.visibility == View.VISIBLE) {
-                    returnCardToOriginPosition(
-                        binding.detailRoot,
-                        binding.recommendedAnime.cardRoot,
-                        recommendedView,
-                        450
-                    )
+                if (binding?.recommendedAnime?.cardRoot?.visibility == View.VISIBLE) {
+                    binding?.detailRoot?.let { it1 ->
+                        returnCardToOriginPosition(
+                            it1,
+                            binding?.recommendedAnime!!.cardRoot,
+                            recommendedView,
+                            450
+                        )
+                    }
                 } else {
-                    animateCard(
-                        binding.detailRoot,
-                        binding.recommendedAnime.cardRoot,
-                        characterView
-                    )
+                    binding?.detailRoot?.let { it1 ->
+                        binding?.recommendedAnime?.cardRoot?.let { it2 ->
+                            animateCard(
+                                it1,
+                                it2,
+                                characterView
+                            )
+                        }
+                    }
                 }
             }
 
             R.id.characterAnime -> {
-                if (binding.characterAnime.cardRoot.visibility == View.VISIBLE) {
-                    returnCardToOriginPosition(
-                        binding.detailRoot,
-                        binding.characterAnime.cardRoot,
-                        characterView,
-                        450
-                    )
+                if (binding?.characterAnime?.cardRoot?.visibility == View.VISIBLE) {
+                    binding?.detailRoot?.let { it1 ->
+                        returnCardToOriginPosition(
+                            it1,
+                            binding?.characterAnime?.cardRoot!!,
+                            characterView,
+                            450
+                        )
+                    }
                 } else {
-                    animateCard(binding.detailRoot, binding.characterAnime.cardRoot, characterView)
+                    binding?.detailRoot?.let { it1 -> binding?.characterAnime?.cardRoot?.let { it2 ->
+                        animateCard(it1,
+                            it2, characterView)
+                    } }
                 }
             }
 
             R.id.playVideo -> {
-                animateCard(binding.detailRoot, binding.videoAnime.root, binding.playVideo)
+                binding?.detailRoot?.let { it1 -> binding?.videoAnime?.root?.let { it2 ->
+                    binding?.playVideo?.let { it3 ->
+                        animateCard(it1,
+                            it2, it3
+                        )
+                    }
+                } }
             }
 
             R.id.closeVideoFab -> {
-                returnCardToOriginPosition(
-                    binding.detailRoot,
-                    binding.videoAnime.root,
-                    binding.playVideo,
-                    450
-                )
+                binding?.detailRoot?.let { it1 ->
+                    binding?.videoAnime?.root?.let { it2 ->
+                        binding?.playVideo?.let { it3 ->
+                            returnCardToOriginPosition(
+                                it1,
+                                it2,
+                                it3,
+                                450
+                            )
+                        }
+                    }
+                }
             }
 
         }
@@ -103,15 +118,16 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentAnimeDetailBinding.inflate(layoutInflater)
         sharedElementEnterTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         postponeEnterTransition(250, TimeUnit.MILLISECONDS)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding) {
+        with(binding!!) {
             imageTest =
                 "https://cdn.myanimelist.net/s/common/store/cover/3638/2620c52ffcc6246fedc66e55e960e7e8ee692763da429986459f86dde14be714/l@2x.jpg"
             scoreTestKey = "Score"
@@ -128,11 +144,11 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
             detailScrollable.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 if (scrollY > oldScrollY) {
-                    manageFavouriteFab?.shrink()
-                    manageWebsiteFab?.shrink()
+                    manageFavouriteFab.shrink()
+                    manageWebsiteFab.shrink()
                 } else {
-                    manageFavouriteFab?.extend()
-                    manageWebsiteFab?.extend()
+                    manageFavouriteFab.extend()
+                    manageWebsiteFab.extend()
                 }
             }
 
@@ -167,15 +183,20 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     override fun onCharacterClicked(characterView: View, anime: AnimeCharactersResponse.Character) {
 
-        if (binding.characterAnime.cardRoot.visibility == View.VISIBLE) {
-            returnCardToOriginPosition(
-                binding.detailRoot,
-                binding.characterAnime.cardRoot,
-                characterView,
-                450
-            )
+        if (binding?.characterAnime?.cardRoot?.visibility == View.VISIBLE) {
+            binding?.detailRoot?.let {
+                returnCardToOriginPosition(
+                    it,
+                    binding?.characterAnime?.cardRoot!!,
+                    characterView,
+                    450
+                )
+            }
         } else {
-            animateCard(binding.detailRoot, binding.characterAnime.cardRoot, characterView)
+            binding?.detailRoot?.let { binding?.characterAnime?.cardRoot?.let { it1 ->
+                animateCard(it,
+                    it1, characterView)
+            } }
         }
         this.characterView = characterView
     }
@@ -189,17 +210,27 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
 
-        if (binding.recommendedAnime.cardRoot.visibility == View.VISIBLE) {
-            returnCardToOriginPosition(
-                binding.detailRoot,
-                binding.recommendedAnime.cardRoot,
-                recommendedView,
-                450
-            )
+        if (binding?.recommendedAnime?.cardRoot?.visibility == View.VISIBLE) {
+            binding?.detailRoot?.let {
+                returnCardToOriginPosition(
+                    it,
+                    binding?.recommendedAnime?.cardRoot!!,
+                    recommendedView,
+                    450
+                )
+            }
         } else {
-            animateCard(binding.detailRoot, binding.recommendedAnime.cardRoot, animeView)
+            binding?.detailRoot?.let { binding?.recommendedAnime?.cardRoot?.let { it1 ->
+                animateCard(it,
+                    it1, animeView)
+            } }
         }
         this.recommendedView = animeView
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }

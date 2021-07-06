@@ -18,9 +18,7 @@ import kotlinx.coroutines.flow.*
 
 class SplashFragment : Fragment() {
 
-    private val binding: FragmentSplashBinding by lazy {
-        FragmentSplashBinding.inflate(layoutInflater)
-    }
+    private var binding: FragmentSplashBinding ?= null
 
     private val navController: NavController by lazy {
         findNavController()
@@ -30,25 +28,34 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return binding.root
+        binding = FragmentSplashBinding.inflate(layoutInflater)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         animateSkipCount()
-        manageVideo(binding.splashVideoView ){
-            navController.navigateSafe(R.id.action_go_to_homeFragment)
+        binding?.splashVideoView?.let {
+            manageVideo(it){
+                navController.navigateSafe(R.id.action_go_to_homeFragment)
+            }
         }
     }
 
 
     private fun animateSkipCount() {
-        with(binding.splashInfo.skipAfter5SecondsTv) {
-            valueAnimateDescending(10, 21000) {
+        with(binding?.splashInfo?.skipAfter5SecondsTv) {
+            this?.valueAnimateDescending(10, 21000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
             }
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
 }
 
 /*
