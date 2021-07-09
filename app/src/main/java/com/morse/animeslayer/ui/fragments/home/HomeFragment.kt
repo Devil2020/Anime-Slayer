@@ -28,10 +28,9 @@ import com.morse.common.utils.ItemOffsetDecoration
 
 class HomeFragment : Fragment(), AnimeListListener {
 
-    private val animeAdapter = AnimeListAdapter(this)
+    private var animeAdapter : AnimeListAdapter ? = AnimeListAdapter(this)
     var binding: FragmentHomeBinding? = null
-     var animeView: View ?= null
-
+    var animeView: View ?= null
     lateinit var itemDecorator: ItemOffsetDecoration
 
     private val homeClickListener = View.OnClickListener {
@@ -259,6 +258,7 @@ class HomeFragment : Fragment(), AnimeListListener {
         binding?.animeListRv?.removeItemDecoration(
             itemDecorator
         )
+        animeAdapter = null
         binding = null
         animeView = null
     }

@@ -24,6 +24,8 @@ class SplashFragment : Fragment() {
         findNavController()
     }
 
+    var root : View ?= null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +39,8 @@ class SplashFragment : Fragment() {
         animateSkipCount()
         binding?.splashVideoView?.let {
             manageVideo(it){
+                it.pause()
+                it.stopPlayback()
                 navController.navigateSafe(R.id.action_go_to_homeFragment)
             }
         }
@@ -45,14 +49,22 @@ class SplashFragment : Fragment() {
 
     private fun animateSkipCount() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
-            this?.valueAnimateDescending(10, 21000) {
+            this?.valueAnimateDescending(10, 20000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
+                if(it == "0"){
+                   // navController.navigateSafe(R.id.action_go_to_homeFragment)
+                }
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding?.splashVideoView?.pause()
+        binding?.splashVideoView?.stopPlayback()
+        binding?.splashVideoView?.clearAnimation()
+        binding?.splashVideoView?.suspend() // clears media player
+        binding?.splashVideoView?.setVideoURI(null)
         binding = null
     }
 

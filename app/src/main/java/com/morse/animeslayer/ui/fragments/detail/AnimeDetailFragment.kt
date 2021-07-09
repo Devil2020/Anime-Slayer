@@ -110,9 +110,9 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         }
     }
 
-    private val characterAdapter = CharactersAdapter(this)
+    private var characterAdapter : CharactersAdapter ? = CharactersAdapter(this)
 
-    private val recommendationAdapter = AnimeListAdapter(this)
+    private var recommendationAdapter : AnimeListAdapter ? = AnimeListAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -230,6 +230,10 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        characterAdapter = null
+        recommendationAdapter = null
+        binding?.videoAnime?.youtubePlayerView?.removeAllViewsInLayout()
+        binding?.videoAnime?.youtubePlayerView?.release()
         binding = null
     }
 
