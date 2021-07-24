@@ -11,8 +11,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/style" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/style" />
+            <option value="$PROJECT_DIR$/local" />
+            <option value="$PROJECT_DIR$/local/realm" />
+            <option value="$PROJECT_DIR$/local/room" />
+            <option value="$PROJECT_DIR$/remote" />
+            <option value="$PROJECT_DIR$/remote/fastnetworking" />
+            <option value="$PROJECT_DIR$/remote/fuel" />
+            <option value="$PROJECT_DIR$/remote/retrofit" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,4 +1,9 @@
 rootProject.name = "Anime Slayer"
 include ':app'
-include ':style'
-include ':common'
+include ':core:style'
+include ':core:common'
+include ':remote:fuel'
+include ':remote:retrofit'
+include ':remote:fastnetworking'
+include ':local:room'
+include ':local:realm'

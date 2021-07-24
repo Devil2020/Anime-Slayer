@@ -10,6 +10,12 @@ buildscript {
 
         ]
         kotlin_version = '1.5.10'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
     }
     repositories {
         google()

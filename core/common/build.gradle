@@ -68,7 +68,7 @@ dependencies {
     implementation libraries.ui.values()
     implementation libraries.hilt.values()
     kapt libraries.hiltCompiler.values()
-    implementation project(path: ':style')
+    implementation project(path: ':core:style')
     implementation libraries.life_cycle.values()
     implementation libraries.navigation.values()
     implementation libraries.retrofit_root.values()
