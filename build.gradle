@@ -16,6 +16,9 @@ buildscript {
         versions.kotlin_version = '1.5.21'
         versions.kotlin_version = '1.5.21'
         versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
+        versions.kotlin_version = '1.5.21'
     }
     repositories {
         google()

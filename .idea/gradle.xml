@@ -17,9 +17,12 @@
             <option value="$PROJECT_DIR$/local" />
             <option value="$PROJECT_DIR$/local/realm" />
             <option value="$PROJECT_DIR$/local/room" />
+            <option value="$PROJECT_DIR$/local/sqlDelight" />
+            <option value="$PROJECT_DIR$/local/sugarOrm" />
             <option value="$PROJECT_DIR$/remote" />
             <option value="$PROJECT_DIR$/remote/fastnetworking" />
             <option value="$PROJECT_DIR$/remote/fuel" />
+            <option value="$PROJECT_DIR$/remote/ion" />
             <option value="$PROJECT_DIR$/remote/retrofit" />
           </set>
         </option>
