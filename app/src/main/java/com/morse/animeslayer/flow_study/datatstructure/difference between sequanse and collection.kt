@@ -1,5 +1,7 @@
 package com.morse.animeslayer.flow_study.datatstructure
 
+import android.util.SparseArray
+
 fun main() {
 
 
@@ -16,11 +18,10 @@ fun main() {
 
     println("===============================================================")
 
-    val sequence = (0..200).asSequence()
-        .filter {
-            println("Sequance : Filter with ${it} Called")
-            it % 2 == 0
-        }
+    val sequence = (0..200).asSequence().filter {
+        println("Sequance : Filter with ${it} Called")
+        it % 2 == 0
+    }
         .map {
             println("Sequance : Map with ${it} Called")
             it * 2
@@ -35,3 +36,4 @@ fun main() {
 
     collection.forEach { println("Collection Result is ${it}") }
 }
+

@@ -9,22 +9,19 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
-import com.morse.animeslayer.utils.change
 import com.morse.animeslayer.utils.manageVideo
-import com.morse.animeslayer.utils.setup
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
-import kotlinx.coroutines.flow.*
 
 class SplashFragment : Fragment() {
 
-    private var binding: FragmentSplashBinding ?= null
+    private var binding: FragmentSplashBinding? = null
 
     private val navController: NavController by lazy {
         findNavController()
     }
 
-    var root : View ?= null
+    var root: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +35,10 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         animateSkipCount()
         binding?.splashVideoView?.let {
-            manageVideo(it){
-                it.pause()
-                it.stopPlayback()
-                navController.navigateSafe(R.id.action_go_to_homeFragment)
+            manageVideo(it) {
+                  it.pause()
+                    it.stopPlayback()
+                    navController.navigateSafe(R.id.action_go_to_homeFragment)
             }
         }
     }
@@ -51,8 +48,8 @@ class SplashFragment : Fragment() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
             this?.valueAnimateDescending(10, 20000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
-                if(it == "0"){
-                   // navController.navigateSafe(R.id.action_go_to_homeFragment)
+                if (it == "0") {
+                    // navController.navigateSafe(R.id.action_go_to_homeFragment)
                 }
             }
         }
@@ -89,9 +86,5 @@ purpose           [ change the shape of   [ it used for concat  [ it used for me
                                           the order may be not   emittion ]
                                           Sorted with emittion
                                           time ]
-
-
-
-
 
 */
