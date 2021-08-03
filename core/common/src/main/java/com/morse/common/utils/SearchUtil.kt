@@ -14,37 +14,42 @@ import androidx.lifecycle.OnLifecycleEvent
 
 class SearchUtil  {
 
-    private var searchView: SearchView
+    private var searchView: SearchView? = null
     private var context: Context
+    private var currentMenuItem: MenuItem? = null
 
-    private constructor(context: Context) {
-        this.context = context
+    private constructor(con: Context) {
+        this.context = con
         searchView = SearchView(context)
     }
 
-    fun setupSearchView(menuItem : MenuItem) {
+    fun setupSearchView(menuItem: MenuItem) {
+        currentMenuItem = menuItem
         val searchEditId = androidx.appcompat.R.id.search_src_text
-        val et = searchView.findViewById<View>(searchEditId) as EditText
-        et.setTextColor(Color.WHITE)
-        val v: View = searchView.findViewById(androidx.appcompat.R.id.search_plate)
-        v.setBackgroundColor(Color.TRANSPARENT)
-        menuItem.actionView = searchView
+        val et = searchView?.findViewById<View>(searchEditId) as EditText?
+        et?.setTextColor(Color.WHITE)
+        val v: View? = searchView?.findViewById(androidx.appcompat.R.id.search_plate)
+        v?.setBackgroundColor(Color.TRANSPARENT)
+        currentMenuItem?.actionView = searchView
     }
 
-     fun setupListener(
+    fun expandTheSearch (){
+        currentMenuItem?.expandActionView()
+    }
+
+    fun setupListener(
         listener: SearchViewListener
     ) {
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 listener.onSearchButtonClicked(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if(TextUtils.isEmpty(newText)){
+                if (TextUtils.isEmpty(newText)) {
                     listener.onClearAllSearchText()
-                }
-                else {
+                } else {
                     listener.onSearchingStillRunning(newText)
                 }
                 return true
@@ -54,20 +59,19 @@ class SearchUtil  {
     }
 
     fun removeListeners() {
-        searchView.setOnQueryTextListener(null)
+        searchView?.setOnQueryTextListener(null)
+        searchView = null
+        currentMenuItem?.actionView = null
+        currentMenuItem = null
     }
 
     companion object {
 
         private val LOCK = Any()
-        @Volatile
-        private var searchUtils: SearchUtil? = null
 
-        fun Builder(context: Context): SearchUtil {
+        fun Builder(con: Context): SearchUtil {
             return synchronized(LOCK) {
-                return@synchronized searchUtils ?: SearchUtil(context).apply {
-                    searchUtils = this
-                }
+                return@synchronized  SearchUtil(con)
             }
         }
 
