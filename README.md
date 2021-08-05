@@ -49,9 +49,13 @@ Model - Manages local data stored in the database.
 -   [Realm](https://developer.android.com/topic/libraries/architecture/room.html)
     
 -   [Hilt](https://github.com/coil-kt/coil)
+    
 -   [JUnit](https://github.com/coil-kt/coil)
+    
 -   [Espresso](https://github.com/coil-kt/coil)
+    
 -   [AndroidX](https://github.com/coil-kt/coil)
+    
 -   [Truth](https://github.com/coil-kt/coil)
     
 
