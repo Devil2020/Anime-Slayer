@@ -21,7 +21,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            def serverUrl = '\"' + ("https://api.jikan.moe/v3/") + '\"'
+            buildConfigField ("String", "SERVER_URL", serverUrl)
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            def serverUrl = '\"' + ("https://api.jikan.moe/v3/") + '\"'
+            buildConfigField ("String", "SERVER_URL", serverUrl)
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -40,6 +50,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation libraries.kotlin.values()
     implementation libraries.hilt.values()
+    implementation libraries.retrofit_root.values()
     api project(path: ':data')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
