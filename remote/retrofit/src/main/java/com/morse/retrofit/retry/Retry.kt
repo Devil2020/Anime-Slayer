@@ -1,4 +1,4 @@
-package com.morse.retrofit
+package com.morse.retrofit.retry
 
 import java.lang.annotation.Documented
 import java.lang.annotation.Retention

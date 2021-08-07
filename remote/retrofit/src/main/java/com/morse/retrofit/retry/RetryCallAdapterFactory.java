@@ -1,4 +1,4 @@
-package com.morse.retrofit;
+package com.morse.retrofit.retry;
 
 import androidx.annotation.NonNull;
 

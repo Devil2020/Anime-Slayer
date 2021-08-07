@@ -1,4 +1,4 @@
-package com.morse.retrofit
+package com.morse.retrofit.core
 
 import com.morse.domain.*
 import kotlinx.coroutines.flow.Flow

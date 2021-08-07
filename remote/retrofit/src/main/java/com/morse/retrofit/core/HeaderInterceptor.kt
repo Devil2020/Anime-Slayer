@@ -1,4 +1,4 @@
-package com.morse.retrofit
+package com.morse.retrofit.core
 
 import okhttp3.Interceptor
 import okhttp3.Response

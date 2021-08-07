@@ -1,31 +1,17 @@
-package com.morse.retrofit
+package com.morse.retrofit.executor
 
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.morse.data.remote.RemoteGate
 import com.morse.domain.*
+import com.morse.retrofit.BuildConfig
+import com.morse.retrofit.core.ApiGate
+import com.morse.retrofit.flowcalladapter.FlowCallAdapterFactory
 import kotlinx.coroutines.flow.Flow
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
-import okio.Timeout
-import retrofit2.Call
-import retrofit2.CallAdapter
-import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
-import java.lang.annotation.Documented
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
-import java.lang.reflect.Type
-import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
-import java.util.concurrent.atomic.AtomicInteger
-
 
 
 object RetrofitBuilder {
@@ -38,8 +24,9 @@ object RetrofitBuilder {
             retrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.SERVER_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson.create()))
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .addCallAdapterFactory(RetryCallAdapterFactory.create())
+                //.addCallAdapterFactory(CoroutineCallAdapterFactory())
+                .addCallAdapterFactory(FlowCallAdapterFactory())
+               // .addCallAdapterFactory(RetryCallAdapterFactory)
                 .client(getClientInstance())
                 .build()
         }
