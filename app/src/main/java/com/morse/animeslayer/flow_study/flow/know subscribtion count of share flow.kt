@@ -9,7 +9,7 @@ fun main() {
 
     runBlocking {
 
-        val shareFlow = MutableSharedFlow<String>(0)
+        val shareFlow = MutableSharedFlow<String>( extraBufferCapacity = 0)
         
         shareFlow.collect {
 

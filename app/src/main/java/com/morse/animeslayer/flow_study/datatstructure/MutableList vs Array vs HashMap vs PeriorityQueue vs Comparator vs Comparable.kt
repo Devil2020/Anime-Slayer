@@ -6,7 +6,7 @@ fun Int.printLn (){
 
 fun main() {
 
-    val array = Array<Int>(20) { 0 }
+    val array = Array(20) { 0 }
 
     array.forEach {
         println("Array : Value is $it")

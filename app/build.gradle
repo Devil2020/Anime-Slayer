@@ -6,7 +6,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android-extensions'
     id "com.google.protobuf" version "0.8.12"
+
 }
+apply from: "../artifacts.gradle"
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

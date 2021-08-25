@@ -54,7 +54,7 @@ object RetrofitBuilder {
 
 }
 
-class RetrofitExecutor : RemoteGate {
+class RetrofitExecutor (api : ApiGate) : RemoteGate {
 
     override fun getSeasonAnimeFromRemote(season: String, year: String): Flow<SeasonAnimeResponse> {
         TODO("Not yet implemented")
