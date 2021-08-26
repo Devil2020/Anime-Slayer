@@ -5,11 +5,11 @@ import com.github.kittinunf.fuel.core.interceptors.loggingRequestInterceptor
 import com.github.kittinunf.fuel.coroutines.awaitObjectResponseResult
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import com.morse.common.BuildConfig
+import com.morse.network_core.BuildConfig
 import com.morse.common.network.common.RequestParams
 import com.morse.common.network.common.RequestType
 import com.morse.common.network.common.ResponseState
-import com.morse.common.utils.ExceptionTypeUtils
+import com.morse.network_core.utils.ExceptionTypeUtils
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow

@@ -8,7 +8,7 @@ import retrofit2.http.QueryName
 interface ApiGate {
 
     @GET ("season/{year}/{season}")
-    fun getSeasonAnime(@QueryName season: String,@QueryName year: Int) : Flow<SeasonAnimeResponse>
+    fun getSeasonAnime(@QueryName season: String,@QueryName year: String) : Flow<SeasonAnimeResponse>
 
     @GET ("schedule")
     fun getScheduleAnime () : Flow<ScheduleAnimeResponse>
@@ -43,8 +43,8 @@ interface ApiGate {
     @GET ("search/anime?q={animeName}&page={page}")
     fun searchAboutAnimeWithName (@QueryName animeName : String , @QueryName page : Int) : Flow<SearchResponse>
 
-    @GET ("search/manga?q={animeName}&page={page}")
-    fun searchAboutMangaWithName (@QueryName animeId : Int) : Flow<SearchResponse>
+    @GET ("search/manga?q={managaName}&page={page}")
+    fun searchAboutMangaWithName (@QueryName managaName : String, @QueryName page : Int) : Flow<SearchResponse>
 
 }
 

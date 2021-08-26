@@ -1,4 +1,4 @@
-package com.morse.retrofit.flowcalladapter
+package com.morse.network_core.flowcalladapter
 
 import kotlinx.coroutines.flow.Flow
 import retrofit2.CallAdapter

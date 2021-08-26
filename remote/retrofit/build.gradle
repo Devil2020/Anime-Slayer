@@ -52,6 +52,7 @@ dependencies {
     implementation libraries.hilt.values()
     implementation libraries.retrofit_root.values()
     api project(path: ':data')
+    implementation project(path: ':core:network_core')
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -1,4 +1,4 @@
-package com.morse.common.network.retrofit;
+package com.morse.network_core.network.retrofit;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.morse.retrofit.retry
+package com.morse.network_core.retry
 
 import java.lang.annotation.Documented
 import java.lang.annotation.Retention

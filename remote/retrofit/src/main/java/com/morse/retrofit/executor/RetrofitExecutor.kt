@@ -5,7 +5,7 @@ import com.morse.data.remote.RemoteGate
 import com.morse.domain.*
 import com.morse.retrofit.BuildConfig
 import com.morse.retrofit.core.ApiGate
-import com.morse.retrofit.flowcalladapter.FlowCallAdapterFactory
+import com.morse.network_core.flowcalladapter.FlowCallAdapterFactory
 import kotlinx.coroutines.flow.Flow
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -54,14 +54,14 @@ object RetrofitBuilder {
 
 }
 
-class RetrofitExecutor (api : ApiGate) : RemoteGate {
+class RetrofitExecutor ( private val api : ApiGate) : RemoteGate {
 
     override fun getSeasonAnimeFromRemote(season: String, year: String): Flow<SeasonAnimeResponse> {
-        TODO("Not yet implemented")
+        return api.getSeasonAnime(season = season , year = year )
     }
 
     override fun getScheduleAnimeFromRemote(): Flow<ScheduleAnimeResponse> {
-        TODO("Not yet implemented")
+        return api.getScheduleAnime()
     }
 
     override fun getTopAnimeMoviesFromRemote(): Flow<SeasonAnimeResponse> {
@@ -81,15 +81,15 @@ class RetrofitExecutor (api : ApiGate) : RemoteGate {
     }
 
     override fun getAnimeDetailsFromRemote(animeId : Int): Flow<AnimeDetailResponse> {
-        TODO("Not yet implemented")
+        return api.getAnimeDetail(animeId = animeId)
     }
 
     override fun getAnimeCharactersFromRemote(animeId : Int): Flow<CharactersResponse> {
-        TODO("Not yet implemented")
+        return api.getAnimeCharacters( animeId)
     }
 
     override fun getAnimeRecommendationsFromRemote(animeId : Int): Flow<RecommendationResponse> {
-        TODO("Not yet implemented")
+        return api.getAnimeRecommendaion(animeId = animeId)
     }
 
     override fun getTopMangaFromRemote(): Flow<TopResponse> {
@@ -97,7 +97,7 @@ class RetrofitExecutor (api : ApiGate) : RemoteGate {
     }
 
     override fun getMangaDetailFromRemote(mangaId : Int): Flow<MangaDetailsResponse> {
-        TODO("Not yet implemented")
+        return api.getMangaDetail(mangaId = mangaId)
     }
 
     override fun searchOnMangaFromRemote(): Flow<SearchResponse> {

@@ -67,7 +67,6 @@ dependencies {
     implementation libraries.kotlin.values()
     implementation libraries.ui.values()
     implementation libraries.hilt.values()
-    implementation project(path: ':core:network_core')
     kapt libraries.hiltCompiler.values()
     implementation project(path: ':core:style')
     implementation libraries.life_cycle.values()

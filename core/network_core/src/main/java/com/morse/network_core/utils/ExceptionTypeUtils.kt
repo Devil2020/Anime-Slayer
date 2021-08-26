@@ -1,4 +1,4 @@
-package com.morse.common.utils
+package com.morse.network_core.utils
 
 import com.morse.common.network.common.ExceptionType
 import java.net.SocketTimeoutException

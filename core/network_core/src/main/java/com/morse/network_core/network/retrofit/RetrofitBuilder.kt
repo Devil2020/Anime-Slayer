@@ -2,7 +2,8 @@ package com.morse.common.network.retrofit
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
-import com.morse.common.BuildConfig
+import com.morse.network_core.BuildConfig
+import com.morse.network_core.network.retrofit.RetryCallAdapterFactory
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

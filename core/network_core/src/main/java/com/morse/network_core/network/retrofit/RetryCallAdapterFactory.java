@@ -1,14 +1,14 @@
-package com.morse.retrofit.retry;
+package com.morse.network_core.network.retrofit;
+
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.annotation.Nullable;
 
 import okhttp3.Request;
 import okio.Timeout;
@@ -18,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-class RetryCallAdapterFactory extends CallAdapter.Factory {
+public class RetryCallAdapterFactory extends CallAdapter.Factory {
     private static final String TAG = "RetryCallAdapterFactory";
     public static RetryCallAdapterFactory create() {
         return new RetryCallAdapterFactory();
@@ -119,7 +119,7 @@ class RetryCallAdapterFactory extends CallAdapter.Factory {
         @Override
         public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
             if (!response.isSuccessful() && retryCount.incrementAndGet() <= maxRetries) {
-                retryCall();
+               retryCall();
             } else {
                 callback.onResponse(call, response);
             }
