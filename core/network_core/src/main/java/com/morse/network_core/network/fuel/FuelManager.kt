@@ -1,5 +1,5 @@
 package com.morse.common.network
-
+/*
 import com.github.kittinunf.fuel.core.ResponseDeserializable
 import com.github.kittinunf.fuel.core.interceptors.loggingRequestInterceptor
 import com.github.kittinunf.fuel.coroutines.awaitObjectResponseResult
@@ -243,4 +243,4 @@ class MovieResponseDeserializer : ResponseDeserializable<MovieResponse> {
 
     override fun deserialize(content: String) =
         Gson().fromJson(content, MovieResponse::class.java)
-}
+}*/

@@ -1,5 +1,6 @@
 package com.morse.animeslayer.ui.fragments.splash
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +10,19 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentSplashBinding
+import com.morse.animeslayer.utils.closeVideo
 import com.morse.animeslayer.utils.manageVideo
+import com.morse.animeslayer.utils.releaseVideo
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
 
 class SplashFragment : Fragment() {
 
     private var binding: FragmentSplashBinding? = null
-
     private val navController: NavController by lazy {
         findNavController()
     }
-
+    private var valueAnimator : ValueAnimator? =null
     var root: View? = null
 
     override fun onCreateView(
@@ -34,34 +36,38 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         animateSkipCount()
+        skipNow ()
         binding?.splashVideoView?.let {
             manageVideo(it) {
                   it.pause()
                     it.stopPlayback()
+                valueAnimator?.pause()
+                valueAnimator?.removeAllUpdateListeners()
                     navController.navigateSafe(R.id.action_go_to_homeFragment)
             }
         }
     }
 
+    private fun skipNow (){
+        binding?.splashInfo?.skipAfter5SecondsTv?.setOnClickListener {
+            binding?.splashVideoView?.let { it1 -> releaseVideo(it1)
+                valueAnimator?.pause()
+                valueAnimator?.removeAllUpdateListeners()
+                navController.navigateSafe(R.id.action_go_to_homeFragment)}
+        }
+    }
 
     private fun animateSkipCount() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
-            this?.valueAnimateDescending(10, 20000) {
+            valueAnimator =this?.valueAnimateDescending(10, 10000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
-                if (it == "0") {
-                    // navController.navigateSafe(R.id.action_go_to_homeFragment)
-                }
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding?.splashVideoView?.pause()
-        binding?.splashVideoView?.stopPlayback()
-        binding?.splashVideoView?.clearAnimation()
-        binding?.splashVideoView?.suspend() // clears media player
-        binding?.splashVideoView?.setVideoURI(null)
+        binding?.splashVideoView?.let { closeVideo(it) }
         binding = null
     }
 

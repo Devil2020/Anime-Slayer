@@ -58,10 +58,23 @@ fun Fragment.change(discreteScrollView: DiscreteScrollView) {
     }
 }
 
+fun Fragment.releaseVideo (videoView: VideoView){
+    videoView.pause()
+    videoView.stopPlayback()
+}
+
+fun Fragment.closeVideo (videoView: VideoView){
+    videoView.pause()
+    videoView.stopPlayback()
+    videoView.clearAnimation()
+    videoView.suspend() // clears media player
+    videoView.setVideoURI(null)
+}
+
 fun Fragment.manageVideo(videoView: VideoView, onCompleteAction : () -> Unit) {
     val stringBuilder: StringBuilder =
         StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
-            .append(com.morse.animeslayer.R.raw.splash)
+            .append(com.morse.animeslayer.R.raw.splash_v1)
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)

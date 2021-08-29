@@ -40,7 +40,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     api project(path: ':data')
     implementation libraries.kotlin.values()
+    implementation libraries.pagination3.values()
     implementation libraries.hilt.values()
+    implementation libraries.fast_networking_root
     implementation project(path: ':core:network_core')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

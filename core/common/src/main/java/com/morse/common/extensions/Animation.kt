@@ -27,7 +27,7 @@ fun TextView.valueAnimateDescending(
     toValue: Int,
     duration: Long,
     onChangeValueListener: (String) -> Unit
-) {
+) : ValueAnimator? {
     try {
         val valueAnimation = ValueAnimator.ofInt(0, toValue)
         valueAnimation.addUpdateListener {
@@ -35,7 +35,9 @@ fun TextView.valueAnimateDescending(
         }
         valueAnimation.duration = duration
         valueAnimation.start()
+        return valueAnimation
     } catch (e: Exception) {
 
     }
+    return null
 }

@@ -41,6 +41,8 @@ dependencies {
     api project(path: ':data')
     implementation libraries.kotlin.values()
     implementation libraries.hilt.values()
+    implementation libraries.ion_root
+    implementation libraries.pagination3.values()
     implementation project(path: ':core:network_core')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

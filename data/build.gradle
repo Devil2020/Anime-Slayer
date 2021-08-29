@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation libraries.kotlin.values()
     implementation libraries.hilt.values()
+    implementation libraries.pagination3.values()
     api project(path: ':domain')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

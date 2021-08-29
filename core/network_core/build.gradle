@@ -65,29 +65,20 @@ kapt {
 dependencies {
 
     implementation libraries.kotlin.values()
-    implementation libraries.ui.values()
     implementation libraries.hilt.values()
     kapt libraries.hiltCompiler.values()
     implementation project(path: ':core:style')
     implementation libraries.life_cycle.values()
-    implementation libraries.navigation.values()
     implementation libraries.retrofit_root.values()
-    implementation libraries.responsive_design.values()
-    implementation libraries.media
+    implementation libraries.fuel_root.values()
     implementation libraries.pagination3.values()
-    implementation libraries.dataStore.values()
     implementation libraries.room.values()
     implementation libraries.sharedpreference.values()
     implementation libraries.lottie
-    implementation libraries.fuel_root.values()
-    implementation libraries.flashbar
-    implementation libraries.paper
     implementation libraries.shimmer
-    implementation libraries.glide
 /*    implementation libraries.moshi
     kapt libraries.moshi_kapt*/
     implementation libraries.multidex
-    kapt libraries.glide_kapt
 
     implementation libraries.test.values()
     testImplementation libraries.testImplementation.values ()

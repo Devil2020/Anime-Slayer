@@ -45,6 +45,8 @@ allprojects {
     }
     ext {
         versions = [
+                ionVersion                        : '3.1.0',
+                fastNetworkingVersion             : '1.0.2',
                 flexable_version                  : '2.0.1',
                 androidx_shared_prefs             : '1.1.1',
                 multidex_version                  : '1.0.3',
@@ -224,6 +226,8 @@ allprojects {
                         gson     : "com.github.kittinunf.fuel:fuel-gson:$versions.fuelVersion",
                         coroutine: "com.github.kittinunf.fuel:fuel-coroutines:${versions.fuelVersion}"
                 ],
+                fast_networking_root     : "com.amitshekhar.android:android-networking:${versions.fastNetworkingVersion}",
+                ion_root                 : "com.koushikdutta.ion:ion:${versions.ionVersion}",
                 rx                       : [
                         rx_android: "io.reactivex.rxjava2:rxandroid:$versions.rx_version",
                         rx_binding: "com.jakewharton.rxbinding2:rxbinding-design:$versions.rx_ui_version",
@@ -296,7 +300,7 @@ allprojects {
                         // AndroidX Test - Instrumented testing
                         junit_android_ui    : "androidx.test.ext:junit:$versions.androidXTestExtKotlinRunnerVersion",
                         esspresso_ui        : "androidx.test.espresso:espresso-core:$versions.espressoVersion",
-                        esspresso_intents        : "androidx.test.espresso:espresso-intents:$versions.espressoVersion",
+                        esspresso_intents   : "androidx.test.espresso:espresso-intents:$versions.espressoVersion",
                         // for test coroutines or any suspend function in Kotlin
                         // Dependencies for Android instrumented unit tests
                         mockito_Core        : "org.mockito:mockito-core:$versions.mockitoVersion",
