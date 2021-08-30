@@ -48,7 +48,7 @@
         android:id="@+id/detailRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:transitionName="container">
+        tools:context=".ui.fragments.detail.AnimeDetailFragment">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/detailScrollable"
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#0E294E"
-                tools:context=".ui.fragments.detail.AnimeDetailFragment">
+               >
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/closeDetailButton"

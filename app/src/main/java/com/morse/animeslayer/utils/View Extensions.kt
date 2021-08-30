@@ -72,13 +72,12 @@ fun Fragment.closeVideo (videoView: VideoView){
     videoView.stopPlayback()
     videoView.clearAnimation()
     videoView.suspend() // clears media player
-    videoView.setVideoURI(null)
 }
 
 fun Fragment.manageVideo(videoView: VideoView, onCompleteAction : () -> Unit) {
     val stringBuilder: StringBuilder =
         StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
-            .append(com.morse.animeslayer.R.raw.splash_v1)
+            .append(com.morse.animeslayer.R.raw.splash_v2)
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)

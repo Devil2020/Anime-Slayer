@@ -294,7 +294,7 @@
             android:id="@+id/circule1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-200dp"
+            android:layout_marginBottom="-500dp"
             android:src="@drawable/ic_white_circule_background"
             app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -302,7 +302,7 @@
             android:id="@+id/circule2"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
-            android:layout_marginStart="@dimen/_minus10sdp"
+            android:layout_marginStart="@dimen/_minus40sdp"
             android:src="@drawable/ic_white_circule_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -312,7 +312,7 @@
             android:id="@+id/circule3"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_100sdp"
-            android:layout_marginTop="@dimen/_minus39sdp"
+            android:layout_marginTop="@dimen/_minus9sdp"
             android:rotationY="180"
             android:src="@drawable/ic_white_circule_background"
             android:visibility="gone"
@@ -355,18 +355,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_25sdp"
             android:src="@drawable/me_up_menu_icon"
             android:elevation="@dimen/_140sdp"
             android:outlineAmbientShadowColor="@color/blue_0F8CCF"
             android:outlineSpotShadowColor="@color/blue_0F8CCF"
+            app:layout_constraintHorizontal_bias="1"
             android:shadowColor="#046EFF"
             android:shadowRadius="50"
             android:translationZ="@dimen/_20sdp"
             android:translationY="@dimen/_20sdp"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
             android:rotationX="360"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Constraint
             android:id="@+id/searchBar"

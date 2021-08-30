@@ -119,9 +119,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAnimeDetailBinding.inflate(layoutInflater)
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-        postponeEnterTransition(250, TimeUnit.MILLISECONDS)
+
         return binding?.root
     }
 

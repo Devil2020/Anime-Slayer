@@ -1,6 +1,8 @@
 package com.morse.animeslayer.ui.fragments.splash
 
 import android.animation.ValueAnimator
+import android.media.session.MediaController
+import android.media.session.MediaSession
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +26,7 @@ class SplashFragment : Fragment() {
     }
     private var valueAnimator : ValueAnimator? =null
     var root: View? = null
+    lateinit var mediaController: android.widget.MediaController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +38,7 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mediaController = android.widget.MediaController(requireContext())
         animateSkipCount()
         skipNow ()
         binding?.splashVideoView?.let {
@@ -53,13 +57,14 @@ class SplashFragment : Fragment() {
             binding?.splashVideoView?.let { it1 -> releaseVideo(it1)
                 valueAnimator?.pause()
                 valueAnimator?.removeAllUpdateListeners()
-                navController.navigateSafe(R.id.action_go_to_homeFragment)}
+                navController.navigateSafe(R.id.action_go_to_homeFragment)
+             }
         }
     }
 
     private fun animateSkipCount() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
-            valueAnimator =this?.valueAnimateDescending(10, 10000) {
+            valueAnimator =this?.valueAnimateDescending(14, 14000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
             }
         }
@@ -67,7 +72,9 @@ class SplashFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding?.splashVideoView?.let { closeVideo(it) }
+        binding?.splashVideoView?.let {
+            closeVideo(it)
+        }
         binding = null
     }
 

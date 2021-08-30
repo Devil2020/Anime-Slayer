@@ -1,6 +1,5 @@
 package com.morse.animeslayer.ui.fragments.home
 
-/*import androidx.fragment.app.setFragmentResultListener*/
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
@@ -24,13 +24,14 @@ import com.morse.animeslayer.utils.render
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.navigateSafeWithNavDirections
 import com.morse.common.utils.ItemOffsetDecoration
-
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), AnimeListListener {
 
-    private var animeAdapter : AnimeListAdapter ? = AnimeListAdapter(this)
+    private lateinit var animeAdapter: AnimeListAdapter
     var binding: FragmentHomeBinding? = null
-    var animeView: View ?= null
+    var animeView: View? = null
     lateinit var itemDecorator: ItemOffsetDecoration
 
     private val homeClickListener = View.OnClickListener {
@@ -100,15 +101,10 @@ class HomeFragment : Fragment(), AnimeListListener {
 
             }
             R.id.anime_detail_navigation -> {
-/*                val extras =
-                    FragmentNavigatorExtras(
-                        Pair(binding.currentAnime.cardRoot, "container")
-                    )*/
                 findNavController().navigate(
                     R.id.action_homeFragment_to_animeDetailFragment,
                     null,
-                    null,
-                    // extras
+                    null
                 )
             }
         }
@@ -125,51 +121,19 @@ class HomeFragment : Fragment(), AnimeListListener {
             requireContext(),
             R.dimen._9sdp
         )
+        animeAdapter = AnimeListAdapter(this)
         return binding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         with(binding) {
-            this?.meIconIv?.setOnClickListener(
-                homeClickListener
-            )
-            this?.searchIconIv?.setOnClickListener(
-                homeClickListener
-            )
-            this?.currentAnime?.cardRoot?.setOnClickListener(
-                homeClickListener
-            )
-
-            this?.searchExtebdedFab?.setOnClickListener(
-                homeClickListener
-            )
-
-            this?.currentAnime?.animeDetailNavigation?.setOnClickListener(
-                homeClickListener
-            )
-
-            this?.closeSearch?.setOnClickListener(
-                homeClickListener
-            )
+            this?.animeListRv?.scrollToPosition(0)
             this?.animeListRv?.adapter = animeAdapter
             this?.animeListRv?.addItemDecoration(
                 itemDecorator
             )
-            this?.currentAnime?.cardRoot?.setOnClickListener {
-                binding?.homeRoot?.let { it1 ->
-                    binding?.currentAnime?.cardRoot?.let { it2 ->
-                        animeView?.let { it3 ->
-                            returnCardToOriginPosition(
-                                it1,
-                                it2,
-                                it3,
-                                650
-                            )
-                        }
-                    }
-                }
-            }
+
             this?.animeListRv?.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
                 if (scrollY > oldScrollY) {
                     this.searchExtebdedFab.shrink()
@@ -179,6 +143,7 @@ class HomeFragment : Fragment(), AnimeListListener {
             }
         }
         listenToActions()
+        animeAdapter?.submit(ANIME_LIST)
     }
 
     override fun onAnimeLongClicked(
@@ -186,15 +151,12 @@ class HomeFragment : Fragment(), AnimeListListener {
         animeName: TextView,
         anime: AnimeListResponse.Anime
     ) {
-
-/*        val extras = FragmentNavigatorExtras(
-            Pair(animeImageView, "animeImage"),
-            Pair(animeName, "animeName")
-        )*/
-        findNavController().navigateSafe(
+        findNavController().navigate(
             R.id.action_homeFragment_to_animeDetailFragment,
-            //          navExtras = extras
+            null,
+            null
         )
+
     }
 
     private fun listenToActions() {
@@ -231,6 +193,44 @@ class HomeFragment : Fragment(), AnimeListListener {
                 }
             }
         }
+
+        binding?.meIconIv?.setOnClickListener(
+            homeClickListener
+        )
+        binding?.searchIconIv?.setOnClickListener(
+            homeClickListener
+        )
+        binding?.currentAnime?.cardRoot?.setOnClickListener(
+            homeClickListener
+        )
+
+        binding?.searchExtebdedFab?.setOnClickListener(
+            homeClickListener
+        )
+
+        binding?.currentAnime?.animeDetailNavigation?.setOnClickListener(
+            homeClickListener
+        )
+
+        binding?.closeSearch?.setOnClickListener(
+            homeClickListener
+        )
+
+        binding?.currentAnime?.cardRoot?.setOnClickListener {
+            binding?.homeRoot?.let { it1 ->
+                binding?.currentAnime?.cardRoot?.let { it2 ->
+                    animeView?.let { it3 ->
+                        returnCardToOriginPosition(
+                            it1,
+                            it2,
+                            it3,
+                            650
+                        )
+                    }
+                }
+            }
+        }
+
     }
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
@@ -244,11 +244,16 @@ class HomeFragment : Fragment(), AnimeListListener {
                     450
                 )
             }
-        } else {
-            binding?.homeRoot?.let { binding?.currentAnime?.cardRoot?.let { it1 ->
-                animateCard(it,
-                    it1, animeView)
-            } }
+        }
+        else {
+            binding?.homeRoot?.let {
+                binding?.currentAnime?.cardRoot?.let { it1 ->
+                    animateCard(
+                        it,
+                        it1, animeView
+                    )
+                }
+            }
             binding?.currentAnime?.render(anime.imageUrl!!, anime.title!!, anime.synopsis!!)
         }
     }
@@ -258,7 +263,7 @@ class HomeFragment : Fragment(), AnimeListListener {
         binding?.animeListRv?.removeItemDecoration(
             itemDecorator
         )
-        animeAdapter = null
+        /*animeAdapter = null*/
         binding = null
         animeView = null
     }
