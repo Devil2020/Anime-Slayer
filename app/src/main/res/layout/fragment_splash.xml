@@ -8,10 +8,6 @@
         android:id="@+id/splashRoot"
         tools:context=".ui.fragments.splash.SplashFragment">
 
-
-
-
-
         <VideoView
             android:id="@+id/splashVideoView"
             android:layout_width="match_parent"

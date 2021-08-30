@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
@@ -21,11 +20,8 @@ import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
 import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment
 import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuType
 import com.morse.animeslayer.utils.render
-import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.navigateSafeWithNavDirections
 import com.morse.common.utils.ItemOffsetDecoration
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), AnimeListListener {
 
@@ -156,7 +152,6 @@ class HomeFragment : Fragment(), AnimeListListener {
             null,
             null
         )
-
     }
 
     private fun listenToActions() {
@@ -234,18 +229,22 @@ class HomeFragment : Fragment(), AnimeListListener {
     }
 
     override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
-        this.animeView = animeView
+
         if (binding?.currentAnime?.cardRoot?.visibility == View.VISIBLE) {
+            //this.animeView = animeView
             binding?.homeRoot?.let {
-                returnCardToOriginPosition(
-                    it,
-                    binding?.currentAnime!!.cardRoot,
-                    animeView,
-                    450
-                )
+                this.animeView?.let { it1 ->
+                    returnCardToOriginPosition(
+                        it,
+                        binding?.currentAnime!!.cardRoot,
+                        it1,
+                        450
+                    )
+                }
             }
         }
         else {
+            this.animeView = animeView
             binding?.homeRoot?.let {
                 binding?.currentAnime?.cardRoot?.let { it1 ->
                     animateCard(
