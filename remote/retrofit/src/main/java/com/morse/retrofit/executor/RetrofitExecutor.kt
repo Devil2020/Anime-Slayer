@@ -29,7 +29,7 @@ object RetrofitBuilder {
         if (retrofit == null) {
             var gson = GsonBuilder().disableHtmlEscaping()
             retrofit = Retrofit.Builder()
-                .baseUrl(BuildConfig.SERVER_URL)
+                .baseUrl(com.morse.network_core.BuildConfig.SERVER_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson.create()))
                 //.addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addCallAdapterFactory(FlowCallAdapterFactory())

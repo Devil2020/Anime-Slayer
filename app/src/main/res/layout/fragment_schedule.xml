@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.menu.pages.schedule.ScheduleFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/seasonChipGroup"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:chipSpacing="@dimen/_10sdp"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/winterChip"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:checkable="true"
+                android:padding="@dimen/_15sdp"
+                android:singleLine="true"
+                app:checkedIconEnabled="true"
+                android:text="Winter"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:chipBackgroundColor="@color/blue_0F8CCF"
+                app:chipIcon="@drawable/ic_winter"
+                app:rippleColor="@color/blue_3C5B6B" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/summerChip"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:checkable="true"
+                android:padding="@dimen/_15sdp"
+                android:text="Summer"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:chipBackgroundColor="@color/orange_F87F0F"
+
+                app:chipIcon="@drawable/ic_sun"
+                app:rippleColor="@color/blue_3C5B6B" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/springChip"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:checkable="true"
+                android:padding="@dimen/_15sdp"
+                android:text="Spring"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+                app:chipBackgroundColor="@color/rose_F69BA8"
+                app:chipIcon="@drawable/ic_sakura"
+                app:rippleColor="@color/blue_3C5B6B" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/autumnChip"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:checkable="true"
+                android:padding="@dimen/_15sdp"
+                android:text="Autumn"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp"
+
+                app:chipBackgroundColor="@color/teal_200"
+                app:chipIcon="@drawable/ic_leaves"
+                app:rippleColor="@color/blue_3C5B6B" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_240sdp"
+            app:layout_constraintTop_toBottomOf="@id/seasonChipGroup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:dsv_orientation="vertical"
+            style="@style/Theme.AnimeSlayer"
+            android:visibility="gone"
+            app:setupDiscreteViewConfigration="@{true}"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="@dimen/_190sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/datePicker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/_40sdp"
+            android:text="Apply"
+            android:textAppearance="@style/Baloothambi2_medium"
+            android:background="@color/orange_F87F0F"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_17ssp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

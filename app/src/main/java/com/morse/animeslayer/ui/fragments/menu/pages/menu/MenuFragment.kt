@@ -34,21 +34,28 @@ class MenuFragment : Fragment(), MenuItemListener {
         binding?.settingClick?.setOnClickListener {
             findNavController().navigateSafeWithNavDirections(MenuFragmentDirections.actionMenuFragmentToSettingFragment())
         }
+
     }
 
     override fun onMenuClicked(menuItem: MenuItem) {
-        val menuBundle = Bundle().apply {
-            putString(MenuType::class.java.name, menuItem.menuType.name)
-        }
-        requireActivity().supportFragmentManager.setFragmentResult(
-            MenuFragment::class.java.name,
-            menuBundle
-        )
-        requireActivity().supportFragmentManager.setFragmentResult(
-            MenuBottomSheet::class.java.name,
-            Bundle.EMPTY
-        )
 
+        if(menuItem.menuType != MenuType.Schedule){
+            val menuBundle = Bundle().apply {
+                putString(MenuType::class.java.name, menuItem.menuType.name)
+            }
+
+            requireActivity().supportFragmentManager.setFragmentResult(
+                MenuFragment::class.java.name,
+                menuBundle
+            )
+            requireActivity().supportFragmentManager.setFragmentResult(
+                MenuBottomSheet::class.java.name,
+                Bundle.EMPTY
+            )
+        }else {
+            findNavController().navigateSafeWithNavDirections(MenuFragmentDirections.actionMenuFragmentToScheduleFragment())
+
+        }
     }
 
     override fun onDestroyView() {

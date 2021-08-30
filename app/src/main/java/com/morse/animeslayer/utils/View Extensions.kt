@@ -11,15 +11,19 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.VideoView
 import androidx.annotation.RequiresApi
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.expertapps.base.extensions.loadImageWithCornerRadius
 import com.morse.animeslayer.databinding.InfoPopupCardLayoutBinding
+import com.morse.animeslayer.ui.fragments.menu.pages.schedule.YearAdapter
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 
 
 fun InfoPopupCardLayoutBinding.render(imageUrl: String, name: String, description: String) {

@@ -73,6 +73,7 @@ dependencies {
     implementation libraries.life_cycle.values()
     implementation libraries.navigation.values()
     implementation libraries.retrofit_root.values()
+    implementation libraries.discreteScrollView
     implementation libraries.responsive_design.values()
     implementation libraries.media
     implementation libraries.pagination3.values()

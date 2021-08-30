@@ -9,10 +9,17 @@
         android:id="@+id/menuFragment"
         android:name="com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_settingFragment"
             app:destination="@id/settingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_menuFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -23,4 +30,9 @@
         android:name="com.morse.animeslayer.ui.fragments.menu.pages.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.morse.animeslayer.ui.fragments.menu.pages.schedule.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
 </navigation>

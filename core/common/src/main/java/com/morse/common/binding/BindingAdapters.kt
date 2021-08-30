@@ -21,8 +21,12 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.expertapps.base.extensions.*
 import com.morse.common.R
+import com.yarolegovich.discretescrollview.DiscreteScrollView
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 
 @BindingAdapter("imageUrl")
@@ -39,17 +43,33 @@ fun ImageView.loadImage(res: Int) {
 
 @BindingAdapter("imageCorner")
 fun ImageView.loadImageCorner(imageUrl: String) {
-    loadImageWithCornerRadius(imageUrl , "Error" , resources.getDimension(R.dimen._20sdp).toInt())
+    loadImageWithCornerRadius(imageUrl, "Error", resources.getDimension(R.dimen._20sdp).toInt())
 }
 
 @BindingAdapter("viewIf")
 fun viewIf(view: View, boolean: Boolean?) = view.visibleIf(boolean)
 
 
-
 @BindingAdapter("toDate")
 fun TextView.setDate(dataString: String?) {
     text = dataString?.convertDateWithTime()
 
+}
+
+@BindingAdapter("setupDiscreteViewConfigration")
+fun addDiscreteViewConfig (discreteScrollView: DiscreteScrollView , isConfigerd : Boolean){
+
+    discreteScrollView.scrollToPosition(1)
+    discreteScrollView?.setItemTransformer(
+
+        ScaleTransformer.Builder()
+            .setMaxScale(1.05f)
+            .setMinScale(0.8f)
+            .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+            .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+            .build()
+
+    )
+    discreteScrollView?.setSlideOnFling(true)
 }
 
