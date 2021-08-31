@@ -25,7 +25,7 @@ import com.morse.common.utils.ItemOffsetDecoration
 
 class HomeFragment : Fragment(), AnimeListListener {
 
-    private lateinit var animeAdapter: AnimeListAdapter
+    private var animeAdapter: AnimeListAdapter ?= null
     var binding: FragmentHomeBinding? = null
     var animeView: View? = null
     lateinit var itemDecorator: ItemOffsetDecoration
@@ -117,13 +117,14 @@ class HomeFragment : Fragment(), AnimeListListener {
             requireContext(),
             R.dimen._9sdp
         )
-        animeAdapter = AnimeListAdapter(this)
         return binding?.root
     }
 
     override fun onResume() {
         super.onResume()
         with(binding) {
+
+            animeAdapter = AnimeListAdapter(this@HomeFragment)
             this?.animeListRv?.scrollToPosition(0)
             this?.animeListRv?.adapter = animeAdapter
             this?.animeListRv?.addItemDecoration(
@@ -262,7 +263,7 @@ class HomeFragment : Fragment(), AnimeListListener {
         binding?.animeListRv?.removeItemDecoration(
             itemDecorator
         )
-        /*animeAdapter = null*/
+        animeAdapter = null
         binding = null
         animeView = null
     }
