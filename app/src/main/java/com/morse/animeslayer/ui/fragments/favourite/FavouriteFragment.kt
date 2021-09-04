@@ -9,11 +9,11 @@ import androidx.navigation.fragment.findNavController
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
-import com.morse.animeslayer.databinding.FragmentSearchBinding
+import com.morse.animeslayer.databinding.FragmentFavouriteBinding
 
 class FavouriteFragment : Fragment() {
 
-    var binding: FragmentSearchBinding? = null
+    var binding: FragmentFavouriteBinding? = null
 
     val favouriteClickListener = View.OnClickListener {
         when (it.id) {
@@ -54,7 +54,7 @@ class FavouriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSearchBinding.inflate(layoutInflater)
+        binding = FragmentFavouriteBinding.inflate(layoutInflater)
         return binding?.root
     }
 

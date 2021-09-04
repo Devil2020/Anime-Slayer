@@ -48,7 +48,7 @@
         android:id="@+id/detailRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.detail.AnimeDetailFragment">
+        tools:context=".ui.fragments.detail.anime.AnimeDetailFragment">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/detailScrollable"

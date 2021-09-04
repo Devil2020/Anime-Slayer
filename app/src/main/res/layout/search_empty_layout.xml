@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/card_shape"
+            android:gravity="center"
+            >
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_renderMode="automatic"
+                app:lottie_rawRes="@raw/search_lottie"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No Search Words wrote yet ..."
+                android:lines="1"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Write an Anime Name like One Punsh Man or Fiary Tail"
+                android:textAppearance="@style/Baloothambi2_medium"
+                android:gravity="center"
+                android:lines="2"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginVertical="@dimen/_16ssp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/white"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

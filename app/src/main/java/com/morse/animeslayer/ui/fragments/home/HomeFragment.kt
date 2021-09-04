@@ -38,9 +38,6 @@ class HomeFragment : Fragment(), AnimeListListener {
                 )
                 MenuBottomSheet().show(parentFragmentManager, MenuBottomSheet.TAG)
             }
-            R.id.search_icon_iv -> {
-
-            }
             R.id.cardOfAnimeDescribtion -> {
                 if (binding?.currentAnime?.cardRoot?.visibility == View.VISIBLE) {
                     binding?.homeRoot?.let { it1 ->
@@ -67,18 +64,7 @@ class HomeFragment : Fragment(), AnimeListListener {
                 }
             }
             R.id.searchExtebdedFab -> {
-
-                binding?.homeRoot?.let { it1 ->
-                    binding?.searchDialog?.let { it2 ->
-                        binding?.searchExtebdedFab?.let { it3 ->
-                            animateCard(
-                                it1,
-                                it2, it3
-                            )
-                        }
-                    }
-                }
-
+                findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
             }
             R.id.closeSearch -> {
 
@@ -170,22 +156,22 @@ class HomeFragment : Fragment(), AnimeListListener {
                     Toast.makeText(requireContext(), "Schedule", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Favourite -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
                 MenuType.Top_Tv -> {
-                    Toast.makeText(requireContext(), "Top_Tv", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
                 MenuType.Top_Airing -> {
-                    Toast.makeText(requireContext(), "Top_Airing", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
                 MenuType.Top_Movie -> {
-                    Toast.makeText(requireContext(), "Top_Movie", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
                 MenuType.Top_Incoming -> {
-                    Toast.makeText(requireContext(), "Top_Incoming", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
                 MenuType.Top_Manga -> {
-                    Toast.makeText(requireContext(), "Top Manga", Toast.LENGTH_SHORT).show()
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
                 }
             }
         }

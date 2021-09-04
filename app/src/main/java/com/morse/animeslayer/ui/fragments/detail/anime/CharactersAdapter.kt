@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.detail
+package com.morse.animeslayer.ui.fragments.detail.anime
 
 import android.view.LayoutInflater
 import android.view.View
@@ -42,14 +42,14 @@ class CharactersAdapter(private val characterListener: CharacterListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CharactersAdapter.CharacterViewHolder {
+    ): CharacterViewHolder {
         val layoutInflation = LayoutInflater.from(parent.context)
         return CharacterViewHolder(
             CharacterItemLayoutBinding.inflate(layoutInflation)
         )
     }
 
-    override fun onBindViewHolder(holder: CharactersAdapter.CharacterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bindCharacterDataToBinding(listOfCharacters[position])
     }
 

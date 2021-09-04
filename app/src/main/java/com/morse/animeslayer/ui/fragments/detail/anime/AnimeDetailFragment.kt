@@ -1,4 +1,4 @@
-package com.morse.animeslayer.ui.fragments.detail
+package com.morse.animeslayer.ui.fragments.detail.anime
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
@@ -18,7 +17,6 @@ import com.morse.animeslayer.domain.AnimeListResponse
 import com.morse.animeslayer.ui.fragments.home.AnimeListAdapter
 import com.morse.animeslayer.ui.fragments.home.AnimeListListener
 import com.morse.common.utils.ItemOffsetDecoration
-import java.util.concurrent.TimeUnit
 
 class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
@@ -110,7 +108,7 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
         }
     }
 
-    private var characterAdapter : CharactersAdapter ? = CharactersAdapter(this)
+    private var characterAdapter : CharactersAdapter? = CharactersAdapter(this)
 
     private var recommendationAdapter : AnimeListAdapter ? = AnimeListAdapter(this)
 
