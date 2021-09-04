@@ -66,22 +66,6 @@ class HomeFragment : Fragment(), AnimeListListener {
             R.id.searchExtebdedFab -> {
                 findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
             }
-            R.id.closeSearch -> {
-
-                binding?.homeRoot?.let { it1 ->
-                    binding?.searchDialog?.let { it2 ->
-                        binding?.searchExtebdedFab?.let { it3 ->
-                            returnCardToOriginPosition(
-                                it1,
-                                it2,
-                                it3,
-                                400
-                            )
-                        }
-                    }
-                }
-
-            }
             R.id.anime_detail_navigation -> {
                 findNavController().navigate(
                     R.id.action_homeFragment_to_animeDetailFragment,
@@ -191,10 +175,6 @@ class HomeFragment : Fragment(), AnimeListListener {
         )
 
         binding?.currentAnime?.animeDetailNavigation?.setOnClickListener(
-            homeClickListener
-        )
-
-        binding?.closeSearch?.setOnClickListener(
             homeClickListener
         )
 

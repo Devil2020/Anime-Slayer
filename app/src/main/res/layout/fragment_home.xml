@@ -218,63 +218,6 @@
             app:elevation="@dimen/_50sdp"
             />
 
-        <RelativeLayout
-            android:id="@+id/searchDialog"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/_120sdp">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/searchAA"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                app:boxStrokeWidth="0dp"
-                app:boxBackgroundMode="filled"
-                android:layout_centerInParent="true"
-                app:boxCornerRadiusBottomEnd="@dimen/_40sdp"
-                app:boxCornerRadiusBottomStart="@dimen/_40sdp"
-                app:boxCornerRadiusTopEnd="@dimen/_40sdp"
-                app:boxCornerRadiusTopStart="@dimen/_40sdp"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@android:color/transparent"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:boxStrokeColor="@android:color/transparent"
-                app:startIconTint="@color/blue_EE00304F"
-                android:defaultFocusHighlightEnabled="false"
-                app:boxStrokeWidthFocused="0dp"
-                app:startIconDrawable="@drawable/ic_baseline_search_24"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/closeSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/close_rounded_corner_shape"
-                android:layout_marginEnd="@dimen/_7sdp"
-                android:src="@drawable/ic_close"
-                app:tint="@android:color/white"
-                android:text="Close"
-                android:textColor="@color/white"
-                android:textAppearance="@style/Baloothambi2_semiBold"
-                android:layout_alignParentTop="true"
-                />
-
-        </RelativeLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
