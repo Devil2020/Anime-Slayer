@@ -1,0 +1,19 @@
+My Project :
+
+    1- In Intents -> I make Name with The Ui Activity / Fragment Name like "LoginActivityIntents" and in it , i made some
+
+        sealed classes for make some Intents maybe be Object if it has no any Paramters for Sending .
+
+    2- In State ->  I make as the Intent , I make a Super class with Name Convintion of Feature and in it ,
+
+        I make for each Intent a Sealed for it Status like Success , Loading , Error and So On .
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+Google Sample :
+
+    1 - In Intents -> They made as My Project Do .
+
+    2- In State ->  They make a big data class and in it he made it have some variable like isError : Boolean , exception : Exception and so On .

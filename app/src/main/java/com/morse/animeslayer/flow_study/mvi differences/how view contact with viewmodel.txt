@@ -1,0 +1,50 @@
+My Project : 
+
+	I make a 2 Function for View [ Activity or Fragment or Any Custom View ]
+
+		1- Render (incomingState) -> it`s for render the status of result .
+
+		2- Combine () : Observable [That Compines some Flow of Intents] some Intent with Observable Types , Why ? 
+
+			Because In ViewModel i Observe on it for check the type of Intent and Execute what did i want .
+
+	I Create 2 Function in ViewModel [Or Presentation or Controller or any Type yoiu can use ]
+
+		1- getState () : Observable -> It`s an Observable Type Okay , it must contains the Result of Result of Response .
+
+		2- ProcessIntents (observableFromCombineFunction : Observable) -> It`s for take the Intents that the View or UI can Emit Intents For ask what he want . 
+
+
+
+	So if i want to  organize the Process :- 
+	
+		[ First ] - I Create Some Observable Intents Okay ? .
+
+		[ Second ] - Merge all Intent with Type of Parent Class Okay and Then Call ProcessIntents in ViewModel .
+
+		[ Third ] - Call Get Status from ViewModel to get Observable then observe it in Activity and Pass Function Render to it .
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Google Simple : 
+
+	Google make 2 Functions in View Or Activity or Any Fuckin Ui .
+
+		1- CompineIntents () : Observable For All Intents -> it`s compines some flows to only one flow and return it why ?
+			
+			for subscribe on the View and the onEach i informed the ViewModel to handle the Intent that Comes , Okay ?
+		
+		2- Render (incomingState) -> it`s a function for incoming State Okay for Checking on the State for Render it or show any thing else in general .
+
+	
+	Google made ! Function And 1 Global Variable in ViewModel or Presentation or Any Controller Type 
+
+		1- ProcessIntents (incomingItents NOT Observable) :- it`s a function the i called on it when i push Intent from one or more 
+
+			Observable in View and in Subscribtion on it i called to ViewModel to Process the Intent .
+
+		2- Variable for the Status not Function Like i made .
+
+ 

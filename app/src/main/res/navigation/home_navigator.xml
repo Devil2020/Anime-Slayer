@@ -87,24 +87,6 @@
         android:label="fragment_anime_detail"
         tools:layout="@layout/fragment_anime_detail" />
     <fragment
-        android:id="@+id/AFragment"
-        android:name="com.morse.animeslayer.ui.test.AFragment"
-        android:label="fragment_a"
-        tools:layout="@layout/fragment_a" >
-        <action
-            android:id="@+id/action_AFragment_to_BFragment"
-            app:destination="@id/BFragment"
-            app:enterAnim="@anim/slide_in_bottom"
-            app:exitAnim="@anim/slide_out_top"
-            app:popEnterAnim="@anim/slide_in_top"
-            app:popExitAnim="@anim/slide_out_bottom"/>
-    </fragment>
-    <fragment
-        android:id="@+id/BFragment"
-        android:name="com.morse.animeslayer.ui.test.BFragment"
-        android:label="fragment_b"
-        tools:layout="@layout/fragment_b" />
-    <fragment
         android:id="@+id/searchFragment"
         android:name="com.morse.animeslayer.ui.fragments.search.SearchFragment"
         android:label="fragment_search"
