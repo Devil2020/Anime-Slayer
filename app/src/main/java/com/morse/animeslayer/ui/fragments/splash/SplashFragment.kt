@@ -1,9 +1,8 @@
 package com.morse.animeslayer.ui.fragments.splash
 
 import android.animation.ValueAnimator
-import android.media.session.MediaController
-import android.media.session.MediaSession
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,14 +17,17 @@ import com.morse.animeslayer.utils.releaseVideo
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
 
+data class SplashState(val isSuccess: Boolean, val isLoading: Boolean, val isError: Boolean)
+
 class SplashFragment : Fragment() {
 
     private var binding: FragmentSplashBinding? = null
     private val navController: NavController by lazy {
         findNavController()
     }
-    private var valueAnimator : ValueAnimator? =null
+    private var valueAnimator: ValueAnimator? = null
     var root: View? = null
+
     lateinit var mediaController: android.widget.MediaController
 
     override fun onCreateView(
@@ -33,6 +35,14 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSplashBinding.inflate(layoutInflater)
+        val oldState = SplashState(isSuccess = false, isLoading = true, isError = false)
+        val newState = oldState.copy(isSuccess = true, isLoading = false, isError = false)
+
+        Log.i(
+            "MVI-STATE-CHECKER",
+            "The Old State HashCode is ${oldState.hashCode()} And The New State HashCode is ${newState?.hashCode()}"
+        )
+
         return binding?.root
     }
 
@@ -40,31 +50,32 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         mediaController = android.widget.MediaController(requireContext())
         animateSkipCount()
-        skipNow ()
+        skipNow()
         binding?.splashVideoView?.let {
             manageVideo(it) {
-                  it.pause()
-                    it.stopPlayback()
+                it.pause()
+                it.stopPlayback()
                 valueAnimator?.pause()
                 valueAnimator?.removeAllUpdateListeners()
-                    navController.navigateSafe(R.id.action_go_to_homeFragment)
+                navController.navigateSafe(R.id.action_go_to_homeFragment)
             }
         }
     }
 
-    private fun skipNow (){
+    private fun skipNow() {
         binding?.splashInfo?.skipAfter5SecondsTv?.setOnClickListener {
-            binding?.splashVideoView?.let { it1 -> releaseVideo(it1)
+            binding?.splashVideoView?.let { it1 ->
+                releaseVideo(it1)
                 valueAnimator?.pause()
                 valueAnimator?.removeAllUpdateListeners()
                 navController.navigateSafe(R.id.action_go_to_homeFragment)
-             }
+            }
         }
     }
 
     private fun animateSkipCount() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
-            valueAnimator =this?.valueAnimateDescending(14, 14000) {
+            valueAnimator = this?.valueAnimateDescending(14, 14000) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
             }
         }

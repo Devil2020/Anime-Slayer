@@ -1,0 +1,25 @@
+
+
+    What is Reduce Functionality for  ?
+
+    -> It`s for reuse the old state for creating a new state from the old one .
+
+    In My Project , I Use RXKotlin so i use ScanFunction with BiFunction with 3 Paramters .
+
+
+    In Google Project , they use Scan Function for reduce the old and new State Like this .
+
+    merge(
+          _intentFlow.filterIsInstance<ViewIntent.Initial>().take(1),
+          _intentFlow.filterNot { it is ViewIntent.Initial }
+        )
+          .shareIn(viewModelScope, SharingStarted.WhileSubscribed())
+          .toPartialChangeFlow()
+          .sendSingleEvent()
+          .scan(initialValue) { vs, change -> change-reduce(vs) }
+          .catch { Log.d("###", "[MAIN_VM] Throwable: $it") }
+          .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            initialVS
+          )
