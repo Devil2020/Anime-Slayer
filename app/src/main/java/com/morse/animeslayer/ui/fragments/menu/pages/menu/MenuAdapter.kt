@@ -15,14 +15,14 @@ class MenuAdapter (val listener : MenuItemListener) : RecyclerView.Adapter<MenuA
 
     private val menuItems : ArrayList<MenuItem> by lazy {
         arrayListOf(
-            MenuItem ("Current Season" , MenuType.Current_Season , R.drawable.ic_electric ) ,
-            MenuItem ("Schedule", MenuType.Schedule ,  R.drawable.ic_schedule) ,
-            MenuItem ("Favourite", MenuType.Favourite ,  R.drawable.favorite) ,
-            MenuItem ("Top Tv", MenuType.Top_Tv ,  R.drawable.ic_top_games_star) ,
-            MenuItem ("Top Airing", MenuType.Top_Airing ,  R.drawable.ic_top_games_star) ,
-            MenuItem ("Top Movie", MenuType.Top_Movie ,  R.drawable.ic_top_games_star) ,
-            MenuItem ("Top Upcoming", MenuType.Top_Incoming ,  R.drawable.ic_top_games_star) ,
-            MenuItem ("Top Manga", MenuType.Top_Manga ,  R.drawable.ic_top_games_star) ,
+            MenuItem ("Watch the Current Season" , MenuType.Current_Season , R.drawable.three_d_current_season ) ,
+            MenuItem ("Select the Schedule", MenuType.Schedule ,  R.drawable.three_d_schedule) ,
+            MenuItem ("Show Favourite", MenuType.Favourite ,  R.drawable.three_d_fav) ,
+            MenuItem ("Show Top Tv", MenuType.Top_Tv ,  R.drawable.three_d_one) ,
+            MenuItem ("Show Top Airing", MenuType.Top_Airing ,  R.drawable.three_d_two) ,
+            MenuItem ("Show Top Movie", MenuType.Top_Movie ,  R.drawable.three_d_three) ,
+            MenuItem ("Show Top Upcoming", MenuType.Top_Incoming ,  R.drawable.three_d_four) ,
+            MenuItem ("Show Top Manga", MenuType.Top_Manga ,  R.drawable.three_d_five) ,
         )
     }
 

@@ -35,14 +35,6 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSplashBinding.inflate(layoutInflater)
-        val oldState = SplashState(isSuccess = false, isLoading = true, isError = false)
-        val newState = oldState.copy(isSuccess = true, isLoading = false, isError = false)
-
-        Log.i(
-            "MVI-STATE-CHECKER",
-            "The Old State HashCode is ${oldState.hashCode()} And The New State HashCode is ${newState?.hashCode()}"
-        )
-
         return binding?.root
     }
 

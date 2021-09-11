@@ -17,9 +17,6 @@ class FavouriteFragment : Fragment() {
 
     val favouriteClickListener = View.OnClickListener {
         when (it.id) {
-            R.id.close_icon_iv -> {
-                findNavController().popBackStack()
-            }
             R.id.clear_list -> {
                 binding?.favouriteRoot?.let { it1 ->
                     binding?.clearAllDialog?.root?.let { it2 ->
@@ -62,9 +59,9 @@ class FavouriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
 
-            this?.closeIconIv?.setOnClickListener(
-                favouriteClickListener
-            )
+            this?.favouriteToolbar?.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
 
             this?.clearList?.setOnClickListener(
                 favouriteClickListener

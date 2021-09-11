@@ -118,6 +118,10 @@
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom"/>
+        <argument
+            android:name="topType"
+            app:argType="com.morse.animeslayer.ui.fragments.Tops.TopType"
+            android:defaultValue="TopTv" />
     </fragment>
     <fragment
         android:id="@+id/mangaDetailFragment"

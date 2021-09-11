@@ -15,7 +15,8 @@ import com.expertapps.base.extensions.animateCard
 import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentHomeBinding
-import com.morse.animeslayer.domain.AnimeListResponse
+import com.morse.animeslayer.domain.Anime
+import com.morse.animeslayer.ui.fragments.Tops.TopType
 import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
 import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment
 import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuType
@@ -25,7 +26,7 @@ import com.morse.common.utils.ItemOffsetDecoration
 
 class HomeFragment : Fragment(), AnimeListListener {
 
-    private var animeAdapter: AnimeListAdapter ?= null
+    private var animeAdapter: AnimeListAdapter? = null
     var binding: FragmentHomeBinding? = null
     var animeView: View? = null
     lateinit var itemDecorator: ItemOffsetDecoration
@@ -116,7 +117,7 @@ class HomeFragment : Fragment(), AnimeListListener {
     override fun onAnimeLongClicked(
         animeImageView: ImageView,
         animeName: TextView,
-        anime: AnimeListResponse.Anime
+        anime: Anime
     ) {
         findNavController().navigate(
             R.id.action_homeFragment_to_animeDetailFragment,
@@ -140,22 +141,22 @@ class HomeFragment : Fragment(), AnimeListListener {
                     Toast.makeText(requireContext(), "Schedule", Toast.LENGTH_SHORT).show()
                 }
                 MenuType.Favourite -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToFavouriteFragment())
                 }
                 MenuType.Top_Tv -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment(TopType.TopTv))
                 }
                 MenuType.Top_Airing -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment(TopType.TopAiring))
                 }
                 MenuType.Top_Movie -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment(TopType.TopMovie))
                 }
                 MenuType.Top_Incoming -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment(TopType.TopUpComing))
                 }
                 MenuType.Top_Manga -> {
-                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment())
+                    findNavController().navigateSafeWithNavDirections(HomeFragmentDirections.actionHomeFragmentToTopsFragment(TopType.TopManga))
                 }
             }
         }
@@ -195,7 +196,7 @@ class HomeFragment : Fragment(), AnimeListListener {
 
     }
 
-    override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
+    override fun onAnimeClicked(animeView: View, anime: Anime) {
 
         if (binding?.currentAnime?.cardRoot?.visibility == View.VISIBLE) {
             //this.animeView = animeView
@@ -209,8 +210,7 @@ class HomeFragment : Fragment(), AnimeListListener {
                     )
                 }
             }
-        }
-        else {
+        } else {
             this.animeView = animeView
             binding?.homeRoot?.let {
                 binding?.currentAnime?.cardRoot?.let { it1 ->

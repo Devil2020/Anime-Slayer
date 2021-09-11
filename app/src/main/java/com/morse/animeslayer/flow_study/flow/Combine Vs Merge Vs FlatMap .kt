@@ -4,6 +4,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
+/*
+*
+*
+*   Difference Between Merge and Compine ?
+*       is when i make 2 flows with fixed length of numbers and merge them , so in onCollect with trigger
+*       Twice , first for the First Flow and Second for the Second One .
+*
+*       But When i use Combine , the 2 Lists become only one List
+*
+*
+*
+* */
 
 
 suspend fun main() {
@@ -11,38 +23,41 @@ suspend fun main() {
     runBlocking {
 
 
-
         val flowA = flowA()
         val flowB = flowB()
 
-        println("Start Combine")
+        /*      println("Start flatMapLatest")
 
-        flowA.flatMapLatest {
-            if (it.size == 5) {
-                return@flatMapLatest flowA
-            } else {
-                return@flatMapLatest flowB
-            }
-        }.onStart { println("===============================") }
+              flowA.flatMapLatest {
+                  println("=================The Total Size is ${it.size}==============")
+                  if (it.size == 5) {
+                      return@flatMapLatest flowA
+                  } else {
+                      return@flatMapLatest flowB
+                  }
+              }.onStart { println("===============================") }
+                  .onCompletion { println("============================") }
+                  .collect {
+                      delay(1000)
+                      println(it)
+                      delay(1000)
+                  }*/
+
+/*
+        println("Start combine")
+        flowA.combine(flowB) { a: List<Int>, b: List<Int> ->
+            a + b
+        }
+            .onStart { println("===============================") }
             .onCompletion { println("============================") }
             .collect {
                 delay(1000)
                 println(it)
                 delay(1000)
             }
+*/
 
-        /*  flowA.combine(flowB) { a: List<Int>, b: List<Int> ->
-              a + b
-          }
-              .onStart { println("===============================") }
-              .onCompletion { println("============================") }
-              .collect {
-                  delay(1000)
-                  println(it)
-                  delay(1000)
-              }*/
-
-        /*  println("Start Merge")
+          println("Start Merge")
 
           merge(flowA, flowB)
               .onStart { println("---------------------------") }
@@ -52,8 +67,7 @@ suspend fun main() {
                   println(it)
                   delay(1000)
               }
-  */
-/*        flowA.emit("FlowA New Value Emitted")*/
+     //   flowA.emit("FlowA New Value Emitted")
 
         delay(1000)
     }

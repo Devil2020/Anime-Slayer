@@ -13,7 +13,7 @@ import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentAnimeDetailBinding
 import com.morse.animeslayer.domain.AnimeCharactersResponse
-import com.morse.animeslayer.domain.AnimeListResponse
+import com.morse.animeslayer.domain.Anime
 import com.morse.animeslayer.ui.fragments.home.AnimeListAdapter
 import com.morse.animeslayer.ui.fragments.home.AnimeListListener
 import com.morse.common.utils.ItemOffsetDecoration
@@ -199,12 +199,12 @@ class AnimeDetailFragment : Fragment(), CharacterListener, AnimeListListener {
 
     override fun onAnimeLongClicked(
         animeImageView: ImageView,
-        animeName: TextView, anime: AnimeListResponse.Anime
+        animeName: TextView, anime: Anime
     ) {
 
     }
 
-    override fun onAnimeClicked(animeView: View, anime: AnimeListResponse.Anime) {
+    override fun onAnimeClicked(animeView: View, anime: Anime) {
 
         if (binding?.recommendedAnime?.cardRoot?.visibility == View.VISIBLE) {
             binding?.detailRoot?.let {

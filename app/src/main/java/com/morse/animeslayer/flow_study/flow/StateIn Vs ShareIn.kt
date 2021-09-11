@@ -124,7 +124,7 @@ class ExecutorShared (private val coroutineScope: CoroutineScope){
 
         emit("Salma")
 
-    }.shareIn(coroutineScope , SharingStarted.Eagerly , 2)
+    }.shareIn(coroutineScope , SharingStarted.WhileSubscribed() , 2)
 
     fun getFlow () = flow
 

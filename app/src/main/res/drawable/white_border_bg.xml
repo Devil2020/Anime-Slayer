@@ -9,7 +9,7 @@
 
             <stroke android:width="@dimen/_1sdp" android:color="@color/green_7EE145"/>
 
-            <corners android:radius="@dimen/_10sdp"/>
+            <corners android:radius="@dimen/_12sdp"/>
 
         </shape>
 
@@ -24,7 +24,7 @@
 
             <stroke android:width="@dimen/_1sdp" android:color="@android:color/white"/>
 
-            <corners android:radius="@dimen/_10sdp"/>
+            <corners android:radius="@dimen/_12sdp"/>
 
         </shape>
 

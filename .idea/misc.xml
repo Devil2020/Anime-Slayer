@@ -4,20 +4,31 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/card_shape.xml" value="0.1574074074074074" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/circule_background.xml" value="0.2703125" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/circule_close_background.xml" value="0.2703125" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/delete_all_from_favourite_bg.xml" value="0.2703125" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2703125" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/ic_winter.xml" value="0.3769230769230769" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/searchbar.xml" value="0.2703125" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/white_border_bg.xml" value="0.2703125" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/aaa.xml" value="0.17831813576494426" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/anime_item_layout.xml" value="0.12360688956433637" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/clear_all_card.xml" value="0.176" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_anime_detail.xml" value="0.36666666666666664" />
-        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_favourite.xml" value="0.2" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_home.xml" value="0.26515151515151514" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_menu_bottom_sheet.xml" value="0.36666666666666664" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_schedule.xml" value="0.25" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_search.xml" value="0.264" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_setting.xml" value="0.36666666666666664" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_splash.xml" value="0.17831813576494426" />
-        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_tops.xml" value="0.2477355072463768" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/fragment_tops.xml" value="0.264" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/menu_item_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/search_empty_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/year_item_layout.xml" value="0.5" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/xml/search_scene.xml" value="0.25416666666666665" />
+        <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_leaves1.xml" value="0.2601851851851852" />
+        <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_leaves2.xml" value="0.6" />
       </map>
     </option>
   </component>
