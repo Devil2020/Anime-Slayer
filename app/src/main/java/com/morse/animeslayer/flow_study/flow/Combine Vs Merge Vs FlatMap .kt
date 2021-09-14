@@ -76,9 +76,49 @@ suspend fun main() {
 }
 
 
-suspend fun flowA() = MutableStateFlow((1..10).toList())
+fun flowA() = MutableStateFlow((1..10).toList())
 
-suspend fun flowB() = MutableStateFlow((1..6).toList())
+fun flowB() = MutableStateFlow((1..6).toList())
+
+fun flowD() = flowOf(1,2,3,4,5,6,7,8,9,10)
+
+fun flowE() = flowOf(1,2,3,4,5,6,7,8)
+
+fun flowF () = flow {
+    emit(1)
+    delay(60)
+    emit(2)
+    delay(70)
+    emit(3)
+    delay(88)
+    emit(4)
+    delay(40)
+    emit(5)
+    delay(20)
+    emit(6)
+    delay(10)
+    emit(7)
+    delay(70)
+    emit(8)
+    delay(20)
+    emit(9)
+    delay(10)
+    emit(10)
+    delay(60)
+}
+
+fun flowG () = flow {
+    emit(1)
+    delay(20)
+    emit(2)
+    delay(20)
+    emit(3)
+    delay(20)
+    emit(4)
+    delay(20)
+    emit(5)
+    delay(20)
+}
 
 /*
 FlowA Value is 0FlowB Value is 0

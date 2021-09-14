@@ -4,6 +4,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.runBlocking
 
 /*
@@ -35,13 +36,41 @@ fun main() {
             println("$value collected")
         }
 
+        println("---------------------------------------------")
+
+        delay(400)
+
+        flowC().scan(0) { accumulator: Int, value: Int ->
+            value.plus(accumulator)
+        }.collect {
+            printMessage(3, "The Result of scan is ${it}")
+        }
+
+        println("---------------------------------------------")
+
+        delay(400)
+
+        flowC().scan(0) { accumulator: Int, value: Int ->
+            value.plus(accumulator)
+        }.collectLatest {
+            printMessage(3, "The Result of scan is ${it}")
+        }
 
     }
 
 }
 
-fun flowC() = flow<Int> {
+fun flowC() = flow {
     emit(1)
-    delay(50)
+    delay(100)
     emit(2)
+    delay(100)
+    emit(3)
+    delay(100)
+    emit(4)
+    delay(100)
+    emit(5)
+    delay(100)
+    emit(6)
+    printThreadName(0)
 }
