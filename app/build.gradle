@@ -13,7 +13,6 @@ apply from: "../artifacts.gradle"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-
     defaultConfig {
         applicationId "com.morse.animeslayer"
         minSdkVersion 23
@@ -24,11 +23,89 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
+
             minifyEnabled false
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            ext.config = getProps('../config/release_properties.properties')
+
+            ext.config.each { p ->
+
+                if(p.key == "ApplicationName"){
+
+                    resValue "string","app_name", p.value
+
+                }
+
+                else if(p.key=="ApplicationIdSyffix"){
+
+                    applicationIdSuffix p.value
+
+                }else
+
+                    buildConfigField 'String', p.key, p.value
+
+            }
+
+
+        }
+
+        staging {
+
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+
+            ext.config = getProps('../config/test_properties.properties')
+
+            ext.config.each { p ->
+
+                if (p.key == "ApplicationName") {
+
+                    resValue "string", "app_name", p.value.replace('"', '')
+
+                } else if (p.key == "ApplicationIdSyffix") {
+
+                    applicationIdSuffix p.value
+
+                } else {
+
+                    buildConfigField 'String', p.key, p.value
+
+                }
+
+            }
+
+        }
+        debug {
+
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ext.config = getProps('../config/development_properties.properties')
+
+            ext.config.each { p ->
+
+                if (p.key == "ApplicationName") {
+
+                    resValue "string", "app_name", p.value
+
+                } else if (p.key == "ApplicationIdSyffix") {
+
+                    applicationIdSuffix p.value
+
+                } else
+
+                    buildConfigField 'String', p.key, p.value
+
+
+            }
+
         }
     }
     buildFeatures {
@@ -41,7 +118,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     packagingOptions {
         exclude 'META-INF/library_release.kotlin_module'
     }
@@ -91,4 +167,14 @@ dependencies {
     implementation libraries.test.values()
     testImplementation libraries.testImplementation.values ()
     androidTestImplementation libraries.androidTestImplementation.values ()
+}
+
+def getProps(path) {
+
+    Properties props = new Properties()
+
+    props.load(new FileInputStream(file(path)))
+
+    return props
+
 }
