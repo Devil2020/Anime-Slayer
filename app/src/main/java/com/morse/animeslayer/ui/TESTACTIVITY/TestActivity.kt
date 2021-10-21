@@ -1,22 +1,21 @@
 package com.morse.animeslayer.ui.TESTACTIVITY
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.flowWithLifecycle
-import androidx.lifecycle.lifecycleScope
+import com.expertapps.base.libraries.filter.base.BaseAdapter
 import com.morse.animeslayer.R
+import com.morse.common.adapter.isLinearLayout
+import com.morse.common.adapter.onItemClick
+import com.morse.common.adapter.submitData
+import com.morse.common.adapter.withRecyclerView
 import kotlinx.android.synthetic.main.activity_test2.*
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.launch
 
 class TestActivity : AppCompatActivity() {
 
-    var testViewModel = TestViewModel()
-    val flowOfIntents = MutableStateFlow(Intentions.getNumbers)
+/*    var testViewModel = TestViewModel()
+    val flowOfIntents = MutableStateFlow(Intentions.getNumbers)*/
+    lateinit var adapter: BaseAdapter<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +24,16 @@ class TestActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        adapter = NumbersAdapter ()
+            .onItemClick {
+                Toast.makeText(this , "You Clicked on Item #${it} 🍕 " , Toast.LENGTH_SHORT).show()
+            }.withRecyclerView(numbersRecyclerview)
+            .isLinearLayout()
+            .submitData(
+                ArrayList( (0 .. 100).toList())
+            )
 
-
-        retry_retry.setOnClickListener {
+  /*      retry_retry.setOnClickListener {
             lifecycleScope.launch {
                 command(Intentions.retry)
                     .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
@@ -58,10 +64,10 @@ class TestActivity : AppCompatActivity() {
                 .catch { textAaa.text = "Error happened Here ." }.collect {
                 textAaa.text = "The New Value is $it"
             }
-        }
+        }*/
     }
+/*
 
-
-    private fun command(command: Intentions) = testViewModel.executeIntention(command)
+    private fun command(command: Intentions) = testViewModel.executeIntention(command)*/
 
 }

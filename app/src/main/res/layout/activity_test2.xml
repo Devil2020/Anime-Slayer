@@ -41,4 +41,10 @@
         android:textAppearance="@style/Baloothambi2_medium"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/numbersRecyclerview"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
