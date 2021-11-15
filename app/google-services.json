@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34134088626",
+    "project_id": "anime-slayer-78300",
+    "storage_bucket": "anime-slayer-78300.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34134088626:android:a56934b05fe19cee47a2ab",
+        "android_client_info": {
+          "package_name": "com.morse.animeslayer.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34134088626-4gti34587ojp2g141rgebsaka32ih77i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3V1FlVfanex3XMFj3SteBx6QXRparjGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34134088626-4gti34587ojp2g141rgebsaka32ih77i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

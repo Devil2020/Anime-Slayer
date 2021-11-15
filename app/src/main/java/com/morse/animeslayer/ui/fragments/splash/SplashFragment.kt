@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -43,6 +44,33 @@ class SplashFragment : Fragment() {
         mediaController = android.widget.MediaController(requireContext())
         animateSkipCount()
         skipNow()
+
+
+
+/*
+        buildMultipleFilter(parentFragmentManager){
+            configureTitle("Please Select at Least One Country for Starting Filter Process" )
+            configureButton("Apply" ){
+                multipleChoosenItem.clear()
+                multipleChoosenItem.addAll(it)
+            }
+            configureItemClicked {
+                Toast.makeText(
+                    requireContext(),
+                    "${this::class.java.name} : Clicked 🚀💯",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            configureTextAppearanceOfItem(R.style.Baloothambi2_medium_test)
+            configureColorOfCheckBox(R.color.orange_F87F0F)
+            setDataSource(getFakeFilterCriteria())
+            setSelectedItems(multipleChoosenItem)
+        }*/
+
+
+
+
+
         binding?.splashVideoView?.let {
             manageVideo(it) {
                 it.pause()
