@@ -1,29 +1,18 @@
 package com.morse.animeslayer.utils
 
-import android.R
 import android.graphics.Color
-import android.media.AudioAttributes
-import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
-import android.os.Build
-import android.view.View
-import android.widget.RelativeLayout
 import android.widget.VideoView
-import androidx.annotation.RequiresApi
-import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
 import com.expertapps.base.extensions.loadImageWithCornerRadius
 import com.morse.animeslayer.databinding.InfoPopupCardLayoutBinding
-import com.morse.animeslayer.ui.fragments.menu.pages.schedule.YearAdapter
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
 
 
 fun InfoPopupCardLayoutBinding.render(imageUrl: String, name: String, description: String) {
@@ -62,22 +51,21 @@ fun Fragment.change(discreteScrollView: DiscreteScrollView) {
     }
 }
 
-fun Fragment.releaseVideo (videoView: VideoView){
+fun Fragment.releaseVideo(videoView: VideoView) {
     videoView.pause()
     videoView.stopPlayback()
 }
 
-fun Fragment.closeVideo (videoView: VideoView){
+fun Fragment.closeVideo(videoView: VideoView) {
     videoView.pause()
     videoView.stopPlayback()
     videoView.clearAnimation()
     videoView.suspend() // clears media player
 }
 
-fun Fragment.manageVideo(videoView: VideoView, onCompleteAction : () -> Unit) {
+fun Fragment.manageVideo(videoView: VideoView, onCompleteAction: () -> Unit) {
     val stringBuilder: StringBuilder =
-        StringBuilder().append("android.resource://com.morse.animeslayer").append("/")
-            .append(com.morse.animeslayer.R.raw.splash_v2)
+        StringBuilder().append("android.resource://com.morse.animeslayer/raw/splash_v2.mp4")
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)
@@ -94,6 +82,7 @@ fun Fragment.manageVideo(videoView: VideoView, onCompleteAction : () -> Unit) {
         return@setOnErrorListener false
     }
     videoView.setOnCompletionListener {
-        onCompleteAction.invoke() }
+        onCompleteAction.invoke()
+    }
     videoView.start()
 }
