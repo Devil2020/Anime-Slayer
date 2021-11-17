@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Linting
 
 # Controls when the workflow will run
 on:
@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew lintDebug
 
       - name: Upload Html Final Report For Linting 🐱‍🏍
-        uses: actions/upload-artifacts@v2
+        uses: actions/upload-artifact@v2
         with:
           name : index.html
           path : app/build/reports/lint-results-debug.html
