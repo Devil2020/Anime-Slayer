@@ -18,7 +18,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  start:
+  Start:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -35,9 +35,9 @@ jobs:
 
 
 
-  lint:
+  Lint:
     # The type of runner that the job will run on
-    needs: [start]
+    needs: [ Start ]
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -93,8 +93,8 @@ jobs:
   #          name: index.html
   #          path: app/build/reports/lint-results-debug.html
 
-  unit_test:
-    needs: [ lint ]
+  Unit_test:
+    needs: [ Lint ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-java@v1
@@ -130,8 +130,8 @@ jobs:
           path: core/style/build/reports/tests/testDebugUnitTest
 
 
-  instrumented_test:
-    needs: [ unit_test ]
+  Instrumented_test:
+    needs: [ Unit_test ]
     runs-on: macos-latest
     steps:
       - uses: actions/setup-java@v1
@@ -151,10 +151,30 @@ jobs:
           name: application_instrumented_test
           path: app/build/reports/androidTests/connected
 
+  SonarCloudStaicCodeAnaylsis:
 
-  finsih:
+    needs: [ Instrumented_test ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: 1- Run SonarCloud For Static Code Analysis .
+        #        For Getting Sonar Token we must login to SonarCloud.Io and then login with Githup
+        #        After that we go to this link https://sonarcloud.io/account Then Tab on Security Tab
+        #        and Clicke on Generate a New Token , So It will Generate this cb9258e94b58abf8d0045194b4953c5721cecdee
+        #        After That we go to the Setting Screen for the Repository and Go to Secrets
+        run: ./gradlew app:sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+
+  Finsih:
+
     needs:
-      - instrumented_test
+      - SonarCloudStaicCodeAnaylsis
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
