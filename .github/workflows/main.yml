@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name : core_common.html
-          path : core\common\build\reports/lint-results.html
+          path : file:///home/runner/work/Anime-Slayer/Anime-Slayer/core/common/build/reports/lint-results.html
 
 
       - name: 2 - Start Linting on Core Modules [Network Core Module] 🚀
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name : core_network.html
-          path : core\network_core\build\reports/lint-results.html
+          path : file:///home/runner/work/Anime-Slayer/Anime-Slayer/core/network_core/build/reports/lint-results.html
 
 
       - name: 3 - Start Linting on Core Modules [Style Module] 🚀
@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: core_style.html
-          path: core\style\build\reports/lint-results.html
+          path: file:///home/runner/work/Anime-Slayer/Anime-Slayer/core/style/build/reports/lint-results.html
 
       - name: Linting The Kotlin Code 🚀
         run: ./gradlew ktlintDebugCheck
