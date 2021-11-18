@@ -171,6 +171,24 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 
+  BuildApk:
+    needs: [ SonarCloudStaicCodeAnaylsis ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: Build Apk 🔥
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: 🎯 Upload Apk 🎯
+        uses: actions/upload-artifact@v2
+        with:
+          name : anime_slayer_apk.apk
+          path : app/build/outputs/apk/debug/app-debug.apk
+
   Finsih:
 
     needs:
