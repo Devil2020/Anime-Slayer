@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name : core_common.html
-          path : file:///home/runner/work/Anime-Slayer/Anime-Slayer/core/common/build/reports/lint-results.html
+          path : core/common/build/reports/lint-results.html
 
 
       - name: 2 - Start Linting on Core Modules [Network Core Module] 🚀
