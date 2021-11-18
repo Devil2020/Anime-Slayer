@@ -59,21 +59,21 @@ jobs:
           name: core_style.html
           path: core/style/build/reports/lint-results.html
 
-      - name: Linting The Kotlin Code 🚀
-        run: ./gradlew ktlintDebugCheck
-
-      - name: Linting The Kotlin Code 🚀
-        run: ./gradlew ktlintDebugCheck
-
-      # Runs a single command using the runners shell
-      - name: Linting The Android Project and Find Any Problems 🚀
-        run: ./gradlew lintDebug
-
-      - name: Upload Html Final Report For Linting 🐱‍🏍
-        uses: actions/upload-artifact@v2
-        with:
-          name: index.html
-          path: app/build/reports/lint-results-debug.html
+#      - name: Linting The Kotlin Code 🚀
+#        run: ./gradlew ktlintDebugCheck
+#
+#      - name: Linting The Kotlin Code 🚀
+#        run: ./gradlew ktlintDebugCheck
+#
+#      # Runs a single command using the runners shell
+#      - name: Linting The Android Project and Find Any Problems 🚀
+#        run: ./gradlew lintDebug
+#
+#      - name: Upload Html Final Report For Linting 🐱‍🏍
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: index.html
+#          path: app/build/reports/lint-results-debug.html
 
   unit_test:
     needs: [ lint ]
