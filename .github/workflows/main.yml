@@ -18,6 +18,23 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
+  start:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+      # Runs a set of commands using the runners shell
+      - name: Run Welcome Script 🔥
+        run: |
+          echo 🔥Welcome on Anime Slayer WorkFlow Project 🔥
+          echo This Project have Muliptle WorkFlow with Multiple States 🐱‍👤
+
+
+
+
+
   lint:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -59,21 +76,21 @@ jobs:
           name: core_style.html
           path: core/style/build/reports/lint-results.html
 
-#      - name: Linting The Kotlin Code 🚀
-#        run: ./gradlew ktlintDebugCheck
-#
-#      - name: Linting The Kotlin Code 🚀
-#        run: ./gradlew ktlintDebugCheck
-#
-#      # Runs a single command using the runners shell
-#      - name: Linting The Android Project and Find Any Problems 🚀
-#        run: ./gradlew lintDebug
-#
-#      - name: Upload Html Final Report For Linting 🐱‍🏍
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: index.html
-#          path: app/build/reports/lint-results-debug.html
+  #      - name: Linting The Kotlin Code 🚀
+  #        run: ./gradlew ktlintDebugCheck
+  #
+  #      - name: Linting The Kotlin Code 🚀
+  #        run: ./gradlew ktlintDebugCheck
+  #
+  #      # Runs a single command using the runners shell
+  #      - name: Linting The Android Project and Find Any Problems 🚀
+  #        run: ./gradlew lintDebug
+  #
+  #      - name: Upload Html Final Report For Linting 🐱‍🏍
+  #        uses: actions/upload-artifact@v2
+  #        with:
+  #          name: index.html
+  #          path: app/build/reports/lint-results-debug.html
 
   unit_test:
     needs: [ lint ]
@@ -111,10 +128,32 @@ jobs:
           name: core_style_unit_test
           path: core/style/build/reports/tests/testDebugUnitTest
 
-  # This workflow contains a single job called "build"
-  build:
+
+  instrumented_test:
+    needs: [ unit_test ]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: 1- Run Espresso Test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          script: ./gradlew connectedCheck
+
+      - name: 1- Upload Instrumented Test For Application 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: application_instrumented_test
+          path: app/build/reports/androidTests/connected
+
+
+  finsih:
     needs:
-      - unit_test
+      - instrumented_test
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -124,11 +163,5 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script 🚀
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build, 🍇
-          echo test, and deploy your project. 🐱‍🏍
+      - name: Run a Finish script 🖐
+        run: echo Nice to make every thing Automated ❤
