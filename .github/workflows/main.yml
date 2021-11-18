@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Linting
+name: AllGenericWorkFlows
 
 # Controls when the workflow will run
 on:
@@ -27,7 +27,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/setup-java@v1
         with:
-            java-version: 11
+          java-version: 11
       - uses: actions/checkout@v2
 
       - name: 1- Start Linting on Core Modules [Common Module]  🚀
@@ -36,8 +36,8 @@ jobs:
       - name: 1 - Upload Core Module for Common Report For Linting 🐱‍🏍
         uses: actions/upload-artifact@v2
         with:
-          name : core_common.html
-          path : core/common/build/reports/lint-results.html
+          name: core_common.html
+          path: core/common/build/reports/lint-results.html
 
 
       - name: 2 - Start Linting on Core Modules [Network Core Module] 🚀
@@ -46,8 +46,8 @@ jobs:
       - name: 2 - Upload Core Module for Network Core Report For Linting 🐱‍🏍
         uses: actions/upload-artifact@v2
         with:
-          name : core_network.html
-          path : core/network_core/build/reports/lint-results.html
+          name: core_network.html
+          path: core/network_core/build/reports/lint-results.html
 
 
       - name: 3 - Start Linting on Core Modules [Style Module] 🚀
@@ -72,11 +72,49 @@ jobs:
       - name: Upload Html Final Report For Linting 🐱‍🏍
         uses: actions/upload-artifact@v2
         with:
-          name : index.html
-          path : app/build/reports/lint-results-debug.html
+          name: index.html
+          path: app/build/reports/lint-results-debug.html
+
+  unit_test:
+    needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: 1- Run all Unit Test For Core Modules [Common Module]
+        run: ./gradlew :core:common:test
+
+      - name: 1- Upload Unit Test HTML For Core Modules [Common Module] 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: core_common_unit_test
+          path: core/common/build/reports/tests/testDebugUnitTest
+
+      - name: 2- Run all Unit Test For Core Modules [Network Module]
+        run: ./gradlew :core:network_core:test
+
+      - name: 2- Upload Unit Test HTML For Core Modules [Network Module] 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: core_network_unit_test
+          path: core/network_core/build/reports/tests/testDebugUnitTest
+
+      - name: 3- Run all Unit Test For Core Modules [Style Module]
+        run: ./gradlew :core:style:test
+
+      - name: 3- Upload Unit Test HTML For Core Modules [Style Module] 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: core_style_unit_test
+          path: core/style/build/reports/tests/testDebugUnitTest
 
   # This workflow contains a single job called "build"
   build:
+    needs:
+      - unit_test
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
