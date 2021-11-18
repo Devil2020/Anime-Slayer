@@ -30,6 +30,38 @@ jobs:
             java-version: 11
       - uses: actions/checkout@v2
 
+      - name: 1- Start Linting on Core Modules [Common Module]  🚀
+        run: ./gradlew :core:common:lint
+
+      - name: 1 - Upload Core Module for Common Report For Linting 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name : core_common.html
+          path : core\common\build\reports/lint-results.html
+
+
+      - name: 2 - Start Linting on Core Modules [Network Core Module] 🚀
+        run: ./gradlew :core:network_core:lint
+
+      - name: 2 - Upload Core Module for Network Core Report For Linting 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name : core_network.html
+          path : core\network_core\build\reports/lint-results.html
+
+
+      - name: 3 - Start Linting on Core Modules [Style Module] 🚀
+        run: ./gradlew :core:style:lint
+
+      - name: 3 - Upload Core Module for Style Core Report For Linting 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: core_style.html
+          path: core\style\build\reports/lint-results.html
+
+      - name: Linting The Kotlin Code 🚀
+        run: ./gradlew ktlintDebugCheck
+
       - name: Linting The Kotlin Code 🚀
         run: ./gradlew ktlintDebugCheck
 
@@ -42,7 +74,6 @@ jobs:
         with:
           name : index.html
           path : app/build/reports/lint-results-debug.html
-
 
   # This workflow contains a single job called "build"
   build:
