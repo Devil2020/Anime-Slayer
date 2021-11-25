@@ -32,9 +32,6 @@ jobs:
           echo This Project have Muliptle WorkFlow with Multiple States 🐱‍👤
 
 
-
-
-
   Lint:
     # The type of runner that the job will run on
     needs: [ Start ]
@@ -129,9 +126,27 @@ jobs:
           name: core_style_unit_test
           path: core/style/build/reports/tests/testDebugUnitTest
 
+  Jacoco:
+    needs: [ Unit_test ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: 1- Run Static Code Analtisis with Jacoco 🔥
+        run: ./gradlew :core:common:jacocoTestReport
+
+      - name: 1- Upload Jacoco Report HTML For Core Modules [Common Module] 🐱‍🏍
+        uses: actions/upload-artifact@v2
+        with:
+          name: jacoco_report_for_common_module
+          path: \core\common\build\reports\coverage\debug
+
 
   Instrumented_test:
-    needs: [ Unit_test ]
+    needs: [ Jacoco ]
     runs-on: macos-latest
     steps:
       - uses: actions/setup-java@v1
