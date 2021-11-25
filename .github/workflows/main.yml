@@ -142,7 +142,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: jacoco_report_for_common_module
-          path: \core\common\build\reports\coverage\debug
+          path: core\common\build\reports\coverage\debug
 
 
   Instrumented_test:
