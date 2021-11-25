@@ -145,8 +145,28 @@ jobs:
           path: core/common/build/reports/coverage/debug
 
 
-  Instrumented_test:
+  SonarCloudStaicCodeAnaylsis:
+
     needs: [ Jacoco ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/checkout@v2
+
+      - name: 1- Run SonarCloud For Static Code Analysis .
+        #        For Getting Sonar Token we must login to SonarCloud.Io and then login with Githup
+        #        After that we go to this link https://sonarcloud.io/account Then Tab on Security Tab
+        #        and Clicke on Generate a New Token , So It will Generate this cb9258e94b58abf8d0045194b4953c5721cecdee
+        #        After That we go to the Setting Screen for the Repository and Go to Secrets
+        run: ./gradlew app:sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+
+  Instrumented_test:
+    needs: [ SonarCloudStaicCodeAnaylsis ]
     runs-on: macos-latest
     steps:
       - uses: actions/setup-java@v1
@@ -165,25 +185,6 @@ jobs:
         with:
           name: application_instrumented_test
           path: app/build/reports/androidTests/connected
-
-  SonarCloudStaicCodeAnaylsis:
-
-    needs: [ Instrumented_test ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - uses: actions/checkout@v2
-
-      - name: 1- Run SonarCloud For Static Code Analysis .
-        #        For Getting Sonar Token we must login to SonarCloud.Io and then login with Githup
-        #        After that we go to this link https://sonarcloud.io/account Then Tab on Security Tab
-        #        and Clicke on Generate a New Token , So It will Generate this cb9258e94b58abf8d0045194b4953c5721cecdee
-        #        After That we go to the Setting Screen for the Repository and Go to Secrets
-        run: ./gradlew app:sonarqube -Dsonar.login=${{secrets.SONAR_TOKEN}}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 
   BuildApk:
