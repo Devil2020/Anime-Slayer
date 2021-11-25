@@ -188,7 +188,7 @@ jobs:
 
 
   BuildApk:
-    needs: [ SonarCloudStaicCodeAnaylsis ]
+    needs: [ Instrumented_test ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-java@v1
