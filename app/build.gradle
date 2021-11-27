@@ -9,6 +9,8 @@ plugins {
     id 'com.google.gms.google-services'
     // apply plugin sonarQube
     id 'org.sonarqube'
+    // apply app distribution
+    id 'com.google.firebase.appdistribution'
 }
 apply from: "../artifacts.gradle"
 
@@ -110,6 +112,7 @@ android {
             }
 
         }
+
     }
     buildFeatures {
         dataBinding = true

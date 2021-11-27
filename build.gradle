@@ -36,14 +36,11 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.10'
 
         // SonarQube
-
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7.1"
-
-
         // Jacoco
-
         classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
-
+        // App Distribution
+        classpath 'com.google.firebase:firebase-appdistribution-gradle:2.2.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
