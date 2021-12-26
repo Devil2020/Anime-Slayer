@@ -11,6 +11,7 @@ According to  [Android Documentation](https://developer.android.com/topic/librar
 
 [![](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitectureDependencies.png)](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitectureDependencies.png)
 
+[![](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitecture%2BMVVM.png)](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitecture%2BMVVM.png)
 
 
 ## [](https://github.com/Devil2020/Anime-Slayer#ui-controllers)UI Controllers
