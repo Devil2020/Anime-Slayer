@@ -9,7 +9,9 @@ Hi my name is Mohammed morse , this branch only have the templete of the Anime f
 
 According to  [Android Documentation](https://developer.android.com/topic/libraries/architecture), Architecture Components are a set of Android libraries for structuring your app in a way that is robust, testable, and maintainable
 
-[![](https://github.com/mohammedgmgn/MovieApp-Clean-Architecture/raw/master/arccomponents.png)](https://github.com/mohammedgmgn/MovieApp-Clean-Architecture/blob/master/arccomponents.png)
+[![](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitectureDependencies.png)](https://raw.githubusercontent.com/kudoleh/iOS-Clean-Architecture-MVVM/master/README_FILES/CleanArchitectureDependencies.png)
+
+
 
 ## [](https://github.com/Devil2020/Anime-Slayer#ui-controllers)UI Controllers
 
