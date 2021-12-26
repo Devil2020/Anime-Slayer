@@ -6,7 +6,9 @@ import android.net.Uri
 import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.airbnb.lottie.LottieCompositionFactory
 import com.expertapps.base.extensions.loadImageWithCornerRadius
+import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.InfoPopupCardLayoutBinding
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.Pivot
@@ -65,7 +67,7 @@ fun Fragment.closeVideo(videoView: VideoView) {
 
 fun Fragment.manageVideo(videoView: VideoView, onCompleteAction: () -> Unit) {
     val stringBuilder: StringBuilder =
-        StringBuilder().append("android.resource://com.morse.animeslayer/raw/splash_v2.mp4")
+        StringBuilder().append("android.resource://").append(activity?.packageName).append("/${R.raw.splash_v2}")
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)
