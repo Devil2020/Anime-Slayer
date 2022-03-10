@@ -1,5 +1,10 @@
 package com.morse.animeslayer.flow_study.flow
 
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.runBlocking
+
 /*
 *   Why we use it ?
 *
@@ -34,3 +39,12 @@ package com.morse.animeslayer.flow_study.flow
 *                                                                               replayExpirationMillis: Long -> اد اى وقت يحصل فيه اكسبير لل كاش
 *
 * */
+
+fun main() {
+
+    runBlocking {
+        flow<Int> {
+
+        }.shareIn(this , SharingStarted.Lazily , )
+    }
+}

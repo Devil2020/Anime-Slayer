@@ -12,6 +12,7 @@
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/searchbar.xml" value="0.2703125" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/drawable/white_border_bg.xml" value="0.2703125" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/aaa.xml" value="0.17831813576494426" />
+        <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/activity_home.xml" value="0.1720484359233098" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/activity_test2.xml" value="0.36666666666666664" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/anime_item_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/layout/clear_all_card.xml" value="0.176" />
@@ -33,8 +34,10 @@
         <entry key="..\:/Study Projects/Anime-Slayer/app/src/main/res/xml/search_scene.xml" value="0.25416666666666665" />
         <entry key="..\:/Study Projects/Anime-Slayer/core/common/src/main/res/layout/fragment_base_dialog.xml" value="0.38697916666666665" />
         <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/card_dialog_backround.xml" value="0.403125" />
+        <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_document.xml" value="0.17" />
         <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_leaves1.xml" value="0.2601851851851852" />
         <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_leaves2.xml" value="0.6" />
+        <entry key="..\:/Study Projects/Anime-Slayer/core/style/src/main/res/drawable/ic_pdf.xml" value="0.17" />
         <entry key="..\:/projects/Anime-Slayer-Core/app/src/main/res/layout/activity_test2.xml" value="0.20416666666666666" />
         <entry key="..\:/projects/Anime-Slayer-Core/app/src/main/res/layout/number_layout_test.xml" value="0.20416666666666666" />
       </map>

@@ -29,7 +29,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
         var preferenceDataStoreManager: PreferenceDataStoreManager? = null
 
         fun builder(context: Context) = preferenceDataStoreManager ?: synchronized(LOCK) {
-            val dataStore = context?.createDataStore(KEY)
+            val dataStore = context.createDataStore(KEY)
             PreferenceDataStoreManager(dataStore).apply {
                 preferenceDataStoreManager = this
             }
@@ -40,17 +40,18 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
     fun isExist(key: String, type: ExistanceType): Flow<Boolean> {
         return when (type) {
             ExistanceType.BOOLEAN -> {
-                dataStorePreferences?.data?.catch { exception -> // 1
+                dataStorePreferences.data.catch { exception -> // 1
                     // dataStore.data throws an IOException if it can't read the data
                     if (exception is IOException) { // 2
                         emit(emptyPreferences())
                     } else {
                         throw exception
                     }
-                }.map { it.contains(booleanPreferencesKey(key)) }
+                }.map {
+                    it.contains(booleanPreferencesKey(key)) }
             }
             ExistanceType.INT -> {
-                dataStorePreferences?.data?.catch { exception -> // 1
+                dataStorePreferences.data.catch { exception -> // 1
                     // dataStore.data throws an IOException if it can't read the data
                     if (exception is IOException) { // 2
                         emit(emptyPreferences())
@@ -60,7 +61,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
                 }.map { it.contains(intPreferencesKey(key)) }
             }
             ExistanceType.LONG -> {
-                dataStorePreferences?.data?.catch { exception -> // 1
+                dataStorePreferences.data.catch { exception -> // 1
                     // dataStore.data throws an IOException if it can't read the data
                     if (exception is IOException) { // 2
                         emit(emptyPreferences())
@@ -70,7 +71,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
                 }.map { it.contains(longPreferencesKey(key)) }
             }
             ExistanceType.STRING -> {
-                dataStorePreferences?.data?.catch { exception -> // 1
+                dataStorePreferences.data.catch { exception -> // 1
                     // dataStore.data throws an IOException if it can't read the data
                     if (exception is IOException) { // 2
                         emit(emptyPreferences())
@@ -92,7 +93,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
     }
 
     fun getBoolean(tag: String, defValue: Boolean): Flow<Boolean> {
-        return dataStorePreferences?.data?.catch { exception -> // 1
+        return dataStorePreferences.data.catch { exception -> // 1
             // dataStore.data throws an IOException if it can't read the data
             if (exception is IOException) { // 2
                 emit(emptyPreferences())
@@ -113,7 +114,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
     }
 
     fun getString(tag: String, defStr: String): Flow<String> {
-        return dataStorePreferences?.data?.catch { exception -> // 1
+        return dataStorePreferences.data.catch { exception -> // 1
             // dataStore.data throws an IOException if it can't read the data
             if (exception is IOException) { // 2
                 emit(emptyPreferences())
@@ -134,7 +135,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
     }
 
     fun getInt(tag: String, defValue: Int): Flow<Int> {
-        return dataStorePreferences?.data?.catch { exception -> // 1
+        return dataStorePreferences.data.catch { exception -> // 1
             // dataStore.data throws an IOException if it can't read the data
             if (exception is IOException) { // 2
                 emit(emptyPreferences())
@@ -153,7 +154,7 @@ class PreferenceDataStoreManager private constructor(val dataStorePreferences: D
     }
 
     fun getLong(tag: String, defValue: Long): Flow<Long> {
-        return dataStorePreferences?.data?.catch { exception -> // 1
+        return dataStorePreferences.data.catch { exception -> // 1
             // dataStore.data throws an IOException if it can't read the data
             if (exception is IOException) { // 2
                 emit(emptyPreferences())

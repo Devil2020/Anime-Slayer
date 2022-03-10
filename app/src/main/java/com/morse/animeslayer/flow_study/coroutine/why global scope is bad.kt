@@ -1,6 +1,8 @@
 package com.morse.animeslayer.flow_study
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.consume
+import kotlinx.coroutines.channels.produce
 import kotlin.system.measureTimeMillis
 
 fun main0() {
@@ -92,6 +94,13 @@ fun work(i: Int) {
 
 fun main8() =
     runBlocking {
+
+        produce {
+            send("Mohamed Morse")
+        }.consume {
+            println(">>>>>>>>>>>>>>>>>> Print Incomming Data 🔥 : ${this.receive()}")
+        }
+
         coroutineScope {
             work(1)
             work(2)

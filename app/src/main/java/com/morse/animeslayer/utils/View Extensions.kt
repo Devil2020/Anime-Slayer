@@ -67,7 +67,7 @@ fun Fragment.closeVideo(videoView: VideoView) {
 
 fun Fragment.manageVideo(videoView: VideoView, onCompleteAction: () -> Unit) {
     val stringBuilder: StringBuilder =
-        StringBuilder().append("android.resource://").append(activity?.packageName).append("/${R.raw.splash_v2}")
+        StringBuilder().append("android.resource://").append(activity?.packageName).append("/${R.raw.demon_slayer}")
     videoView.setVideoURI(Uri.parse(stringBuilder.toString()))
     //videoView.setZOrderOnTop(true)
     videoView.setBackgroundColor(Color.TRANSPARENT)

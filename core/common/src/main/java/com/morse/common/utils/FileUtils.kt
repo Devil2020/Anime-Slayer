@@ -57,8 +57,9 @@ enum class DirectoryType {
     IMAGES,
     VIDEOS,
     AUDIOS;
-
     companion object {
+
+
 
         val ROOT_PATH = Environment.getExternalStorageDirectory().absolutePath
 

@@ -18,10 +18,8 @@ import com.morse.animeslayer.utils.releaseVideo
 import com.morse.common.extensions.navigateSafe
 import com.morse.common.extensions.valueAnimateDescending
 
-data class SplashState(val isSuccess: Boolean, val isLoading: Boolean, val isError: Boolean)
-
 class SplashFragment : Fragment() {
-
+    private val duration = 20L
     private var binding: FragmentSplashBinding? = null
     private val navController: NavController by lazy {
         findNavController()
@@ -50,7 +48,9 @@ class SplashFragment : Fragment() {
                 it.stopPlayback()
                 valueAnimator?.pause()
                 valueAnimator?.removeAllUpdateListeners()
-                navController.navigateSafe(R.id.action_go_to_homeFragment)
+                navController.navigateSafe(R.id.action_go_to_homeFragment , Bundle().apply {
+                    putString("message" , "Okay , Now we can that also the extra that we will put into the navigation between fragment will add also to saved State Handle 🚀")
+                })
             }
         }
     }
@@ -68,7 +68,7 @@ class SplashFragment : Fragment() {
 
     private fun animateSkipCount() {
         with(binding?.splashInfo?.skipAfter5SecondsTv) {
-            valueAnimator = this?.valueAnimateDescending(14, 14000) {
+            valueAnimator = this?.valueAnimateDescending(20, duration) {
                 this.text = getString(R.string.skip_after_seconds_label, it)
             }
         }

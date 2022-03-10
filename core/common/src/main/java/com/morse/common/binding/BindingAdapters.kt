@@ -18,47 +18,52 @@ package com.expertapps.base.binding
 
 import android.text.TextUtils
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.expertapps.base.extensions.*
+import androidx.databinding.InverseBindingAdapter
+import com.expertapps.base.extensions.convertDateWithTime
+import com.expertapps.base.extensions.loadCirculeImage
+import com.expertapps.base.extensions.loadImageWithCornerRadius
+import com.expertapps.base.extensions.visibleIf
 import com.morse.common.R
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 
 
-@BindingAdapter("imageUrl")
+@BindingAdapter(value = ["imageUrl"])
 fun ImageView.loadImage(url: String?) {
     if (!TextUtils.isEmpty(url)) {
         loadCirculeImage(url)
     }
 }
 
-@BindingAdapter("imageRes")
+@BindingAdapter(value = ["imageRes", "setImageRes"], requireAll = false)
 fun ImageView.loadImage(res: Int) {
     setImageResource(res)
 }
 
-@BindingAdapter("imageCorner")
+@BindingAdapter(value = ["imageCorner"])
 fun ImageView.loadImageCorner(imageUrl: String) {
     loadImageWithCornerRadius(imageUrl, "Error", resources.getDimension(R.dimen._20sdp).toInt())
 }
 
-@BindingAdapter("viewIf")
+@BindingAdapter(value = ["viewIf"])
 fun viewIf(view: View, boolean: Boolean?) = view.visibleIf(boolean)
 
+@InverseBindingAdapter(attribute = "textSource", event = "android:textAttrChanged")
+fun getTextSource(editText: EditText) = editText.text.toString()
 
-@BindingAdapter("toDate")
+@BindingAdapter(value = ["toDate"])
 fun TextView.setDate(dataString: String?) {
     text = dataString?.convertDateWithTime()
 
 }
 
-@BindingAdapter("setupDiscreteViewConfigration")
-fun addDiscreteViewConfig (discreteScrollView: DiscreteScrollView , isConfigerd : Boolean){
-
+@BindingAdapter(value = ["setupDiscreteViewConfigration"])
+fun addDiscreteViewConfig(discreteScrollView: DiscreteScrollView, isConfigerd: Boolean) {
     discreteScrollView.scrollToPosition(1)
     discreteScrollView?.setItemTransformer(
 

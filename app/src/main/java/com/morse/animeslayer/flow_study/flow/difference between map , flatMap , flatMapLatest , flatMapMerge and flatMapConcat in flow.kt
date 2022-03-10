@@ -29,7 +29,7 @@ import kotlinx.coroutines.runBlocking
 
         else it will have a custom behaviour but in general will return ChannelFlowMerge and it is a big Story .
 
-    In General ::: we can use flatMapConcat or flatMapLatest to setup MVI in ViewModel .
+    In General :: we can use flatMapConcat or flatMapLatest to setup MVI in ViewModel .
 
 */
 

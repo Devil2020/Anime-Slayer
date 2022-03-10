@@ -26,7 +26,7 @@ suspend fun main() {
         val flowA = flowA()
         val flowB = flowB()
 
-        /*      println("Start flatMapLatest")
+              println("Start flatMapLatest")
 
               flowA.flatMapLatest {
                   println("=================The Total Size is ${it.size}==============")
@@ -41,9 +41,8 @@ suspend fun main() {
                       delay(1000)
                       println(it)
                       delay(1000)
-                  }*/
+                  }
 
-/*
         println("Start combine")
         flowA.combine(flowB) { a: List<Int>, b: List<Int> ->
             a + b
@@ -55,7 +54,6 @@ suspend fun main() {
                 println(it)
                 delay(1000)
             }
-*/
 
           println("Start Merge")
 

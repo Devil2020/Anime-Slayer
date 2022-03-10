@@ -156,17 +156,13 @@ dependencies {
     implementation libraries.shimmer
     implementation libraries.dataStore.values()
     implementation libraries.room.values()
-    /* implementation libraries.activityAndfragmentKTX.values()*/
     implementation libraries.lottie
     implementation libraries.multidex
     implementation libraries.life_cycle.values()
     implementation libraries.glide
     implementation libraries.switch
     kapt libraries.glide_kapt
-/*
-    implementation libraries.moshi
-    kapt libraries.moshi_kapt
-*/
+    def lifecycle_version = "2.5.0-alpha03"
     implementation libraries.play_core
     implementation libraries.test.values()
     testImplementation libraries.testImplementation.values ()

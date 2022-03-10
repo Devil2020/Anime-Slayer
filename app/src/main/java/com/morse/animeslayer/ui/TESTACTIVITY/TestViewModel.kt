@@ -1,5 +1,6 @@
 package com.morse.animeslayer.ui.TESTACTIVITY
 
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.*
@@ -44,6 +45,23 @@ class TestViewModel : ViewModel() {
             SharingStarted.WhileSubscribed()
         )
 
+/*    public val homeViewModelAnnotateProcessor = ObservableTransformer<HomeAction, HomeResult> {
+        it?.publish {
+            Observable.merge(
+                it?.ofType(HomeAction.LoadPopularMovies::class.java)
+                    .compose(popularMoviesAnnotateProcessor),
+                it?.ofType(HomeAction.LoadTopRatedMovies::class.java)
+                    .compose(topRatedMoviesAnnotateProcessor),
+                it?.ofType(HomeAction.LoadIncomingMovies::class.java)
+                    .compose(inComingMoviesAnnotateProcessor),
+                it?.ofType(HomeAction.LoadNowPlayingMovies::class.java)
+                    .compose(nowPlayingMoviesAnnotateProcessor)
+            )
+        }
+
+
+    }*/
+
     private val result = _stateFlow
 
     fun executeIntention (intentions: Intentions) = when (intentions){
@@ -58,8 +76,8 @@ class TestViewModel : ViewModel() {
             is Intentions.retry -> flowB
             is Intentions.swipeRefresh -> flowC
         }
-
     }
+
 
  /*   fun executeIntention (intentions: Intentions) = when (intentions){
         is Intentions.getNumbers -> flow {

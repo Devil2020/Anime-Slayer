@@ -79,7 +79,7 @@ dependencies {
     implementation libraries.pagination3.values()
     implementation libraries.dataStore.values()
     implementation libraries.room.values()
-    implementation libraries.sharedpreference.values()
+    /*implementation libraries.sharedpreference.values()*/
     implementation libraries.lottie
     implementation libraries.fuel_root.values()
     implementation libraries.flashbar

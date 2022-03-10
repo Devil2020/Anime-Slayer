@@ -1,6 +1,8 @@
 package com.morse.animeslayer.ui.fragments.home
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +10,10 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.InverseBindingAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
 import com.expertapps.base.extensions.animateCard
@@ -16,6 +21,7 @@ import com.expertapps.base.extensions.returnCardToOriginPosition
 import com.morse.animeslayer.R
 import com.morse.animeslayer.databinding.FragmentHomeBinding
 import com.morse.animeslayer.domain.Anime
+import com.morse.animeslayer.learn.LearnViewModel
 import com.morse.animeslayer.ui.fragments.Tops.TopType
 import com.morse.animeslayer.ui.fragments.menu.host.MenuBottomSheet
 import com.morse.animeslayer.ui.fragments.menu.pages.menu.MenuFragment
@@ -30,6 +36,7 @@ class HomeFragment : Fragment(), AnimeListListener {
     var binding: FragmentHomeBinding? = null
     var animeView: View? = null
     lateinit var itemDecorator: ItemOffsetDecoration
+    val vm : LearnViewModel by viewModels()
 
     private val homeClickListener = View.OnClickListener {
         when (it.id) {
@@ -77,6 +84,13 @@ class HomeFragment : Fragment(), AnimeListListener {
         }
     }
 
+    companion object Toaster{
+        fun showMessage ( context: Context , message : String){
+            Toast.makeText( context , message , Toast.LENGTH_LONG).show()
+            Log.i(HomeFragment::class.java.name , message)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -88,11 +102,22 @@ class HomeFragment : Fragment(), AnimeListListener {
             requireContext(),
             R.dimen._9sdp
         )
+        showMessage (requireContext(),"The Current Value Of My Name is ${savedInstanceState?.getString("message" ) ?: "Empty🥱"} and The Message is ${vm.message} ❌")
         return binding?.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("Name" , "Mohammed Morse Morse El Sayed")
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
     }
 
     override fun onResume() {
         super.onResume()
+        savedStateRegistry.unregisterSavedStateProvider("Search" )
         with(binding) {
 
             animeAdapter = AnimeListAdapter(this@HomeFragment)

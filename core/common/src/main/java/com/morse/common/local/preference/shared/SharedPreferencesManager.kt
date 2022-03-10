@@ -2,8 +2,8 @@ package com.morse.common.local.preference.shared
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import androidx.core.content.edit
-import androidx.preference.PreferenceManager
 import com.expertapps.base.extensions.decryptAES
 import com.expertapps.base.extensions.encryptAES
 import okhttp3.internal.toLongOrDefault

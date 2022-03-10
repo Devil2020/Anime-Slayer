@@ -1,8 +1,6 @@
 package com.expertapps.base.extensions
 
 import android.app.Activity
-import android.app.Fragment
-import android.app.FragmentManager
 import android.app.FragmentTransaction
 import android.graphics.Color
 import android.os.Build
@@ -11,11 +9,13 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import com.expertapps.base.dialog.BaseDialogFragment
 import com.expertapps.base.dialog.DialogConfig
 import com.google.android.material.snackbar.Snackbar
@@ -141,11 +141,11 @@ fun addFragment(
 
     if (replace) {
         transaction.replace(containerId, fragment, tag)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction.setTransition(androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
     } else {
         val oldFragment = getCurrentTopFragment(fragmentManager)
         oldFragment?.let { transaction.setMaxLifecycle(it, Lifecycle.State.STARTED) }
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction.setTransition(androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         //set maxLifecycle of CurrentTopFragment to STARTED, when fragment is being added only,
         //No need to setMaxLifecycle when fragment is being replaced
         transaction.add(containerId, fragment, tag)
